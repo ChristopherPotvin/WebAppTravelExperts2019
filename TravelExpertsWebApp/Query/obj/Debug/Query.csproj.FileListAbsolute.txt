@@ -1,0 +1,6 @@
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Query\bin\Debug\Query.dll
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Query\bin\Debug\Query.pdb
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Query\obj\Debug\Query.csprojAssemblyReference.cache
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Query\obj\Debug\Query.csproj.CoreCompileInputs.cache
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Query\obj\Debug\Query.dll
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Query\obj\Debug\Query.pdb
