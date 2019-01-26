@@ -104,7 +104,6 @@ C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Tra
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\roslyn\VBCSCompiler.exe.config
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csprojAssemblyReference.cache
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csproj.CoreCompileInputs.cache
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csproj.CopyComplete
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.dll

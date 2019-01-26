@@ -118,7 +118,7 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog1.jpg"></a></div>
+              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog4.jpg"></a></div>
               <h3><a href="#">Caribbean New Year</a></h3>
               <p class="post__intro">Cruise all around the caribbean and celebrate the New Year in style.</p>
               <p class="read-more"><a class="btn btn-ghost" href="#">Learn More    </a></p>
@@ -126,7 +126,7 @@
           </div>
           <div class="col-sm-4">
             <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog2.jpg"></a></div>
+              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog5.jpg"></a></div>
               <h3><a href="#">Polynesian Paradise</a></h3>
               <p class="post__intro">This all travel package to Hawaii, includes air fare and an 8 day stay in an all inclusive 5 star resort.</p>
               <p class="read-more"><a class="btn btn-ghost" href="#">Learn More    </a></p>
@@ -134,7 +134,7 @@
           </div>
           <div class="col-sm-4">
             <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog3.jpg"></a></div>
+              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog6.jpg"></a></div>
               <h3><a href="#">European Vacation</a></h3>
               <p class="post__intro">Enjoy a euro tour with a rail pass, starting in magestic Vienna, Italy and finishing in Paris, France. This package
                   is a two week trip with included travel insurance. 
