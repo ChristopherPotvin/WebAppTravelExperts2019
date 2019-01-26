@@ -1,9 +1,8 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="TravelExpertsWebApp.HomePage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerRegistration.aspx.cs" Inherits="TravelExpertsWebApp.CustomerRegistration" %>
 
 <!DOCTYPE html>
-
-<html><head>
-    <!-- Making the page responsive!-->
+<head>
+ <!-- Making the page responsive!-->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Travel Experts</title>
@@ -30,10 +29,9 @@
         <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
         <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
     <!-- PLEASE DO NOT TOUCH ANYTHING BETWEEN THESE COMMENTS-->
-
-  </head>
-  <body>
-    <!-- start of navigation bar in the header (done) -->
+    </head>
+<body>
+     <!-- start of navigation bar in the header (done) -->
     <header class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -45,7 +43,7 @@
           <div class="collapse navbar-collapse navbar-right" id="navigation">
             <ul class="nav navbar-nav">
               <li class="active"><a href="HomePage.aspx">Home</a></li>
-              <li><a href="CustomerRegistration.aspx">Register</a></li> <!-- This could be a button to a new Customer Registration page, setting it to a blank target until we decide-->
+              <li><a href="#">Register</a></li> <!-- This could be a button to a new Customer Registration page, setting it to a blank target until we decide-->
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 
@@ -89,165 +87,11 @@
       </div>
     </div>
     <!-- login modal end (done) -->
-
-   <!-- start of the jumbotron (done) -->
-    <div class="jumbotron main-jumbotron">
-      <div class="container">
-        <div class="content">
-          <h1>Travel Experts</h1>
-          <p><a class="btn btn-white" href="ContactPage.aspx">Learn more</a></p>
+    <form id="form1" runat="server">
+        <div>
         </div>
-      </div>
-    </div>
-    <!-- end of jumbotron (done) -->
-    <!-- start of about us section, home page (done)-->
-    <section>
-      <div class="container">
-        <h2> What we do</h2>
-        <p class="lead">We pride ourselves on delivering the most optimal travel packages and deals known to man</p>
-        <p>Not only do we have a great assortment of travel packages but it also comes with a silky smooth booking and planning process from the moment you book your trip, to the moment you step out of
-            of the plane. We guarantee 100 % satisfaction or your money back. 
-        </p>
-        <p><a class="btn btn-ghost" href="#">Read more</a></p> <!-- blank target on the read more button, can possibly go to the booking or register page-->
-      </div>
-    </section>
-    <!-- end of about us section, home page (done)-->
-    <!-- possible start of ASP form sections, read more buttons set to blank but can be set to booking -->
-    <section class="background-gray-lightest">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-4">
-            <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog1.jpg"></a></div>
-              <h3><a href="#">Caribbean New Year</a></h3>
-              <p class="post__intro">Cruise all around the caribbean and celebrate the New Year in style.</p>
-              <p class="read-more"><a class="btn btn-ghost" href="#">Learn More    </a></p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog2.jpg"></a></div>
-              <h3><a href="#">Polynesian Paradise</a></h3>
-              <p class="post__intro">This all travel package to Hawaii, includes air fare and an 8 day stay in an all inclusive 5 star resort.</p>
-              <p class="read-more"><a class="btn btn-ghost" href="#">Learn More    </a></p>
-            </div>
-          </div>
-          <div class="col-sm-4">
-            <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog3.jpg"></a></div>
-              <h3><a href="#">European Vacation</a></h3>
-              <p class="post__intro">Enjoy a euro tour with a rail pass, starting in magestic Vienna, Italy and finishing in Paris, France. This package
-                  is a two week trip with included travel insurance. 
-              </p>
-              <p class="read-more"><a class="btn btn-ghost" href="#">Learn More     </a></p>
-            </div>
-          </div>
-        </div>
-          </div>
-    </section>
-    <!-- end of ASP form sections, placeholders for now -->
-    <!-- start of another possible ASP form section placeholder for now -->
-    <section>
-      <div class="container clearfix">
-        <div class="row services">
-          <div class="col-md-12">
-            <h2 class="h1">Integrations</h2>
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="box box-services">
-                  <div class="icon"><i class="pe-7s-alarm"></i></div>
-                  <h4 class="heading">Webdesign</h4>
-                  <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box box-services">
-                  <div class="icon"><i class="pe-7s-cloud"></i></div>
-                  <h4 class="heading">Print</h4>
-                  <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box box-services">
-                  <div class="icon"><i class="pe-7s-coffee"></i></div>
-                  <h4 class="heading">SEO and SEM</h4>
-                  <p>Am terminated it excellence invitation projection as. She graceful shy. </p>
-                </div>
-              </div>
-            </div>
-            <h2 class="h1">Tools</h2>
-            <div class="row">
-              <div class="col-sm-4">
-                <div class="box box-services">
-                  <div class="icon"><i class="pe-7s-monitor"></i></div>
-                  <h4 class="heading">Consulting</h4>
-                  <p>Fifth abundantly made Give sixth hath. Cattle creature i be don't them.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box box-services">
-                  <div class="icon"><i class="pe-7s-signal"></i></div>
-                  <h4 class="heading">Email Marketing</h4>
-                  <p>Advantage old had otherwise sincerity dependent additions. It in adapted natural.</p>
-                </div>
-              </div>
-              <div class="col-sm-4">
-                <div class="box box-services">
-                  <div class="icon"><i class="pe-7s-id"></i></div>
-                  <h4 class="heading">UX &amp; UI</h4>
-                  <p>Am terminated it excellence invitation projection as. She graceful shy. </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end of possible ASP section, placeholder for now-->
-    <!-- start of image gallery (done)-->
-    <section class="background-gray-lightest" id="portfolio">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1 class="heading">Destination Gallery</h1>
-            <p class="lead">Check out some of the most exciting places to visit in 2019</p>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="row no-space">
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-1.jpg" data-title="Santorini, Greece" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-1.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-7.jpg" data-title="London, England" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-7.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-3.jpg" data-title="The Great Wall of China, China" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-3.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-5.jpg" data-title="Taj Mahal, India" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-5.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-4.jpg" data-title="The Eiffel Tower, France" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-4.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-6.jpg" data-title="San Francisco, USA" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-6.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-2.jpg" data-title="Toronto, Canada" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-2.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-8.jpg" data-title="Amafi Coast, Italy" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-8.jpg"></a></div>
-          </div>
-          <div class="col-sm-4 col-xs-6">
-            <div class="box"><a title="" href="img/portfolio-9.jpg" data-title="Prague, Czech Republic" data-lightbox="portfolio"><img class="img-responsive" alt="" src="img/portfolio-9.jpg"></a></div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- end of image gallery (done)-->
-    <!-- start of the footer (done)-->
+    </form>
+        <!-- start of the footer (done)-->
     <footer class="footer">
       <div class="footer__block">
         <div class="container">
@@ -323,7 +167,5 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-  
 </body>
-
 </html>

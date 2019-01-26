@@ -54,7 +54,6 @@ C:\Users\799930\source\repos\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\T
 C:\Users\799930\source\repos\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.dll
 C:\Users\799930\source\repos\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.pdb
 C:\Users\799930\source\repos\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csprojAssemblyReference.cache
-C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\TravelExpertsWebApp.dll.config
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\TravelExpertsWebApp.dll
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\TravelExpertsWebApp.pdb
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\roslyn\csc.exe
@@ -110,3 +109,4 @@ C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Tra
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csproj.CopyComplete
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.dll
 C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.pdb
+C:\Users\799930\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\TravelExpertsWebApp.dll.config

@@ -46,7 +46,7 @@
           <div class="collapse navbar-collapse navbar-right" id="navigation">
             <ul class="nav navbar-nav">
               <li class="active"><a href="HomePage.aspx">Home</a></li>
-              <li><a href="#">Register</a></li>
+              <li><a href="CustomerRegistration.aspx">Register</a></li>
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li><a href="#">Book a Travel Package</a></li>

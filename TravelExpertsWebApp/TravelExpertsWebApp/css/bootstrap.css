@@ -197,8 +197,7 @@ th {
     background: transparent !important;
     -webkit-box-shadow: none !important;
             box-shadow: none !important;
-  }
-  a,
+  }icon  a,
   a:visited {
     text-decoration: underline;
   }
