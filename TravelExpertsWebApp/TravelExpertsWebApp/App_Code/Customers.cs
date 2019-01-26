@@ -32,6 +32,18 @@ namespace TravelExpertsWebApp.App_Code
 
         public string CustEmail { get; set; }
 
-        public int AgentId { get; set; }
+        public Customers(string custFirstName, string custLastName, string custAddress, string custCity, string CustProv, string custProv, string custPostal, string custCountry, string custHomePhone, string custBusPhone, string custEmail)
+        {
+            CustFirstName = custFirstName;
+            CustLastName = custLastName;
+            CustAddress = custAddress;
+            CustCity = custCity;
+            CustProv = custProv;
+            CustPostal = custPostal;
+            CustCountry = custCountry;
+            CustHomePhone = custHomePhone;
+            CustBusPhone = custBusPhone;
+            CustEmail = custEmail;
+        }
     }
 }
