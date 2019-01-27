@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TravelExpertsWebApp.App_Code;
 
-namespace Query
+namespace TravelExpertsWebApp
 {
     [DataObject(true)]
     public static class CustomersDB
@@ -23,8 +23,8 @@ namespace Query
 
             //prepare statement
             string insertString = "INSERT INTO CUSTOMERS "+
-                                  "(CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail) "+
-                                "values(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail)";
+                                  "(CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, CustPassword) "+
+                                "values(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail, @CustPassword)";
             SqlCommand insertCommand = new SqlCommand(insertString, connection);
             insertCommand.Parameters.AddWithValue("@CustFirstName", cust.CustFirstName);
             insertCommand.Parameters.AddWithValue("@CustLastName", cust.CustLastName);
@@ -36,6 +36,7 @@ namespace Query
             insertCommand.Parameters.AddWithValue("@CustHomePhone", cust.CustHomePhone);
             insertCommand.Parameters.AddWithValue("@CustBusPhone", cust.CustBusPhone);
             insertCommand.Parameters.AddWithValue("@CustEmail", cust.CustEmail);
+            insertCommand.Parameters.AddWithValue("@CustPassword", cust.CustPassword);
 
             try
             {
