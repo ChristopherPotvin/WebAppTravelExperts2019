@@ -97,7 +97,7 @@
           </ul>
         </div>
         <h1 class="heading">Register</h1>
-        <p class="lead"><strong>Congratulations! You are one step closer to booking a trip of a lifetime. Please fill out the form below and if you
+        <p class="lead"><strong>Congratulations! You are one step closer to booking a trip of a lifetime! Please fill out the form below and if you
             have any questions, feel free to <a href="ContactPage.aspx">contact us</a>!
         </strong></p>
       </div>
@@ -130,45 +130,113 @@
           </div>
           <div class="col-lg-7 col-lg-offset-1">
             <div class="icon"><i class="pe-7s-pen"></i></div>
-            <h4 class="heading margin-bottom">Contact form</h4> 
-            <p class="text-muted">Reach out to us if you have any further questions or inquiries.</p>
-            <form> <!-- Possible ASP contact form to register new customers-->
+            <h4 class="heading margin-bottom">Registration form</h4> 
+            <p class="text-muted">Your amazing vacation awaits.</p>
+              <form id="form1" runat="server">
+                  <!-- Registration form for new customers-->
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="firstname">Firstname</label>
-                    <input class="form-control" id="firstname" type="text">
+                    <label for="firstname">First Name</label>
+                      <asp:TextBox class="form-control" type="text" ID="txtCustFirstName" runat="server"></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="lastname">Lastname</label>
-                    <input class="form-control" id="lastname" type="text">
+                    <label for="lastname">Last Name</label>
+                      <asp:TextBox class="form-control" type="text" ID="txtCustLastName" runat="server"></asp:TextBox>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="address">Address</label>
+                      <asp:TextBox class="form-control" type="text" ID="txtCustAddress" runat="server"></asp:TextBox>
+                  </div>
+                </div>
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="city">City</label>
+                      <asp:TextBox  class="form-control" type="text" ID="txtCustCity" runat="server"></asp:TextBox>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="province">Province</label>
+                      <asp:DropDownList class="form-control" ID="ddlCustProv" runat="server">
+                          <asp:ListItem Value="">Select a province</asp:ListItem>
+                          <asp:ListItem Value="AB">Alberta</asp:ListItem>
+                          <asp:ListItem Value="BC">British Columbia</asp:ListItem>
+                          <asp:ListItem Value="MB">Manitoba</asp:ListItem>
+                          <asp:ListItem Value="NB">New Brunswick</asp:ListItem>
+                          <asp:ListItem Value="NL">Newfoundland and Labrador</asp:ListItem>
+                          <asp:ListItem Value="NT">Northwest Territories</asp:ListItem>
+                          <asp:ListItem Value="NS">Nova Scotia</asp:ListItem>
+                          <asp:ListItem Value="NU">Nunavut</asp:ListItem>
+                          <asp:ListItem Value="ON">Ontario</asp:ListItem>
+                          <asp:ListItem Value="PE">Prince Edward Island</asp:ListItem>
+                          <asp:ListItem Value="QC">Quebec</asp:ListItem>
+                          <asp:ListItem Value="SK">Saskatchewan</asp:ListItem>
+                          <asp:ListItem Value="YT">Yukon</asp:ListItem>
+                      </asp:DropDownList>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="postal">Postal Code</label>
+                      <asp:TextBox class="form-control" type="text" ID="txtCustPostal" runat="server"></asp:TextBox>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="country">Country</label>
+                      <asp:TextBox class="form-control" type="text" ID="txtCustCountry" runat="server" ReadOnly="True">Canada</asp:TextBox>
+                  </div>
+                </div>
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="homePhone">Home Phone</label>
+                      <asp:TextBox class="form-control" type="text" ID="txtCustHomePhone" runat="server"></asp:TextBox>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="busPhone">Business Phone</label>
+                      <asp:TextBox class="form-control" type="text" ID="txtCustBusPhone" runat="server"></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="form-control" id="email" type="text">
+                      <asp:TextBox class="form-control" type="email" ID="txtUnconfirmedEmail" runat="server"></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="subject">Subject</label>
-                    <input class="form-control" id="subject" type="text">
+                    <label for="confirmEmail">Confirm Email</label>
+                      <asp:TextBox class="form-control" type="email" ID="txtCustEmail" runat="server"></asp:TextBox>
                   </div>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea class="form-control" id="message"></textarea>
+                    <label for="password">Password</label>
+                      <asp:TextBox class="form-control" type="password" ID="txtUnconfirmedPassword" runat="server"></asp:TextBox>
                   </div>
                 </div>
-                <div class="col-sm-12">
-                  <button class="btn btn-primary" type="submit"><i class="fa fa-envelope-o"></i> Send message</button>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="confirmPassword">Confirm Password</label>
+                      <asp:TextBox class="form-control" type="password" ID="txtCustPassword" runat="server"></asp:TextBox>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                    <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Submit" />
+                </div>
+                <div class="col-sm-6">
+                    <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" />
                 </div>
               </div>
-            </form> <!-- Possible ASP contact form to register new customers-->
+              </form>
+              <!-- End of registration form for new customers-->
           </div>
         </div>
       </div>
