@@ -229,7 +229,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6">
-                    <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Submit" />
+                    <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                 </div>
                 <div class="col-sm-6">
                     <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" />
