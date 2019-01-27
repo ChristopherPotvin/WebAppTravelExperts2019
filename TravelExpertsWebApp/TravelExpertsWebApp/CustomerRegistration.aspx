@@ -87,10 +87,93 @@
       </div>
     </div>
     <!-- login modal end (done) -->
-    <form id="form1" runat="server">
-        <div>
+    <!-- start of contact UI (done) -->
+    <section class="background-gray-lightest">
+      <div class="container">
+        <div class="breadcrumbs">
+          <ul class="breadcrumb">
+            <li><a href="HomePage.aspx">Home</a></li>
+            <li>Register</li>
+          </ul>
         </div>
-    </form>
+        <h1 class="heading">Register</h1>
+        <p class="lead"><strong>Congratulations! You are one step closer to booking a trip of a lifetime. Please fill out the form below and if you
+            have any questions, feel free to <a href="ContactPage.aspx">contact us</a>!
+        </strong></p>
+      </div>
+    </section>
+    <!-- end of contact UI (done) -->
+   <!-- start of 2nd half of UI(done)-->
+    <section>  
+      <div class="container" id="contact">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="box-simple">
+              <div class="icon"><i class="pe-7s-map-2"></i></div>
+              <h4 class="heading margin-bottom">Address</h4><br />
+              <p>123 7th Ave SW, Calgary AB B1C 3F4<br>Calgary, Alberta<br /><strong>Canada</strong></p>
+            </div>
+            <div class="box-simple">
+              <div class="icon"><i class="pe-7s-phone"></i></div>
+              <h4 class="heading margin-bottom">Feel free to contact us</h4><br />
+              <br /><p class="text-muted">This number is toll free, leave us a voicemail if you don't get through to us the first time.</p>
+              <br /><p><strong>14031234567</strong></p>
+            </div>
+            <div class="box-simple">
+              <div class="icon"><i class="pe-7s-mail-open"></i></div>
+              <h4 class="heading margin-bottom">Email</h4>
+              <p class="text-muted">Please feel free to write an email to us, we try to respond within the same day.</p>
+              <ul>
+                <li><strong><a href="mailto: https://accounts.google.com/signin/v2/sl/pwd?service=mail&passive=true&rm=false&continue=https%3A%2F%2Fmail.google.com%2Fmail%2F&ss=1&scc=1&ltmpl=default&ltmplcache=2&emr=1&osid=1&flowName=GlifWebSignIn&flowEntry=ServiceLogin"">TravelExperts@gmail.com</a></strong></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-7 col-lg-offset-1">
+            <div class="icon"><i class="pe-7s-pen"></i></div>
+            <h4 class="heading margin-bottom">Contact form</h4> 
+            <p class="text-muted">Reach out to us if you have any further questions or inquiries.</p>
+            <form> <!-- Possible ASP contact form to register new customers-->
+              <div class="row">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="firstname">Firstname</label>
+                    <input class="form-control" id="firstname" type="text">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="lastname">Lastname</label>
+                    <input class="form-control" id="lastname" type="text">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" id="email" type="text">
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input class="form-control" id="subject" type="text">
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea class="form-control" id="message"></textarea>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <button class="btn btn-primary" type="submit"><i class="fa fa-envelope-o"></i> Send message</button>
+                </div>
+              </div>
+            </form> <!-- Possible ASP contact form to register new customers-->
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end of 2nd half of UI(done)-->
         <!-- start of the footer (done)-->
     <footer class="footer">
       <div class="footer__block">
