@@ -40,6 +40,42 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.WebControls.TextBox txtCustLastName;
         
         /// <summary>
+        /// RegexFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexFirstName;
+        
+        /// <summary>
+        /// RequiredFirstName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredFirstName;
+        
+        /// <summary>
+        /// RequiredLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredLastName;
+        
+        /// <summary>
+        /// RegexLastName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexLastName;
+        
+        /// <summary>
         /// txtCustAddress control.
         /// </summary>
         /// <remarks>
@@ -47,6 +83,15 @@ namespace TravelExpertsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCustAddress;
+        
+        /// <summary>
+        /// RequiredAddress control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredAddress;
         
         /// <summary>
         /// txtCustCity control.
@@ -67,6 +112,33 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.WebControls.DropDownList ddlCustProv;
         
         /// <summary>
+        /// RequiredCity control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredCity;
+        
+        /// <summary>
+        /// RegexLastName0 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexLastName0;
+        
+        /// <summary>
+        /// RequiredProvince control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredProvince;
+        
+        /// <summary>
         /// txtCustPostal control.
         /// </summary>
         /// <remarks>
@@ -83,6 +155,24 @@ namespace TravelExpertsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCustCountry;
+        
+        /// <summary>
+        /// RegexPostal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexPostal;
+        
+        /// <summary>
+        /// RequiredPostal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredPostal;
         
         /// <summary>
         /// txtCustHomePhone control.
@@ -103,6 +193,33 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.WebControls.TextBox txtCustBusPhone;
         
         /// <summary>
+        /// RegexHomePhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexHomePhone;
+        
+        /// <summary>
+        /// RequiredHomePhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredHomePhone;
+        
+        /// <summary>
+        /// RegexBusPhone control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexBusPhone;
+        
+        /// <summary>
         /// txtUnconfirmedEmail control.
         /// </summary>
         /// <remarks>
@@ -121,6 +238,15 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.WebControls.TextBox txtCustEmail;
         
         /// <summary>
+        /// CompareEmailValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareEmailValidator;
+        
+        /// <summary>
         /// txtUnconfirmedPassword control.
         /// </summary>
         /// <remarks>
@@ -137,6 +263,33 @@ namespace TravelExpertsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtCustPassword;
+        
+        /// <summary>
+        /// RequiredPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredPassword;
+        
+        /// <summary>
+        /// RequiredConfirmedPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator RequiredConfirmedPassword;
+        
+        /// <summary>
+        /// ComparePasswordlValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator ComparePasswordlValidator;
         
         /// <summary>
         /// btnSubmit control.

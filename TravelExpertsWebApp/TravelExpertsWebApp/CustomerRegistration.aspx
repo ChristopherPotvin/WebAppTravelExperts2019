@@ -135,6 +135,7 @@
               <form id="form1" runat="server">
                   <!-- Registration form for new customers-->
               <div class="row">
+                  <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="firstname">First Name</label>
@@ -147,13 +148,34 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustLastName" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                  <!--one row -->
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RegularExpressionValidator ID="RegexFirstName" runat="server" ControlToValidate="txtCustFirstName" Display="Dynamic" ErrorMessage="Please enter a valid name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
+                      <asp:RequiredFieldValidator ID="RequiredFirstName" runat="server" ControlToValidate="txtCustFirstName" Display="Dynamic" ErrorMessage="First name is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredLastName" runat="server" ControlToValidate="txtCustLastName" ErrorMessage="Last name is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                      <asp:RegularExpressionValidator ID="RegexLastName" runat="server" ControlToValidate="txtCustLastName" Display="Dynamic" ErrorMessage="Please enter a valid name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
+                  </div>
+                </div>
+                  <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
                     <label for="address">Address</label>
                       <asp:TextBox class="form-control" type="text" ID="txtCustAddress" runat="server"></asp:TextBox>
                   </div>
                 </div>
-                  <div class="col-sm-6">
+                  <!--one row -->
+                <div class="col-sm-12">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredAddress" runat="server" ControlToValidate="txtCustAddress" ErrorMessage="Address is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                  </div>
+                </div>
+                  <!--one row -->
+                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="city">City</label>
                       <asp:TextBox  class="form-control" type="text" ID="txtCustCity" runat="server"></asp:TextBox>
@@ -180,6 +202,19 @@
                       </asp:DropDownList>
                   </div>
                 </div>
+                  <!--one row -->
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredCity" runat="server" Display="Dynamic" ErrorMessage="City is required" ForeColor="Red" ControlToValidate="txtCustCity"></asp:RequiredFieldValidator>
+                      <asp:RegularExpressionValidator ID="RegexLastName0" runat="server" ControlToValidate="txtCustCity" Display="Dynamic" ErrorMessage="Please enter a valid city name" ForeColor="Red" ValidationExpression="^[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredProvince" runat="server" ControlToValidate="ddlCustProv" ErrorMessage="Province is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                  </div>
+                </div>
+                  <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="postal">Postal Code</label>
@@ -192,7 +227,18 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustCountry" runat="server" ReadOnly="True">Canada</asp:TextBox>
                   </div>
                 </div>
-                  <div class="col-sm-6">
+                  <!--one row -->
+                <div class="col-sm-12">
+                  <div class="form-group">
+                      <asp:RegularExpressionValidator ID="RegexPostal" runat="server" ControlToValidate="txtCustPostal" Display="Dynamic" ErrorMessage="Please enter a valid postal code" ForeColor="Red" ValidationExpression="^([A-Za-z]\d[A-Za-z][- ]?\d[A-Za-z]\d)+$"></asp:RegularExpressionValidator>
+                      <asp:RequiredFieldValidator class="form-control" ID="RequiredPostal" runat="server" Display="Dynamic" ErrorMessage="Postal code is required" ForeColor="Red" ControlToValidate="txtCustPostal"></asp:RequiredFieldValidator>
+                  </div>
+                </div>
+                  <%--<div class="col-sm-6">
+                     <div class="form-group"></div>
+                </div>--%>
+                  <!--one row -->
+                <div class="col-sm-6">
                   <div class="form-group">
                     <label for="homePhone">Home Phone</label>
                       <asp:TextBox class="form-control" type="text" ID="txtCustHomePhone" runat="server"></asp:TextBox>
@@ -204,6 +250,19 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustBusPhone" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                  <!--one row -->
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RegularExpressionValidator ID="RegexHomePhone" runat="server" ControlToValidate="txtCustHomePhone" ErrorMessage="Please enter valid phone number (555) 555-5555" ForeColor="Red" ValidationExpression="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></asp:RegularExpressionValidator>
+                      <asp:RequiredFieldValidator ID="RequiredHomePhone" runat="server" Display="Dynamic" ErrorMessage="Home phone is required" ForeColor="Red" ControlToValidate="txtCustHomePhone"></asp:RequiredFieldValidator>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RegularExpressionValidator ID="RegexBusPhone" runat="server" ControlToValidate="txtCustBusPhone" ErrorMessage="Please enter valid phone number (555) 555-5555" ForeColor="Red" ValidationExpression="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></asp:RegularExpressionValidator>
+                    </div>
+                </div>
+                  <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="email">Email</label>
@@ -216,6 +275,16 @@
                       <asp:TextBox class="form-control" type="email" ID="txtCustEmail" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                  <!--one row -->
+                 <div class="col-sm-6">
+                     <div class="form-group"></div>
+                </div>
+                  <div class="col-sm-6">
+                     <div class="form-group">
+                         <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red"></asp:CompareValidator>
+                      </div>
+                </div>
+                  <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="password">Password</label>
@@ -228,11 +297,24 @@
                       <asp:TextBox class="form-control" type="password" ID="txtCustPassword" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                  <!--one row -->
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredPassword" runat="server" Display="Dynamic" ErrorMessage="Password is required" ForeColor="Red" ControlToValidate="txtUnconfirmedPassword"></asp:RequiredFieldValidator>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredConfirmedPassword" runat="server" ControlToValidate="txtCustPassword" ErrorMessage="Password confirmation is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                      <asp:CompareValidator ID="ComparePasswordlValidator" runat="server" ControlToCompare="txtUnconfirmedPassword" ControlToValidate="txtCustPassword" ErrorMessage="Passwords do not match" ForeColor="Red"></asp:CompareValidator>
+                  </div>
+                </div>
+                  <!--one row -->
                 <div class="col-sm-6">
                     <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
                 </div>
                 <div class="col-sm-6">
-                    <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" />
+                    <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click" />
                 </div>
               </div>
               </form>

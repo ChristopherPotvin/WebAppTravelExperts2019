@@ -12,7 +12,7 @@ namespace TravelExpertsWebApp
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -27,6 +27,23 @@ namespace TravelExpertsWebApp
                 throw ex;
             }
             
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            txtCustFirstName.Text = "";
+            txtCustLastName.Text = "";
+            txtCustAddress.Text = "";
+            txtCustCity.Text = "";
+            ddlCustProv.Text = "";
+            txtCustPostal.Text = "";
+            txtCustCountry.Text = "";
+            txtCustHomePhone.Text = "";
+            txtCustBusPhone.Text = "";
+            txtUnconfirmedEmail.Text = "";
+            txtCustEmail.Text = "";
+            txtUnconfirmedPassword.Text = "";
+            txtCustPassword.Text = "";
         }
     }
 }
