@@ -25,8 +25,7 @@ namespace TravelExpertsWebApp
             catch (Exception ex)
             {
                 throw ex;
-            }
-            
+            }           
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
