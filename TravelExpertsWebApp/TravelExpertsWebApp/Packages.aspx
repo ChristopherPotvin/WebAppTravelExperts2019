@@ -13,6 +13,7 @@
     <form id="form1" runat="server">
         <div>
             <asp:ListView ID="lvPackages" runat="server" DataSourceID="odsPackages">
+
                 <AlternatingItemTemplate>
                     <span style="">PackageId:
                     <asp:Label ID="PackageIdLabel" runat="server" Text='<%# Eval("PackageId") %>' />
@@ -37,6 +38,7 @@
                     <br />
                     <br /></span>
                 </AlternatingItemTemplate>
+
                 <EditItemTemplate>
                     <span style="">PackageId:
                     <asp:TextBox ID="PackageIdTextBox" runat="server" Text='<%# Bind("PackageId") %>' />
@@ -63,9 +65,11 @@
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
                     <br /><br /></span>
                 </EditItemTemplate>
+
                 <EmptyDataTemplate>
                     <span>No data was returned.</span>
                 </EmptyDataTemplate>
+
                 <InsertItemTemplate>
                     <span style="">PackageId:
                     <asp:TextBox ID="PackageIdTextBox" runat="server" Text='<%# Bind("PackageId") %>' />
@@ -86,6 +90,7 @@
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
                     <br /><br /></span>
                 </InsertItemTemplate>
+
                 <ItemTemplate>
                     <span style="">PackageId:
                     <asp:Label ID="PackageIdLabel" runat="server" Text='<%# Eval("PackageId") %>' />
@@ -110,6 +115,7 @@
                     <br />
                     <br /></span>
                 </ItemTemplate>
+
                 <LayoutTemplate>
                     <div id="itemPlaceholderContainer" runat="server" style="">
                         <span runat="server" id="itemPlaceholder" />
@@ -117,6 +123,7 @@
                     <div style="">
                     </div>
                 </LayoutTemplate>
+
                 <SelectedItemTemplate>
                     <span style="">PackageId:
                     <asp:Label ID="PackageIdLabel" runat="server" Text='<%# Eval("PackageId") %>' />
@@ -141,6 +148,7 @@
                     <br />
                     <br /></span>
                 </SelectedItemTemplate>
+
             </asp:ListView>
             <asp:ObjectDataSource ID="odsPackages" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetPackages" TypeName="TravelExpertsWebApp.App_Code.PackagesDB"></asp:ObjectDataSource>
         </div>
