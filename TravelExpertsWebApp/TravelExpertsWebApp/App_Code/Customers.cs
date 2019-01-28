@@ -32,7 +32,9 @@ namespace TravelExpertsWebApp.App_Code
 
         public string CustEmail { get; set; }
 
-        public Customers(string custFirstName, string custLastName, string custAddress, string custCity, string CustProv, string custProv, string custPostal, string custCountry, string custHomePhone, string custBusPhone, string custEmail)
+        public string CustPassword { get; set; }
+
+        public Customers(string custFirstName, string custLastName, string custAddress, string custCity, string custProv, string custPostal, string custCountry, string custHomePhone, string custBusPhone, string custEmail, string custPassword)
         {
             CustFirstName = custFirstName;
             CustLastName = custLastName;
@@ -44,6 +46,7 @@ namespace TravelExpertsWebApp.App_Code
             CustHomePhone = custHomePhone;
             CustBusPhone = custBusPhone;
             CustEmail = custEmail;
+            CustPassword = custPassword;
         }
     }
 }
