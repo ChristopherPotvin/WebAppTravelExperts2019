@@ -177,7 +177,7 @@
       </div>
     </section>
     <!-- end of 2nd half of UI(done)-->
-    <!-- start of map UI, currently doing research on how to show a Calgary location with Google Api's, a placeholder for now-->
+    <!-- start of map UI (Done) Sait location showing-->
     <div id="map" style="overflow: hidden; position: relative;">
         <div style="left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; background-color: rgb(229, 227, 223);">
             <div class="gm-style" style="border-width: 0px; margin: 0px; padding: 0px; left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: 0;"><div tabindex="0" style="border-width: 0px; margin: 0px; padding: 0px; left: 0px; top: 0px; width: 100%; height: 100%; position: absolute; z-index: 0; cursor: url(https://maps.gstatic.com/mapfiles/openhand_8_8.cur), default; touch-action: pan-x pan-y;">
@@ -312,7 +312,7 @@
         <script src="//www.google-analytics.com/analytics.js"></script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu5nZKbeK-WHQ70oqOWo-_4VmwOwKP9YQ"></script>
         <!-- end of scripts needed for map api-->
-    <!-- end of map UI-->
+    <!-- end of map UI (done)-->
    <!-- start of the footer (done)-->
     <footer class="footer">
       <div class="footer__block">
