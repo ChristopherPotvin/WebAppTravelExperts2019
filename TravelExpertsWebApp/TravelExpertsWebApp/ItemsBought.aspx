@@ -89,16 +89,18 @@
       </div>
     </div>
     <!-- login modal end (done) -->
+    <br /><br />
     <form id="form1" runat="server">
-        <div>
-            <asp:ListView ID="ListView1" runat="server" DataSourceID="odsItemsBought">
+        <div class="container">
+            <asp:ListView ID="ListView1" runat="server" DataSourceID="odsItemsBought" style="font-size: small; text-align: center">
                 <AlternatingItemTemplate>
                     <span style="">Description:
                     <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
                     <br />
                     TravelerCount:
                     <asp:Label ID="TravelerCountLabel" runat="server" Text='<%# Eval("TravelerCount") %>' />
-<br />Destination:
+                    <br />
+                    Destination:
                     <asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' />
                     <br />
                     TripStart:
@@ -134,7 +136,9 @@
                     <br />
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                    <br /><br /></span>
+                    <br />
+                    <br />
+                    </span>
                 </EditItemTemplate>
                 <EmptyDataTemplate>
                     <span>No data was returned.</span>
@@ -142,7 +146,8 @@
                 <InsertItemTemplate>
                     <span style="">Description:
                     <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
-                    <br />TravelerCount:
+                    <br />
+                    TravelerCount:
                     <asp:TextBox ID="TravelerCountTextBox" runat="server" Text='<%# Bind("TravelerCount") %>' />
                     <br />
                     Destination:
@@ -159,7 +164,9 @@
                     <br />
                     <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                    <br /><br /></span>
+                    <br />
+                    <br />
+                    </span>
                 </InsertItemTemplate>
                 <ItemTemplate>
                     <span style="">Description:
@@ -167,7 +174,8 @@
                     <br />
                     TravelerCount:
                     <asp:Label ID="TravelerCountLabel" runat="server" Text='<%# Eval("TravelerCount") %>' />
-<br />Destination:
+                    <br />
+                    Destination:
                     <asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' />
                     <br />
                     TripStart:
@@ -195,7 +203,8 @@
                     <br />
                     TravelerCount:
                     <asp:Label ID="TravelerCountLabel" runat="server" Text='<%# Eval("TravelerCount") %>' />
-<br />Destination:
+                    <br />
+                    Destination:
                     <asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' />
                     <br />
                     TripStart:
@@ -220,9 +229,7 @@
         <div class="container">
           <div class="row">
             <div class="col-md-8 col-sm-12">
-              <h4 class="heading">About Us</h4>
-              <p>We're a collection of travel agents who promise to make your travel dreams a reality.</p>
-              <p>Since 2014, we've been incorporating a leading edge experience in customer service and an easy, care-free customer approach to booking our travel packages.</p>
+              <h4 class="heading">About Use customer approach to booking our travel packages.</p>
             </div>
             <div class="col-md-4 col-sm-12">
               <h4 class="heading,">Our Offices</h4><br />
