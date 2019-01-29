@@ -12,6 +12,36 @@ namespace TravelExpertsWebApp
     [DataObject(true)]
     public static class CustomersDB
     {
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        //get customer login 
+        public static string GetCustomerLogin(Customers cust)
+        {
+            string output = "";
+            //prepare conneciton
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            string selectString = "SELECT count(*) from Customers where CustEmail = @CustEmail AND CustPassword = @CustPassword";
+
+            SqlCommand cmd = new SqlCommand(selectString, connection);
+            cmd.Parameters.AddWithValue("@CustEmail", cust.CustEmail);
+            cmd.Parameters.AddWithValue("@CustPassword", cust.CustPassword);
+
+            try
+            {
+                connection.Open();
+                output = cmd.ExecuteScalar().ToString();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return output;
+        }
+
         [DataObjectMethod(DataObjectMethodType.Insert)]
         //insert new customer record
         public static int AddCustomer(Customers cust)
