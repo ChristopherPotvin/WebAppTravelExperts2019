@@ -13,12 +13,15 @@ namespace TravelExpertsWebApp
 {
     public partial class CustomerRegistration : System.Web.UI.Page
     {
+        
         protected void Page_Load(object sender, EventArgs e)
         {
+            HtmlControl loginIcon = (HtmlControl)Page.FindControl("mainBtnLogin");
+            HtmlControl loggedIcon = (HtmlControl)Page.FindControl("custLogged");
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
             if (Session["custEmail"] != null)
             {
-                HtmlControl loginIcon = (HtmlControl)Page.FindControl("mainBtnLogin");
+                loggedIcon.Visible = true;
                 loginIcon.Visible = false;
                 string sql = "SELECT CustFirstName from Customers where CustEmail = @CustEmail";
 
@@ -35,16 +38,21 @@ namespace TravelExpertsWebApp
                     while (myReader.Read())
                     {                      
                        customerLogged.Text ="Welcome " + (myReader["CustFirstName"].ToString());
-                    }
-                    
-                
+                    }                                   
                 }
                 catch (Exception ex)
                 {
-
                     throw ex;
                 }
-                
+                finally
+                {
+                    connection.Close();
+                }
+            }
+            else
+            {
+                loggedIcon.Visible = false;
+                loginIcon.Visible = true;
             }
             
         }

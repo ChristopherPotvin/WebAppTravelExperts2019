@@ -55,7 +55,14 @@
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
-              <a runat="server" class="btn navbar-btn btn-ghost" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
+              <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
+                <ul class="dropdown-menu"> 
+                  <li><a href="#">Update Information</a></li>
+                  <li><a href="#">Purchase History</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"><i class="fa fa-sign-out"></i>Log out</a></li>
+                </ul>
+              </li>
             </ul>
            <a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
         
@@ -75,21 +82,20 @@
           </div>
           <div class="modal-body">
             </div>
-              <div class="form-group">
+              <div class="form-group" style="margin: 5%;">
                 <input runat="server" class="form-control" id="email_modal" type="text" placeholder="email">
               </div>
-              <div class="form-group">
+              <div class="form-group" style="margin: 5%;">
                 <input runat="server" class="form-control" id="password_modal" type="password" placeholder="password">
               </div>
               <p class="text-center">
                 <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" CausesValidation="False"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
             <p class="text-center text-muted">Not registered yet?</p>
-            <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
+            <p class="text-center text-muted" style="margin: 5%;"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
         </div>
       </div>
-    </div>
     <!-- login modal end (done) -->
     <!-- start of contact UI (done) -->
     <section class="background-gray-lightest">
