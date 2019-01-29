@@ -49,10 +49,10 @@
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="#">Book a Travel Package</a></li>
-                  <li><a href="#">Browse Current Travel Packages</a></li>
-                  <li><a href="#">Modify a Current Booking</a></li>
-                  <li><a href="#">Cancel a Booking</a></li>
+                  <li><a href="ItemsBought.aspx">Book a Travel Package</a></li>
+                  <li><a href="ItemsBought.aspx">Browse Current Travel Packages</a></li>
+                  <li><a href="ItemsBought.aspx">Modify a Current Booking</a></li>
+                  <li><a href="ItemsBought.aspx">Cancel a Booking</a></li>
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
@@ -313,6 +313,7 @@
             </div>
               <div class="col-md-6">
                 <p>Images by Pexels.com</p>
+                  <p>Icons by Icons8.com</p>
             </div>
           </div>
         </div>
