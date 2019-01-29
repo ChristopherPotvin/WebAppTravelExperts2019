@@ -35,6 +35,7 @@
    
     <body>
     <!-- start of navbar (done) -->
+    <form runat="server">
     <header class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -61,6 +62,7 @@
         </div>
       </div>
     </header>
+    </form>
     <!-- end of navbar (done)-->
     <!-- start of login model-->
     <div tabindex="-1" class="modal fade" id="login-modal" role="dialog" aria-hidden="true" aria-labelledby="Login">

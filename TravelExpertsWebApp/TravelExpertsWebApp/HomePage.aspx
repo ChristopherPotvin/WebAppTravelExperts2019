@@ -33,6 +33,7 @@
 
   </head>
   <body>
+      <form runat="server">
     <!-- start of navigation bar in the header (done) -->
     <header class="header">
       <div class="navbar navbar-default" role="navigation">
@@ -56,7 +57,7 @@
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
-            </ul><a class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal"><i class="fa fa-sign-in"></i>Log in</a>
+            </ul><a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
           </div>
         </div>
       </div>
@@ -323,7 +324,7 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
-  
+  </form>
 </body>
 
 </html>
