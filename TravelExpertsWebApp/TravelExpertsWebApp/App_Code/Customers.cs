@@ -48,5 +48,11 @@ namespace TravelExpertsWebApp.App_Code
             CustEmail = custEmail;
             CustPassword = custPassword;
         }
+
+        public Customers(string custEmail, string custPassword)
+        {
+            CustEmail = custEmail;
+            CustPassword = custPassword;
+        }
     }
 }
