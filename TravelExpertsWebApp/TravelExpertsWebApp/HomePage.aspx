@@ -247,6 +247,22 @@
       </div>
     </section>
     <!-- end of image gallery (done)-->
+      <!-- Testing a Stripe Api Payment Widget-->
+      <form action="HomePage.aspx" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_jkUlFVHsOiLghrCqtzYURt7X"
+    data-amount="300000"
+    data-name="Travel Experts"
+    data-description="Please double check your details"
+    data-image="https://img.icons8.com/ios/100/000000/card-security.png"
+    data-locale="auto"
+    data-zip-code="true"
+    data-currency="cad">
+  </script>
+</form>
+      <!-- 4000001240000000 , Canadian Visa Credit Card number to test validation while in Stripe Test mode that validates it against a Canadian Postal Code -->
+     <!-- Testing a Stripe Api Payment Widget-->
     <!-- start of the footer (done)-->
     <footer class="footer">
       <div class="footer__block">
