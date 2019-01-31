@@ -1,40 +1,16 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsBought.aspx.cs" Inherits="TravelExpertsWebApp.ItemsBought" %>
 
+<%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
+
+
 <!DOCTYPE html>
 
-<html><head>
-    <!-- Making the page responsive!-->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Travel Experts</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="robots" content="all,follow">
-    <!-- PLEASE DO NOT TOUCH ANYTHING BETWEEN THESE COMMENTS-->
-    <!-- Bootstrap CSS-->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <!-- Font Awesome and Pixeden Icon Stroke icon fonts-->
-    <link href="css/font-awesome.min.css" rel="stylesheet">
-    <link href="css/pe-icon-7-stroke.css" rel="stylesheet">
-    <!-- Google fonts - Roboto-->
-    <link href="http://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
-    <!-- lightbox-->
-    <link href="css/lightbox.min.css" rel="stylesheet">
-    <!-- theme stylesheet-->
-    <link id="theme-stylesheet" href="css/style.default.css" rel="stylesheet">
-    <!-- Custom stylesheet - for your changes-->
-    <link href="css/custom.css" rel="stylesheet">
-    <!-- Favicon-->
-    <link href="favicon.png" rel="shortcut icon">
-    <!-- Tweaks for older IEs--><!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
-    <!-- PLEASE DO NOT TOUCH ANYTHING BETWEEN THESE COMMENTS-->
-
-  </head>
+<html>
+<uc1:HeadLinks runat="server" ID="HeadLinks" />
 <body>
+    <form runat="server">
      <!-- start of navigation bar in the header (done) -->
-    <header class="header">
+     <header class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
           <div class="navbar-header"><a class="navbar-brand" href="HomePage.aspx">Travel Experts</a>
@@ -52,11 +28,18 @@
                   <li><a href="ItemsBought.aspx">Book a Travel Package</a></li>
                   <li><a href="ItemsBought.aspx">Browse Current Travel Packages</a></li>
                   <li><a href="ItemsBought.aspx">Modify a Current Booking</a></li>
-                  <li><a href="ItemsBought.aspx">Cancel a Booking</a></li>
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
-            </ul><a class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal"><i class="fa fa-sign-in"></i>Log in</a>
+              <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
+                <ul class="dropdown-menu"> 
+                  <li><a href="#">Update Information</a></li>
+                  <li><a href="#">Purchase History</a></li>
+                  <li class="divider"></li>
+                  <li><a href="#"><i class="fa fa-sign-out"></i>Log out</a></li>
+                </ul>
+              </li>
+            </ul><a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
           </div>
         </div>
       </div>
@@ -73,13 +56,13 @@
           <div class="modal-body">
             <form action="customer-orders.html" method="post">
               <div class="form-group">
-                <input class="form-control" id="email_modal" type="text" placeholder="email">
+                <input runat="server" class="form-control" id="email_modal" type="text" placeholder="email">
               </div>
               <div class="form-group">
-                <input class="form-control" id="password_modal" type="password" placeholder="password">
+                <input runat="server" class="form-control" id="password_modal" type="password" placeholder="password">
               </div>
               <p class="text-center">
-                <button class="btn btn-primary" type="button"><i class="fa fa-sign-in"></i> Log in</button>
+                <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" CausesValidation="False"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
             </form>
             <p class="text-center text-muted">Not registered yet?</p>
@@ -90,7 +73,6 @@
     </div>
     <!-- login modal end (done) -->
     <br /><br />
-    <form id="form1" runat="server">
         <div class="container">
             <asp:ListView ID="ListView1" runat="server" DataSourceID="odsItemsBought" style="font-size: small; text-align: center">
                 <AlternatingItemTemplate>
@@ -222,7 +204,6 @@
             </asp:ListView>
             <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"></asp:ObjectDataSource>
         </div>
-    </form>
         <!-- start of the footer (done)-->
     <footer class="footer">
       <div class="footer__block">
@@ -297,5 +278,6 @@
       r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
       ga('create','UA-XXXXX-X');ga('send','pageview');
     </script>
+   </form>
 </body>
 </html>

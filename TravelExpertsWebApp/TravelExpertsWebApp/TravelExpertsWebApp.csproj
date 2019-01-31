@@ -89,6 +89,9 @@
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\Pe-icon-7-stroke.svg" />
     <Content Include="fonts\social-share-kit.svg" />
+    <Content Include="Footer.ascx" />
+    <Content Include="Header.ascx" />
+    <Content Include="HeadLinks.ascx" />
     <Content Include="HomePage.aspx" />
     <Content Include="img\blog1.jpg" />
     <Content Include="img\blog2.jpg" />
@@ -158,6 +161,27 @@
     </Compile>
     <Compile Include="CustomerRegistration.aspx.designer.cs">
       <DependentUpon>CustomerRegistration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Footer.ascx.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Footer.ascx.designer.cs">
+      <DependentUpon>Footer.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Header.ascx.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Header.ascx.designer.cs">
+      <DependentUpon>Header.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="HeadLinks.ascx.cs">
+      <DependentUpon>HeadLinks.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HeadLinks.ascx.designer.cs">
+      <DependentUpon>HeadLinks.ascx</DependentUpon>
     </Compile>
     <Compile Include="HomePage.aspx.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
