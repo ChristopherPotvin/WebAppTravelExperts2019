@@ -277,8 +277,6 @@ C:\Users\718775\Documents\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpe
 C:\Users\718775\Documents\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csproj.CopyComplete
 C:\Users\718775\Documents\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.dll
 C:\Users\718775\Documents\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.pdb
-C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csprojAssemblyReference.cache
-C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csproj.CoreCompileInputs.cache
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\TravelExpertsWebApp.dll.config
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\TravelExpertsWebApp.dll
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\TravelExpertsWebApp.pdb
@@ -437,6 +435,8 @@ C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\Tra
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\Stripe.net.pdb
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\Stripe.net.xml
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\bin\System.Collections.Immutable.xml
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csproj.CoreCompileInputs.cache
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csproj.CopyComplete
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.dll
 C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.pdb
+C:\Users\793391\Documents\GitHub\WebAppTravelExperts2019\TravelExpertsWebApp\TravelExpertsWebApp\obj\Debug\TravelExpertsWebApp.csprojAssemblyReference.cache

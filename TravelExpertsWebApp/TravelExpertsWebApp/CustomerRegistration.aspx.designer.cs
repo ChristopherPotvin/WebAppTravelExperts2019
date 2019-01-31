@@ -13,6 +13,15 @@ namespace TravelExpertsWebApp {
     public partial class CustomerRegistration {
         
         /// <summary>
+        /// HeadLinks control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TravelExpertsWebApp.HeadLinks HeadLinks;
+        
+        /// <summary>
         /// custLogged control.
         /// </summary>
         /// <remarks>
@@ -353,5 +362,14 @@ namespace TravelExpertsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancel;
+        
+        /// <summary>
+        /// Footer control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::TravelExpertsWebApp.Footer Footer;
     }
 }
