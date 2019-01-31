@@ -21,7 +21,7 @@
     <!-- lightbox-->
     <link href="css/lightbox.min.css" rel="stylesheet">
     <!-- theme stylesheet-->
-    <link id="theme-stylesheet" href="css/style.default.css" rel="stylesheet">
+    <link id="stylesheet" href="css/style.default.css" rel="stylesheet">
     <!-- Custom stylesheet - for your changes-->
     <link href="css/custom.css" rel="stylesheet">
     <!-- Favicon-->
