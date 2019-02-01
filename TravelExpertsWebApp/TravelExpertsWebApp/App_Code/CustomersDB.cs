@@ -94,5 +94,39 @@ namespace TravelExpertsWebApp
             }
             return custId;
         }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        //updates existing customer record and returns bool success flag
+        public static bool UpdateCustomer(Customers old_Customer, Customers customer)
+        {
+            bool successful = true;
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            string updateString = "UPDATE CUSTOMERS SET CustFirstName = @CustNewFName, CustLastName = @CustNewLName, CustAddress = @CustNewAddress, CustCity =        @CustNewCity, CustProv = @CustNewProv, CustPostal = @CustNewPostal, CustCountry = @CustNewCountry, CustHomePhone = @CustNewHomePhone, CustBusPhone = @CustNewBusPhone, CustEmail = @CustNewEmail WHERE " +
+                "CustFirstName = @CustOldFName, CustLastName = @CustOldLName, CustAddress = @CustOldAddress, CustCity = @CustOldCity, CustProv = @CustOldProv, CustPostal = @CustOldPostal, CustCountry = @CustOldCountry, CustHomePhone = @CustOldHomePhone, CustBusPhone = @CustOldBusPhone, CustEmail = @CustOldEmail";
+
+            SqlCommand updateCommand = new SqlCommand(updateString, connection);
+            updateCommand.Parameters.AddWithValue("@CustOldFname", old_Customer.CustFirstName);
+            updateCommand.Parameters.AddWithValue("@CustOldLname", old_Customer.CustLastName);
+            updateCommand.Parameters.AddWithValue("@CustOldAddress", old_Customer.CustAddress);
+            updateCommand.Parameters.AddWithValue("@CustOldCity", old_Customer.CustCity);
+            updateCommand.Parameters.AddWithValue("@CustOldProv", old_Customer.CustProv);
+            updateCommand.Parameters.AddWithValue("@CustOldPostal", old_Customer.CustPostal);
+            updateCommand.Parameters.AddWithValue("@CustOldCountry", old_Customer.CustCountry);
+            updateCommand.Parameters.AddWithValue("@CustOldHomePhone", old_Customer.CustHomePhone);
+            updateCommand.Parameters.AddWithValue("@CustOldBusPhone", old_Customer.CustBusPhone);
+            updateCommand.Parameters.AddWithValue("@CustOldEmail", old_Customer.CustEmail);
+
+            updateCommand.Parameters.AddWithValue("@CustNewFname", customer.CustFirstName);
+            updateCommand.Parameters.AddWithValue("@CustNewLname", old_Customer.CustLastName);
+            updateCommand.Parameters.AddWithValue("@CustNewAddress", old_Customer.CustAddress);
+            updateCommand.Parameters.AddWithValue("@CustNewCity", old_Customer.CustCity);
+            updateCommand.Parameters.AddWithValue("@CustNewProv", old_Customer.CustProv);
+            updateCommand.Parameters.AddWithValue("@CustNewPostal", old_Customer.CustPostal);
+            updateCommand.Parameters.AddWithValue("@CustNewCountry", old_Customer.CustCountry);
+            updateCommand.Parameters.AddWithValue("@CustNewHomePhone", old_Customer.CustHomePhone);
+            updateCommand.Parameters.AddWithValue("@CustNewBusPhone", old_Customer.CustBusPhone);
+            updateCommand.Parameters.AddWithValue("@CustNewEmail", old_Customer.CustEmail);
+        }
     }
 }
