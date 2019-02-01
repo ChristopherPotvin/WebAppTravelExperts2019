@@ -74,5 +74,38 @@ namespace TravelExpertsWebApp
                 Response.Write("Login Failed");
             }
         }
+
+        // Start of Chris Potvin's contact form section, this section sends a new customer contact submission to the DB
+
+        protected void btnSubmit_Click(object sender, EventArgs e) // submit button for customer contact page
+        {
+
+
+            CustomerContact customer = new CustomerContact(txtCustFirstName.Text, txtCustLastName.Text, txtEmail.Text, txtSubject.Text, txtMessage.Text);
+            try
+            {
+                int insertCustomerContact = CustomerContactDB.AddCustomer(customer);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e) // cancel button for customer contact page
+        {
+            txtCustFirstName.Text = "";
+            txtCustLastName.Text = "";
+            txtEmail.Text = "";
+            txtMessage.Text = "";
+            txtSubject.Text = "";
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e) // reset button for customer contact page
+        {
+            txtMessage.Text = "";
+            txtSubject.Text = "";
+        }
+
     }
 }

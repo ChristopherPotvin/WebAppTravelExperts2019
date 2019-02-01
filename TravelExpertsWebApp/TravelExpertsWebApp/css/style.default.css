@@ -1428,8 +1428,7 @@ hr {
 }
 @media (max-width: 991px) {
   .breadcrumb {
-    padding: 8px 0;
-  }
+    padding: 8
 }
 /* buttons  */
 .btn {
@@ -1441,6 +1440,9 @@ hr {
   font-size: 14px;
   line-height: 1.55;
   border-radius: 0;
+    width: 215px;
+}
+s: 0;
 }
 .btn-primary {
   color: #2b90d9;

@@ -135,14 +135,14 @@
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
-                      <asp:RegularExpressionValidator ID="RegexFirstName" runat="server" ControlToValidate="txtCustFirstName" Display="Dynamic" ErrorMessage="Please enter a valid name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
+                      <asp:RegularExpressionValidator ID="RegexFirstName" runat="server" ControlToValidate="txtCustFirstName" Display="Dynamic" ErrorMessage="Please enter a valid first name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
                       <asp:RequiredFieldValidator ID="RequiredFirstName" runat="server" ControlToValidate="txtCustFirstName" Display="Dynamic" ErrorMessage="First name is required" ForeColor="Red"></asp:RequiredFieldValidator>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                       <asp:RequiredFieldValidator ID="RequiredLastName" runat="server" ControlToValidate="txtCustLastName" ErrorMessage="Last name is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
-                      <asp:RegularExpressionValidator ID="RegexLastName" runat="server" ControlToValidate="txtCustLastName" Display="Dynamic" ErrorMessage="Please enter a valid name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
+                      <asp:RegularExpressionValidator ID="RegexLastName" runat="server" ControlToValidate="txtCustLastName" Display="Dynamic" ErrorMessage="Please enter a valid last name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
                   </div>
                 </div>
                   <!--one row -->

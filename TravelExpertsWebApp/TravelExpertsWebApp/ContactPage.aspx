@@ -56,7 +56,7 @@
             <h4 class="modal-title" id="Login">Customer login</h4>
           </div>
           <div class="modal-body">
-            <form action="customer-orders.html" method="post">
+            </div>
               <div class="form-group">
                 <input runat="server" class="form-control" id="email_modal" type="text" placeholder="email">
               </div>
@@ -66,7 +66,6 @@
               <p class="text-center">
                 <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" CausesValidation="False"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
-            </form>
             <p class="text-center text-muted">Not registered yet?</p>
             <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
@@ -120,47 +119,82 @@
             <div class="icon"><i class="pe-7s-pen"></i></div>
             <h4 class="heading margin-bottom">Contact form</h4> 
             <p class="text-muted">Reach out to us if you have any further questions or inquiries.</p>
-            <form> <!-- Possible ASP contact form to register new customers-->
+              <!-- Possible ASP contact form to register new customers-->
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="firstname">Firstname</label>
-                    <input class="form-control" id="firstname" type="text">
+                      <asp:TextBox class="form-control" ID="txtCustFirstName" runat="server" ></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="lastname">Lastname</label>
-                    <input class="form-control" id="lastname" type="text">
+                    <asp:TextBox class="form-control" ID="txtCustLastName" runat="server" ></asp:TextBox>
+                  </div>
+                </div>
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RegularExpressionValidator ID="RegexFirstName" runat="server" ControlToValidate="txtCustFirstName" Display="Dynamic" ErrorMessage="Please enter a valid first name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
+                      <asp:RequiredFieldValidator ID="RequiredFirstName" runat="server" ControlToValidate="txtCustFirstName" Display="Dynamic" ErrorMessage="First name is required" ForeColor="Red"></asp:RequiredFieldValidator>
+                  </div>
+                </div>
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RegularExpressionValidator ID="RegexLastName" runat="server" ControlToValidate="txtCustLastName" Display="Dynamic" ErrorMessage="Please enter a valid last name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
+                      <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCustLastName" ErrorMessage="Last name is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="form-control" id="email" type="text">
+                    <asp:TextBox class="form-control" ID="txtEmail" runat="server" ></asp:TextBox>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Your email is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
+                      <asp:RegularExpressionValidator ID="RegularExpressionEmail" runat="server" ControlToValidate="Email" Display="Dynamic" ErrorMessage="Please enter a valid email" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="subject">Subject</label>
-                    <input class="form-control" id="subject" type="text">
+                    <asp:TextBox class="form-control" ID="txtSubject" runat="server" ></asp:TextBox>
+                  </div>
+                </div>
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredSubject" runat="server" ControlToValidate="txtSubject" ErrorMessage="A subject is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
                 <div class="col-sm-12">
                   <div class="form-group">
                     <label for="message">Message</label>
-                    <textarea class="form-control" id="message"></textarea>
+                    <asp:TextBox class="form-control" ID="txtMessage" runat="server" ></asp:TextBox>
+                  </div>
+                </div>
+                  <div class="col-sm-6">
+                  <div class="form-group">
+                      <asp:RequiredFieldValidator ID="RequiredMessage" runat="server" ControlToValidate="txtMessage" ErrorMessage="A message is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
                 <div class="col-sm-12">
-                  <button class="btn btn-primary" type="submit"><i class="fa fa-envelope-o"></i> Send message</button>
+                  <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Send a message" CausesValidation="False" OnClick="btnSubmit_Click" Height="32px" Width="245px" />
+                </div>                
+                  <div class="col-sm-12">
+                    <asp:Button class="btn btn-secondary" ID="btnReset" runat="server" Text="Reset" CausesValidation="False" OnClick="btnReset_Click" Height="32px" Width="245px" />
+                  </div>                
+                <div class="col-sm-12">
+                    <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click" Height="32px" Width="245px" />
                 </div>
               </div>
-            </form> <!-- Possible ASP contact form to register new customers-->
+              <!-- Possible ASP contact form to register new customers-->
           </div>
         </div>
       </div>
     </section>
+        </form>
     <!-- end of 2nd half of UI(done)-->
     <!-- start of map UI LeafLet (Done) Sait location showing-->
     <div tabindex="0" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="mapid" style="width: 1800px; height: 500px; position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(56px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4093/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(312px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4094/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(56px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4093/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(312px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4094/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-200px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4092/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(568px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4095/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-200px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4092/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(568px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4095/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04805e+006px, 697379px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a title="Zoom in" class="leaflet-control-zoom-in" role="button" aria-label="Zoom in" href="#">+</a><a title="Zoom out" class="leaflet-control-zoom-out" role="button" aria-label="Zoom out" href="#">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"></div></div></div></div>
