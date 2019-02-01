@@ -87,6 +87,8 @@ namespace TravelExpertsWebApp
 
         protected void LoginButton(object sender, EventArgs e)
         {
+            string hashedPswd = HashPassword.ApplyHash(txtCustPassword.Text);
+
             string custEmail = String.Format("{0}", Request.Form["email_modal"]);
             string custPassword = String.Format("{0}", Request.Form["password_modal"]);
 

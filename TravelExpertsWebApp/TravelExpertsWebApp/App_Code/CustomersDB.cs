@@ -20,7 +20,7 @@ namespace TravelExpertsWebApp
             //prepare conneciton
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
-            string selectString = "SELECT count(*) from Customers where CustEmail = @CustEmail AND CustPassword = @CustPassword";
+            string selectString = "SELECT count(*) from Customers where CustEmail = @CustEmail AND CustPassword = HASHBYTES('SHA1', @CustPassword)";
 
             SqlCommand cmd = new SqlCommand(selectString, connection);
             cmd.Parameters.AddWithValue("@CustEmail", cust.CustEmail);
@@ -54,7 +54,7 @@ namespace TravelExpertsWebApp
             //prepare statement
             string insertString = "INSERT INTO CUSTOMERS "+
                                   "(CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, CustPassword) "+
-                                "values(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail, @CustPassword)";
+                                "values(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail, HASHBYTES('SHA1', @CustPassword))";
             SqlCommand insertCommand = new SqlCommand(insertString, connection);
             insertCommand.Parameters.AddWithValue("@CustFirstName", cust.CustFirstName);
             insertCommand.Parameters.AddWithValue("@CustLastName", cust.CustLastName);
