@@ -152,8 +152,7 @@ namespace TravelExpertsWebApp
             bool successful = true;
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
-            string updateString = "UPDATE CUSTOMERS SET CustFirstName = @CustNewFName, CustLastName = @CustNewLName, CustAddress = @CustNewAddress, CustCity =        @CustNewCity, CustProv = @CustNewProv, CustPostal = @CustNewPostal, CustCountry = @CustNewCountry, CustHomePhone = @CustNewHomePhone, CustBusPhone = @CustNewBusPhone, CustEmail = @CustNewEmail WHERE " +
-                "CustFirstName = @CustOldFName, CustLastName = @CustOldLName, CustAddress = @CustOldAddress, CustCity = @CustOldCity, CustProv = @CustOldProv, CustPostal = @CustOldPostal, CustCountry = @CustOldCountry, CustHomePhone = @CustOldHomePhone, CustBusPhone = @CustOldBusPhone, CustEmail = @CustOldEmail";
+            string updateString = "UPDATE CUSTOMERS SET CustFirstName = @CustNewFName, CustLastName = @CustNewLName, CustAddress = @CustNewAddress, CustCity = @CustNewCity, CustProv = @CustNewProv, CustPostal = @CustNewPostal, CustCountry = @CustNewCountry, CustHomePhone = @CustNewHomePhone, CustBusPhone = @CustNewBusPhone, CustEmail = @CustNewEmail WHERE CustFirstName = @CustOldFName AND CustLastName = @CustOldLName AND CustAddress = @CustOldAddress AND CustCity = @CustOldCity AND CustProv = @CustOldProv AND CustPostal = @CustOldPostal AND CustCountry = @CustOldCountry AND CustHomePhone = @CustOldHomePhone AND CustBusPhone = @CustOldBusPhone AND CustEmail = @CustOldEmail";
 
             SqlCommand updateCommand = new SqlCommand(updateString, connection);
             updateCommand.Parameters.AddWithValue("@CustOldFname", old_Customer.CustFirstName);
@@ -191,7 +190,7 @@ namespace TravelExpertsWebApp
             }
             finally
             {
-                //connection.Close();
+                connection.Close();
             }
             return successful;
         }

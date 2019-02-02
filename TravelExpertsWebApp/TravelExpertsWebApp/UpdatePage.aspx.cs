@@ -47,6 +47,48 @@ namespace TravelExpertsWebApp
                 connection.Close();
             }
 
+            if (!IsPostBack)
+            {
+                Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+                txtCustFirstName.Text = loggedCustomer.CustFirstName;
+                txtCustLastName.Text = loggedCustomer.CustLastName;
+                txtCustAddress.Text = loggedCustomer.CustAddress;
+                txtCustCity.Text = loggedCustomer.CustCity;
+                ddlCustProv.Text = loggedCustomer.CustProv;
+                txtCustPostal.Text = loggedCustomer.CustPostal;
+                txtCustHomePhone.Text = loggedCustomer.CustHomePhone;
+                txtCustBusPhone.Text = loggedCustomer.CustBusPhone;
+                txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
+                txtCustEmail.Text = loggedCustomer.CustEmail;
+            }
+        }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+            Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+
+            Customers updatedCustomer = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text);
+
+            try
+            {
+                bool updateSuccessful = CustomersDB.UpdateCustomer(loggedCustomer, updatedCustomer);
+                if (updateSuccessful)
+                {
+                    Response.Write("Update successful");
+                }
+                else
+                {
+                    Response.Write("Unable to update information");
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
             Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
             txtCustFirstName.Text = loggedCustomer.CustFirstName;
             txtCustLastName.Text = loggedCustomer.CustLastName;
@@ -58,26 +100,6 @@ namespace TravelExpertsWebApp
             txtCustBusPhone.Text = loggedCustomer.CustBusPhone;
             txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
             txtCustEmail.Text = loggedCustomer.CustEmail;
-        }
-
-        protected void btnSubmit_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void btnCancel_Click(object sender, EventArgs e)
-        {
-            txtCustFirstName.Text = "";
-            txtCustLastName.Text = "";
-            txtCustAddress.Text = "";
-            txtCustCity.Text = "";
-            ddlCustProv.Text = "";
-            txtCustPostal.Text = "";
-            txtCustCountry.Text = "";
-            txtCustHomePhone.Text = "";
-            txtCustBusPhone.Text = "";
-            txtUnconfirmedEmail.Text = "";
-            txtCustEmail.Text = "";
         }
     }
 }
