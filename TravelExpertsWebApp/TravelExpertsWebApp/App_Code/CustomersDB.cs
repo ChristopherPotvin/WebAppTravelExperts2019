@@ -13,6 +13,56 @@ namespace TravelExpertsWebApp
     public static class CustomersDB
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
+        //get customer information
+        public static Customers GetCustomerbyEmail(string custEmail)
+        {
+            Customers cust = null;
+
+            //defineconnection
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            //define the select query command
+            string selectQuery = "SELECT CustomerId, CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail FROM Customers WHERE CustEmail = @CustEmail";
+
+            SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+            selectCommand.Parameters.AddWithValue("@CustEmail", custEmail);
+            try
+            {
+                //open the connection
+                connection.Open();
+
+                //execute the query
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                //process the results
+                while (reader.Read()) //if there is a customer
+                {
+                    cust = new Customers();
+                    cust.CustomerId = (int)reader["CustomerId"];
+                    cust.CustFirstName = reader["CustFirstName"].ToString();
+                    cust.CustLastName = reader["CustLastName"].ToString();
+                    cust.CustAddress = reader["CustAddress"].ToString();
+                    cust.CustCity = reader["CustCity"].ToString();
+                    cust.CustProv = reader["CustProv"].ToString();
+                    cust.CustPostal = reader["CustPostal"].ToString();
+                    cust.CustCountry = reader["CustCountry"].ToString();
+                    cust.CustHomePhone = reader["CustHomePhone"].ToString();
+                    cust.CustBusPhone = reader["CustBusPhone"].ToString();
+                    cust.CustEmail = reader["CustEmail"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return cust;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
         //get customer login 
         public static string GetCustomerLogin(Customers cust)
         {
@@ -118,15 +168,32 @@ namespace TravelExpertsWebApp
             updateCommand.Parameters.AddWithValue("@CustOldEmail", old_Customer.CustEmail);
 
             updateCommand.Parameters.AddWithValue("@CustNewFname", customer.CustFirstName);
-            updateCommand.Parameters.AddWithValue("@CustNewLname", old_Customer.CustLastName);
-            updateCommand.Parameters.AddWithValue("@CustNewAddress", old_Customer.CustAddress);
-            updateCommand.Parameters.AddWithValue("@CustNewCity", old_Customer.CustCity);
+            updateCommand.Parameters.AddWithValue("@CustNewLname", customer.CustLastName);
+            updateCommand.Parameters.AddWithValue("@CustNewAddress", customer.CustAddress);
+            updateCommand.Parameters.AddWithValue("@CustNewCity", customer.CustCity);
             updateCommand.Parameters.AddWithValue("@CustNewProv", old_Customer.CustProv);
             updateCommand.Parameters.AddWithValue("@CustNewPostal", old_Customer.CustPostal);
             updateCommand.Parameters.AddWithValue("@CustNewCountry", old_Customer.CustCountry);
             updateCommand.Parameters.AddWithValue("@CustNewHomePhone", old_Customer.CustHomePhone);
             updateCommand.Parameters.AddWithValue("@CustNewBusPhone", old_Customer.CustBusPhone);
             updateCommand.Parameters.AddWithValue("@CustNewEmail", old_Customer.CustEmail);
+
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count == 1)
+                    successful = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                //connection.Close();
+            }
+            return successful;
         }
     }
 }

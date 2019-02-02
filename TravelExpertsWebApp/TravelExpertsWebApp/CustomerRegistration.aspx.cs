@@ -99,7 +99,7 @@ namespace TravelExpertsWebApp
             if (output == "1")
             {
                 Session["custEmail"] = custEmail;
-                Response.Redirect("CustomerRegistration.aspx");
+                Response.Redirect("HomePage.aspx");
             }
             else
             {
