@@ -59,5 +59,25 @@ namespace TravelExpertsWebApp
             txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
             txtCustEmail.Text = loggedCustomer.CustEmail;
         }
+
+        protected void btnSubmit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancel_Click(object sender, EventArgs e)
+        {
+            txtCustFirstName.Text = "";
+            txtCustLastName.Text = "";
+            txtCustAddress.Text = "";
+            txtCustCity.Text = "";
+            ddlCustProv.Text = "";
+            txtCustPostal.Text = "";
+            txtCustCountry.Text = "";
+            txtCustHomePhone.Text = "";
+            txtCustBusPhone.Text = "";
+            txtUnconfirmedEmail.Text = "";
+            txtCustEmail.Text = "";
+        }
     }
 }

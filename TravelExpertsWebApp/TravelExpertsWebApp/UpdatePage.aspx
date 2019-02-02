@@ -7,11 +7,6 @@
 
 <!DOCTYPE html>
 <uc1:HeadLinks runat="server" ID="HeadLinks" />
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    
-    <title></title>
-</head>
 <body>
     <form id="form1" runat="server">
     <header class="header">
@@ -70,11 +65,12 @@
           </div>
         </div>
       </div>
-        <div>
+        <section>
+        <div class="container" id="update">
             <div class="col-lg-7 col-lg-offset-1">
             <div class="icon"><i class="pe-7s-pen"></i></div>
-            <h4 class="heading margin-bottom">Registration form</h4> 
-            <p class="text-muted">Your amazing vacation awaits.</p>
+            <h4 class="heading margin-bottom">Update Information</h4> 
+            <p class="text-muted">If you want to update your password, <a href="#">click here</a></p>
                   <!-- Registration form for new customers-->
               <div class="row">
                   <!--one row -->
@@ -228,14 +224,15 @@
                 </div>
                   <!--one row -->
                 <div class="col-sm-6">
-                    <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+                    <asp:Button class="btn btn-primary" ID="btnUpdate" runat="server" Text="Update" OnClick="btnSubmit_Click" />
                 </div>
                 <div class="col-sm-6">
                     <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click" />
                 </div>
               </div>
+             </div>
         </div>
-        <uc1:Footer runat="server" ID="Footer" />
+    </section>
     </form>
+    <uc1:Footer runat="server" ID="Footer" />
 </body>
-</html>
