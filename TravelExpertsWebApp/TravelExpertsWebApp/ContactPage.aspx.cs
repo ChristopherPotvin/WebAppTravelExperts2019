@@ -67,7 +67,7 @@ namespace TravelExpertsWebApp
             if (output == "1")
             {
                 Session["custEmail"] = custEmail;
-                Response.Redirect("CustomerRegistration.aspx");
+                Response.Redirect("ContactPage.aspx");
             }
             else
             {
@@ -103,6 +103,12 @@ namespace TravelExpertsWebApp
         {
             txtMessage.Text = "";
             txtSubject.Text = "";
+        }
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            Session.Remove("custEmail");
+            Response.Redirect("HomePage.aspx");
         }
     }
 }

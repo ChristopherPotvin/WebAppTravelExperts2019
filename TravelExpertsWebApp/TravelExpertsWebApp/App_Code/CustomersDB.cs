@@ -63,6 +63,56 @@ namespace TravelExpertsWebApp
         }
 
         [DataObjectMethod(DataObjectMethodType.Select)]
+        //get customer information
+        public static Customers GetCustomerbyPassword(string custPassword)
+        {
+            Customers cust = null;
+
+            //defineconnection
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            //define the select query command
+            string selectQuery = "SELECT CustomerId, CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail FROM Customers WHERE CustPassword = HASHBYTES('SHA1', @CustPassword)";
+
+            SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+            selectCommand.Parameters.AddWithValue("@CustPassword", custPassword);
+            try
+            {
+                //open the connection
+                connection.Open();
+
+                //execute the query
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                //process the results
+                while (reader.Read()) //if there is a customer
+                {
+                    cust = new Customers();
+                    cust.CustomerId = (int)reader["CustomerId"];
+                    cust.CustFirstName = reader["CustFirstName"].ToString();
+                    cust.CustLastName = reader["CustLastName"].ToString();
+                    cust.CustAddress = reader["CustAddress"].ToString();
+                    cust.CustCity = reader["CustCity"].ToString();
+                    cust.CustProv = reader["CustProv"].ToString();
+                    cust.CustPostal = reader["CustPostal"].ToString();
+                    cust.CustCountry = reader["CustCountry"].ToString();
+                    cust.CustHomePhone = reader["CustHomePhone"].ToString();
+                    cust.CustBusPhone = reader["CustBusPhone"].ToString();
+                    cust.CustEmail = reader["CustEmail"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return cust;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
         //get customer login 
         public static string GetCustomerLogin(Customers cust)
         {
@@ -149,7 +199,7 @@ namespace TravelExpertsWebApp
         //updates existing customer record and returns bool success flag
         public static bool UpdateCustomer(Customers old_Customer, Customers customer)
         {
-            bool successful = true;
+            bool successful = false;
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
             string updateString = "UPDATE CUSTOMERS SET CustFirstName = @CustNewFName, CustLastName = @CustNewLName, CustAddress = @CustNewAddress, CustCity = @CustNewCity, CustProv = @CustNewProv, CustPostal = @CustNewPostal, CustCountry = @CustNewCountry, CustHomePhone = @CustNewHomePhone, CustBusPhone = @CustNewBusPhone, CustEmail = @CustNewEmail WHERE CustFirstName = @CustOldFName AND CustLastName = @CustOldLName AND CustAddress = @CustOldAddress AND CustCity = @CustOldCity AND CustProv = @CustOldProv AND CustPostal = @CustOldPostal AND CustCountry = @CustOldCountry AND CustHomePhone = @CustOldHomePhone AND CustBusPhone = @CustOldBusPhone AND CustEmail = @CustOldEmail";
@@ -176,6 +226,38 @@ namespace TravelExpertsWebApp
             updateCommand.Parameters.AddWithValue("@CustNewHomePhone", customer.CustHomePhone);
             updateCommand.Parameters.AddWithValue("@CustNewBusPhone", customer.CustBusPhone);
             updateCommand.Parameters.AddWithValue("@CustNewEmail", customer.CustEmail);
+
+            try
+            {
+                connection.Open();
+                int count = updateCommand.ExecuteNonQuery();
+                if (count == 1)
+                    successful = true;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return successful;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        //updates existing customer record and returns bool success flag
+        public static bool UpdateCustomerPassword(Customers old_Customer, Customers customer)
+        {
+            bool successful = false;
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            string updateString = "UPDATE CUSTOMERS SET CustPassword = HASHBYTES('SHA1', @CustNewPassword) WHERE CustPassword = HASHBYTES('SHA1', @CustOldPassword)";
+
+            SqlCommand updateCommand = new SqlCommand(updateString, connection);
+            updateCommand.Parameters.AddWithValue("@CustOldPassword", old_Customer.CustPassword);
+
+            updateCommand.Parameters.AddWithValue("@CustNewPassword", customer.CustPassword);
 
             try
             {

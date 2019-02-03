@@ -106,5 +106,11 @@ namespace TravelExpertsWebApp
                 Response.Write("Login Failed");
             }
         }
+
+        protected void Logout(object sender, EventArgs e)
+        {            
+            Session.Remove("custEmail");
+            Response.Redirect("HomePage.aspx");
+        }
     }
 }

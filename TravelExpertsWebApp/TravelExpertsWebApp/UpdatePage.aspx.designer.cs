@@ -319,6 +319,51 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.WebControls.Button btnCancel;
         
         /// <summary>
+        /// txtOldCustPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtOldCustPassword;
+        
+        /// <summary>
+        /// txtUnconfirmedNewCustPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtUnconfirmedNewCustPassword;
+        
+        /// <summary>
+        /// txtNewCustPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtNewCustPassword;
+        
+        /// <summary>
+        /// btnUpdtPswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnUpdtPswd;
+        
+        /// <summary>
+        /// DBPasswordValidator control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator DBPasswordValidator;
+        
+        /// <summary>
         /// Footer control.
         /// </summary>
         /// <remarks>

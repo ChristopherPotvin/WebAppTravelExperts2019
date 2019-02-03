@@ -36,7 +36,7 @@
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
                   <li><a href="#">Purchase History</a></li>
                   <li class="divider"></li>
-                  <li><a href="#"><i class="fa fa-sign-out"></i>Log out</a></li>
+                  <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
               </li>
             </ul><a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
@@ -52,9 +52,9 @@
           <div class="modal-header">
             <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
             <h4 class="modal-title" id="Login">Customer login</h4>
-          </div>
+          </div>          
           <div class="modal-body">
-            </div>
+              <form method="post">
               <div class="form-group">
                 <input runat="server" class="form-control" id="email_modal" type="text" placeholder="email">
               </div>
@@ -64,6 +64,7 @@
               <p class="text-center">
                 <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" CausesValidation="False"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
+               </form>
             <p class="text-center text-muted">Not registered yet?</p>
             <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
