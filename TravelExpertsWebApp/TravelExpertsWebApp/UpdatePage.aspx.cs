@@ -104,20 +104,8 @@ namespace TravelExpertsWebApp
 
         protected void btnUpdtPswd_Click(object sender, EventArgs e)
         {
-            
-        }
-
-        protected void DBPasswordValidator_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            Customers isPasswordCorrect = CustomersDB.GetCustomerbyPassword(txtOldCustPassword.Text);
-
-            if (isPasswordCorrect == null)
+            if (Page.IsValid)
             {
-                args.IsValid = false;
-            }
-            else
-            {
-                args.IsValid = true;
                 Customers loggedCustomer = new Customers(Session["custEmail"].ToString(), txtOldCustPassword.Text);
                 Customers updatedPswdCustomer = new Customers(Session["custEmail"].ToString(), txtNewCustPassword.Text);
                 try
@@ -136,6 +124,22 @@ namespace TravelExpertsWebApp
                 {
                     throw ex;
                 }
+            }
+            
+        }
+
+        protected void DBPasswordValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            Customers isPasswordCorrect = CustomersDB.GetCustomerbyPassword(txtOldCustPassword.Text);
+
+            if (isPasswordCorrect == null)
+            {
+                args.IsValid = false;
+                Response.Write("Unable to update information validator");
+            }
+            else
+            {
+                args.IsValid = true;              
             }
         }
 

@@ -254,7 +254,7 @@
                 <asp:TextBox class="form-control" type="password" ID="txtNewCustPassword" placeholder="Confirm new password" runat="server"></asp:TextBox>
               </div>
               <p class="text-center">
-                  <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Button" style="height: 36px" ValidationGroup="ModalValidation" />
+                  <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Button" style="height: 36px" ValidationGroup="ModalValidation" OnClick ="btnUpdtPswd_Click"/>
                   
               </p>
             </form>
