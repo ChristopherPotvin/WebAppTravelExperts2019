@@ -101,5 +101,31 @@ namespace TravelExpertsWebApp
             txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
             txtCustEmail.Text = loggedCustomer.CustEmail;
         }
+
+        protected void btnUpdtPswd_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        protected void DBPasswordValidator_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            Customers isPasswordCorrect = CustomersDB.GetCustomerbyPassword(txtOldCustPassword.Text);
+
+            if (isPasswordCorrect == null)
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
+                Response.Write("its good son");
+            }
+        }
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            Session.Remove("custEmail");
+            Response.Redirect("HomePage.aspx");
+        }
     }
 }

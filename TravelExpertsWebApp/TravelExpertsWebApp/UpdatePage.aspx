@@ -35,7 +35,7 @@
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
                   <li><a href="#">Purchase History</a></li>
                   <li class="divider"></li>
-                  <li><a href="HomePage.aspx"><i class="fa fa-sign-out"></i>Log out</a></li>
+                  <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
               </li>
             </ul><a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
@@ -70,7 +70,7 @@
             <div class="col-lg-7 col-lg-offset-1">
             <div class="icon"><i class="pe-7s-pen"></i></div>
             <h4 class="heading margin-bottom">Update Information</h4> 
-            <p class="text-muted">If you want to update your password, <a href="#">click here</a></p>
+            <p class="text-muted">If you want to update your password, <a href="#"  data-target="#password-modal" data-toggle="modal" id="passwordUpdate">click here</a></p>
                   <!-- Registration form for new customers-->
               <div class="row">
                   <!--one row -->
@@ -233,6 +233,35 @@
              </div>
         </div>
     </section>
+        <!-- password modal -->
+    <div tabindex="-1" class="modal fade" id="password-modal" role="dialog" aria-hidden="true" aria-labelledby="pswdUpdate">
+      <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+            <h4 class="modal-title" id="pswdUpdate">Password Update</h4>
+          </div>
+          <div class="modal-body">
+             </div>
+              <div class="form-group">
+                <asp:TextBox class="form-control" type="password" ID="txtOldCustPassword" placeholder="Old password" runat="server"></asp:TextBox>
+              </div>
+              <div class="form-group">
+                <asp:TextBox class="form-control" type="password" ID="txtUnconfirmedNewCustPassword" placeholder="New password" runat="server"></asp:TextBox>
+              </div>
+               <div class="form-group">
+                <asp:TextBox class="form-control" type="password" ID="txtNewCustPassword" placeholder="Confirm new password" runat="server"></asp:TextBox>
+              </div>
+              <p class="text-center">
+                  <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Button" style="height: 36px" ValidationGroup="ModalValidation" />
+                  <asp:CustomValidator ID="DBPasswordValidator" runat="server" ErrorMessage="Password is incorrect. Please try again." ControlToValidate="txtOldCustPassword" ForeColor="Red" OnServerValidate="DBPasswordValidator_ServerValidate" ValidationGroup="ModalValidation"></asp:CustomValidator>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- login modal end (done) -->
     </form>
     <uc1:Footer runat="server" ID="Footer" />
 </body>

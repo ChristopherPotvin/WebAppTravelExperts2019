@@ -67,12 +67,18 @@ namespace TravelExpertsWebApp
             if (output == "1")
             {
                 Session["custEmail"] = custEmail;
-                Response.Redirect("CustomerRegistration.aspx");
+                Response.Redirect("ItemsBought.aspx");
             }
             else
             {
                 Response.Write("Login Failed");
             }
+        }
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            Session.Remove("custEmail");
+            Response.Redirect("HomePage.aspx");
         }
     }
 }

@@ -36,7 +36,7 @@
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
                   <li><a href="#">Purchase History</a></li>
                   <li class="divider"></li>
-                  <li><a href="#"><i class="fa fa-sign-out"></i>Log out</a></li>
+                  <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
               </li>
             </ul><a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
