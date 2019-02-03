@@ -118,7 +118,24 @@ namespace TravelExpertsWebApp
             else
             {
                 args.IsValid = true;
-                Response.Write("its good son");
+                Customers loggedCustomer = new Customers(Session["custEmail"].ToString(), txtOldCustPassword.Text);
+                Customers updatedPswdCustomer = new Customers(Session["custEmail"].ToString(), txtNewCustPassword.Text);
+                try
+                {
+                    bool updatePswdSuccessful = CustomersDB.UpdateCustomerPassword(loggedCustomer, updatedPswdCustomer);
+                    if (updatePswdSuccessful)
+                    {
+                        Response.Write("Update successful");
+                    }
+                    else
+                    {
+                        Response.Write("Unable to update information");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
             }
         }
 
