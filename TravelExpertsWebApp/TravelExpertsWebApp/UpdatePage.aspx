@@ -245,6 +245,7 @@
              </div>
               <div class="form-group">
                 <asp:TextBox class="form-control" type="password" ID="txtOldCustPassword" placeholder="Old password" runat="server"></asp:TextBox>
+                  <asp:CustomValidator ID="DBPasswordValidator" runat="server" ErrorMessage="Password is incorrect. Please try again." ControlToValidate="txtOldCustPassword" ForeColor="Red" OnServerValidate="DBPasswordValidator_ServerValidate" ValidationGroup="ModalValidation" Display="Dynamic"></asp:CustomValidator>
               </div>
               <div class="form-group">
                 <asp:TextBox class="form-control" type="password" ID="txtUnconfirmedNewCustPassword" placeholder="New password" runat="server"></asp:TextBox>
@@ -254,7 +255,7 @@
               </div>
               <p class="text-center">
                   <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Button" style="height: 36px" ValidationGroup="ModalValidation" />
-                  <asp:CustomValidator ID="DBPasswordValidator" runat="server" ErrorMessage="Password is incorrect. Please try again." ControlToValidate="txtOldCustPassword" ForeColor="Red" OnServerValidate="DBPasswordValidator_ServerValidate" ValidationGroup="ModalValidation"></asp:CustomValidator>
+                  
               </p>
             </form>
           </div>
