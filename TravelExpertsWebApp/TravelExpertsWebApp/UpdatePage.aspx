@@ -219,7 +219,7 @@
                 </div>
                   <div class="col-sm-6">
                      <div class="form-group">
-                         <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red"></asp:CompareValidator>
+                         <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                       </div>
                 </div>
                   <!--one row -->
@@ -246,16 +246,19 @@
               <div class="form-group">
                 <asp:TextBox class="form-control" type="password" ID="txtOldCustPassword" placeholder="Old password" runat="server"></asp:TextBox>
                   <asp:CustomValidator ID="DBPasswordValidator" runat="server" ErrorMessage="Password is incorrect. Please try again." ControlToValidate="txtOldCustPassword" ForeColor="Red" OnServerValidate="DBPasswordValidator_ServerValidate" ValidationGroup="ModalValidation" Display="Dynamic"></asp:CustomValidator>
+                   <asp:RequiredFieldValidator ID="OldPswdRequired" runat="server" Display="Dynamic" ErrorMessage="Old password is required" ForeColor="Red" ControlToValidate="txtOldCustPassword" ValidationGroup="ModalValidation"></asp:RequiredFieldValidator>
               </div>
               <div class="form-group">
                 <asp:TextBox class="form-control" type="password" ID="txtUnconfirmedNewCustPassword" placeholder="New password" runat="server"></asp:TextBox>
+                <asp:RequiredFieldValidator ID="UnconfirmedNewPswdRequired" runat="server" Display="Dynamic" ErrorMessage="New password is required" ForeColor="Red" ControlToValidate="txtUnconfirmedNewCustPassword" ValidationGroup="ModalValidation"></asp:RequiredFieldValidator>
               </div>
                <div class="form-group">
                 <asp:TextBox class="form-control" type="password" ID="txtNewCustPassword" placeholder="Confirm new password" runat="server"></asp:TextBox>
+               <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" Display="Dynamic" ErrorMessage="Please confirm your new password" ForeColor="Red" ControlToValidate="txtNewCustPassword" ValidationGroup="ModalValidation"></asp:RequiredFieldValidator>
+                   <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtUnconfirmedNewCustPassword" ControlToValidate="txtNewCustPassword" ErrorMessage="Passwords do not match" ForeColor="Red" ValidationGroup="ModalValidation" Display="Dynamic"></asp:CompareValidator>
               </div>
               <p class="text-center">
-                  <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Button" style="height: 36px" ValidationGroup="ModalValidation" OnClick ="btnUpdtPswd_Click"/>
-                  
+                  <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Button" style="height: 36px" ValidationGroup="ModalValidation" OnClick ="btnUpdtPswd_Click"/>                 
               </p>
             </form>
           </div>

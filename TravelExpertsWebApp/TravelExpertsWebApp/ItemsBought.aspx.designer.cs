@@ -49,22 +49,49 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.HtmlControls.HtmlAnchor mainBtnLogin;
         
         /// <summary>
-        /// email_modal control.
+        /// txtModalCustEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText email_modal;
+        protected global::System.Web.UI.WebControls.TextBox txtModalCustEmail;
         
         /// <summary>
-        /// password_modal control.
+        /// requiredLoginModalEmail control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputPassword password_modal;
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredLoginModalEmail;
+        
+        /// <summary>
+        /// ValidateModalEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator ValidateModalEmail;
+        
+        /// <summary>
+        /// txtModalCustPassword control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtModalCustPassword;
+        
+        /// <summary>
+        /// requiredLoginModalPswd control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredLoginModalPswd;
         
         /// <summary>
         /// subBtnLogin control.
