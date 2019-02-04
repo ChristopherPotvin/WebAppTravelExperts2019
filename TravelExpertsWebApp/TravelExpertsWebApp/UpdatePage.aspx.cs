@@ -124,8 +124,7 @@ namespace TravelExpertsWebApp
                 {
                     throw ex;
                 }
-            }
-            
+            }            
         }
 
         protected void DBPasswordValidator_ServerValidate(object source, ServerValidateEventArgs args)
