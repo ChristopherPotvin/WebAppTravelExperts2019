@@ -175,7 +175,7 @@ namespace TravelExpertsWebApp
 
                 //execute the statement
                 int i = insertCommand.ExecuteNonQuery();
-                if(i == 1) //one record inserted
+                if(i >= 1) //one record inserted
                 {
                     // retrieve customer id from the added record
                     //ident_current Returns the last identity value generated for the customers table
@@ -231,7 +231,7 @@ namespace TravelExpertsWebApp
             {
                 connection.Open();
                 int count = updateCommand.ExecuteNonQuery();
-                if (count == 1)
+                if (count >= 1)
                     successful = true;
             }
             catch (Exception ex)
@@ -263,7 +263,7 @@ namespace TravelExpertsWebApp
             {
                 connection.Open();
                 int count = updateCommand.ExecuteNonQuery();
-                if (count == 1)
+                if (count >= 1)
                     successful = true;
             }
             catch (Exception ex)
