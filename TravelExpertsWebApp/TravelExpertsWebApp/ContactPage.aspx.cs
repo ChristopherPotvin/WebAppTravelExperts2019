@@ -8,6 +8,7 @@ using System.Web.UI;
 using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 using TravelExpertsWebApp.App_Code;
+using TravelExpertsWebApp.Model;
 
 namespace TravelExpertsWebApp
 {
@@ -57,17 +58,17 @@ namespace TravelExpertsWebApp
 
         protected void LoginButton(object sender, EventArgs e)
         {
-            string custEmail = String.Format("{0}", Request.Form["email_modal"]);
-            string custPassword = String.Format("{0}", Request.Form["password_modal"]);
+           // string custEmail = String.Format("{0}", Request.Form["email_modal"]);
+            //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
 
-            Customers custLogin = new Customers(custEmail, custPassword);
+            Customers custLogin = new Customers(txtModalCustEmail.Text, txtModalCustPassword.Text);
 
             string output = CustomersDB.GetCustomerLogin(custLogin);
 
             if (output == "1")
             {
-                Session["custEmail"] = custEmail;
-                Response.Redirect("CustomerRegistration.aspx");
+                Session["custEmail"] = txtModalCustEmail.Text;
+                Response.Redirect("ContactPage.aspx");
             }
             else
             {
@@ -77,17 +78,18 @@ namespace TravelExpertsWebApp
 
         protected void btnSubmit_Click(object sender, EventArgs e) // submit button for customer contact page
         {
+            CustomerContact customer = new CustomerContact(txtCustFirstName.Text, txtCustLastName.Text, txtEmail.Text, txtSubject.Text, txtMessage.Text);
+            try
+            {
+                bool insertCustomerContact = CustomerContactDB.InsertCustomerContactInfo(customer);
 
+            }
 
-            //CustomerContact customer = new CustomerContact(txtCustFirstName.Text, txtCustLastName.Text, txtEmail.Text, txtSubject.Text, txtMessage.Text);
-            //try
-            //{
-            //    int insertCustomerContact = CustomerContactDB.AddCustomer(customer);
-            //}
-            //catch (Exception ex)
-            //{
-            //    throw ex;
-            //}
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
         }
 
         protected void btnCancel_Click(object sender, EventArgs e) // cancel button for customer contact page
@@ -99,10 +101,16 @@ namespace TravelExpertsWebApp
             txtSubject.Text = "";
         }
 
-        protected void btnReset_Click(object sender, EventArgs e) // reset button for customer contact page
+        protected void btnReset_Click1(object sender, EventArgs e)
         {
             txtMessage.Text = "";
             txtSubject.Text = "";
+        }
+
+        protected void Logout(object sender, EventArgs e)
+        {
+            Session.Remove("custEmail");
+            Response.Redirect("HomePage.aspx");
         }
     }
 }

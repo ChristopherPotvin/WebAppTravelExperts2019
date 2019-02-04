@@ -1,5 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Footer.ascx.cs" Inherits="TravelExpertsWebApp.Footer" %>
-
  <!-- start of the footer (done)-->
     <footer class="footer">
       <div class="footer__block">
@@ -30,8 +29,9 @@
               <p>Sign up to get access to our newest travel deals and discounts on our travel packages</p>
               <form class="footer__newsletter">
                 <div class="input-group">
-                  <input class="form-control" type="text" placeholder="Enter your email address"><span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><i class="fa fa-send"></i></button></span>
+<%--                    <asp:TextBox ID="txtEmail" runat="server" Height="32px" Width="245px"></asp:TextBox>--%>
+<%--                    <br /><br />--%>
+<%--                    <asp:Button class="btn btn-secondary" ID="btnSendEmail" runat="server" Text="Subscribe" OnClick="btnSendEmail_Click" />--%>
                 </div>
               </form>
             </div>
@@ -50,13 +50,13 @@
             </div>
               <div class="col-md-6">
                 <p>Images by Pexels.com</p>
+                  <p>Icons by Icons8.com</p>
             </div>
           </div>
         </div>
       </div>
     </footer>
     <!-- End of the footer (done) -->
-
     <!-- Javascript files, PLEASE DON'T TOUCH THESE-->
     <script src="//www.google-analytics.com/analytics.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

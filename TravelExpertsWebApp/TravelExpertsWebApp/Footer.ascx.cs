@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using TravelExpertsWebApp.Model;
 
 namespace TravelExpertsWebApp
 {
@@ -12,6 +13,22 @@ namespace TravelExpertsWebApp
         protected void Page_Load(object sender, EventArgs e)
         {
 
+        }
+
+        protected void btnSendEmail_Click(object sender, EventArgs e)
+        {
+            EmailSubscription newEmail = new EmailSubscription(txtEmail.Text);
+
+            try
+            {
+                bool insertEmail = EmailSubscriptionDB.InsertEmailSubscriptionInfo(newEmail);
+
+            }
+
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
     }
 }

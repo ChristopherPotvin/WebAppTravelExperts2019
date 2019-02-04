@@ -33,10 +33,10 @@
               <li><a href="ContactPage.aspx">Contact</a></li>
               <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="#">Update Information</a></li>
+                  <li><a href="UpdatePage.aspx">Update Information</a></li>
                   <li><a href="#">Purchase History</a></li>
                   <li class="divider"></li>
-                  <li><a href="#"><i class="fa fa-sign-out"></i>Log out</a></li>
+                  <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
               </li>
             </ul><a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
@@ -54,17 +54,19 @@
             <h4 class="modal-title" id="Login">Customer login</h4>
           </div>
           <div class="modal-body">
-            <form action="customer-orders.html" method="post">
+            </div>
               <div class="form-group">
-                <input runat="server" class="form-control" id="email_modal" type="text" placeholder="email">
+                <asp:TextBox class="form-control" type="email" ID="txtModalCustEmail" placeholder="Email" runat="server"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="requiredLoginModalEmail" runat="server" Display="Dynamic" ErrorMessage="Please enter your email" ForeColor="Red" ControlToValidate="txtModalCustEmail" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator ID="ValidateModalEmail" runat="server" ControlToValidate="txtModalCustEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ValidationGroup="ModalLoginValidation" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
               </div>
               <div class="form-group">
-                <input runat="server" class="form-control" id="password_modal" type="password" placeholder="password">
+                <asp:TextBox class="form-control" type="password" ID="txtModalCustPassword" placeholder="Password" runat="server"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="requiredLoginModalPswd" runat="server" Display="Dynamic" ErrorMessage="Please enter your password" ForeColor="Red" ControlToValidate="txtModalCustPassword" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
               </div>
               <p class="text-center">
-                <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" CausesValidation="False"><i class="fa fa-sign-in"></i> Log in</button>
+                <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" ValidationGroup="ModalLoginValidation"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
-            </form>
             <p class="text-center text-muted">Not registered yet?</p>
             <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
@@ -72,136 +74,20 @@
       </div>
     </div>
     <!-- login modal end (done) -->
-    <br /><br />
+    <br />
+        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="odsItemsBought">
+            <Columns>
+                <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
+                <asp:BoundField DataField="TravelerCount" HeaderText="TravelerCount" SortExpression="TravelerCount" />
+                <asp:BoundField DataField="Destination" HeaderText="Destination" SortExpression="Destination" />
+                <asp:BoundField DataField="TripStart" HeaderText="TripStart" SortExpression="TripStart" />
+                <asp:BoundField DataField="TripEnd" HeaderText="TripEnd" SortExpression="TripEnd" />
+                <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
+            </Columns>
+        </asp:GridView>
+    </form>
+    <br />
         <div class="container">
-            <asp:ListView ID="ListView1" runat="server" DataSourceID="odsItemsBought" style="font-size: small; text-align: center">
-                <AlternatingItemTemplate>
-                    <span style="">Description:
-                    <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
-                    <br />
-                    TravelerCount:
-                    <asp:Label ID="TravelerCountLabel" runat="server" Text='<%# Eval("TravelerCount") %>' />
-                    <br />
-                    Destination:
-                    <asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' />
-                    <br />
-                    TripStart:
-                    <asp:Label ID="TripStartLabel" runat="server" Text='<%# Eval("TripStart") %>' />
-                    <br />
-                    TripEnd:
-                    <asp:Label ID="TripEndLabel" runat="server" Text='<%# Eval("TripEnd") %>' />
-                    <br />
-                    Price:
-                    <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
-                    <br />
-                    <br />
-                    </span>
-                </AlternatingItemTemplate>
-                <EditItemTemplate>
-                    <span style="">Description:
-                    <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
-                    <br />
-                    TravelerCount:
-                    <asp:TextBox ID="TravelerCountTextBox" runat="server" Text='<%# Bind("TravelerCount") %>' />
-                    <br />
-                    Destination:
-                    <asp:TextBox ID="DestinationTextBox" runat="server" Text='<%# Bind("Destination") %>' />
-                    <br />
-                    TripStart:
-                    <asp:TextBox ID="TripStartTextBox" runat="server" Text='<%# Bind("TripStart") %>' />
-                    <br />
-                    TripEnd:
-                    <asp:TextBox ID="TripEndTextBox" runat="server" Text='<%# Bind("TripEnd") %>' />
-                    <br />
-                    Price:
-                    <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
-                    <br />
-                    <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Update" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancel" />
-                    <br />
-                    <br />
-                    </span>
-                </EditItemTemplate>
-                <EmptyDataTemplate>
-                    <span>No data was returned.</span>
-                </EmptyDataTemplate>
-                <InsertItemTemplate>
-                    <span style="">Description:
-                    <asp:TextBox ID="DescriptionTextBox" runat="server" Text='<%# Bind("Description") %>' />
-                    <br />
-                    TravelerCount:
-                    <asp:TextBox ID="TravelerCountTextBox" runat="server" Text='<%# Bind("TravelerCount") %>' />
-                    <br />
-                    Destination:
-                    <asp:TextBox ID="DestinationTextBox" runat="server" Text='<%# Bind("Destination") %>' />
-                    <br />
-                    TripStart:
-                    <asp:TextBox ID="TripStartTextBox" runat="server" Text='<%# Bind("TripStart") %>' />
-                    <br />
-                    TripEnd:
-                    <asp:TextBox ID="TripEndTextBox" runat="server" Text='<%# Bind("TripEnd") %>' />
-                    <br />
-                    Price:
-                    <asp:TextBox ID="PriceTextBox" runat="server" Text='<%# Bind("Price") %>' />
-                    <br />
-                    <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insert" />
-                    <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Clear" />
-                    <br />
-                    <br />
-                    </span>
-                </InsertItemTemplate>
-                <ItemTemplate>
-                    <span style="">Description:
-                    <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
-                    <br />
-                    TravelerCount:
-                    <asp:Label ID="TravelerCountLabel" runat="server" Text='<%# Eval("TravelerCount") %>' />
-                    <br />
-                    Destination:
-                    <asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' />
-                    <br />
-                    TripStart:
-                    <asp:Label ID="TripStartLabel" runat="server" Text='<%# Eval("TripStart") %>' />
-                    <br />
-                    TripEnd:
-                    <asp:Label ID="TripEndLabel" runat="server" Text='<%# Eval("TripEnd") %>' />
-                    <br />
-                    Price:
-                    <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
-                    <br />
-                    <br />
-                    </span>
-                </ItemTemplate>
-                <LayoutTemplate>
-                    <div id="itemPlaceholderContainer" runat="server" style="">
-                        <span runat="server" id="itemPlaceholder" />
-                    </div>
-                    <div style="">
-                    </div>
-                </LayoutTemplate>
-                <SelectedItemTemplate>
-                    <span style="">Description:
-                    <asp:Label ID="DescriptionLabel" runat="server" Text='<%# Eval("Description") %>' />
-                    <br />
-                    TravelerCount:
-                    <asp:Label ID="TravelerCountLabel" runat="server" Text='<%# Eval("TravelerCount") %>' />
-                    <br />
-                    Destination:
-                    <asp:Label ID="DestinationLabel" runat="server" Text='<%# Eval("Destination") %>' />
-                    <br />
-                    TripStart:
-                    <asp:Label ID="TripStartLabel" runat="server" Text='<%# Eval("TripStart") %>' />
-                    <br />
-                    TripEnd:
-                    <asp:Label ID="TripEndLabel" runat="server" Text='<%# Eval("TripEnd") %>' />
-                    <br />
-                    Price:
-                    <asp:Label ID="PriceLabel" runat="server" Text='<%# Eval("Price") %>' />
-                    <br />
-                    <br />
-                    </span>
-                </SelectedItemTemplate>
-            </asp:ListView>
             <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"></asp:ObjectDataSource>
         </div>
         <!-- start of the footer (done)-->

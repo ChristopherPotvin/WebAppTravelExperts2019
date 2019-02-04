@@ -4,7 +4,6 @@
 <%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
 
 
-
 <!DOCTYPE html>
 
 <html>
@@ -35,10 +34,10 @@
               <li><a href="ContactPage.aspx">Contact</a></li>
               <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="#">Update Information</a></li>
+                  <li><a href="UpdatePage.aspx">Update Information</a></li>
                   <li><a href="#">Purchase History</a></li>
                   <li class="divider"></li>
-                  <li><a href="#"><i class="fa fa-sign-out"></i>Log out</a></li>
+                  <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
               </li>
             </ul><a runat="server" class="btn navbar-btn btn-ghost" href="#" data-target="#login-modal" data-toggle="modal" id="mainBtnLogin"><i class="fa fa-sign-in"></i>Log in</a>
@@ -56,23 +55,24 @@
             <h4 class="modal-title" id="Login">Customer login</h4>
           </div>
           <div class="modal-body">
-            <form action="customer-orders.html" method="post">
+            </div>
               <div class="form-group">
-                <input runat="server" class="form-control" id="email_modal" type="text" placeholder="email">
+                <asp:TextBox class="form-control" type="email" ID="txtModalCustEmail" placeholder="Email" runat="server"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="requiredLoginModalEmail" runat="server" Display="Dynamic" ErrorMessage="Please enter your email" ForeColor="Red" ControlToValidate="txtModalCustEmail" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
+                   <asp:RegularExpressionValidator ID="ValidateModalEmail" runat="server" ControlToValidate="txtModalCustEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ValidationGroup="ModalLoginValidation" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
               </div>
               <div class="form-group">
-                <input runat="server" class="form-control" id="password_modal" type="password" placeholder="password">
+                <asp:TextBox class="form-control" type="password" ID="txtModalCustPassword" placeholder="Password" runat="server"></asp:TextBox>
+                   <asp:RequiredFieldValidator ID="requiredLoginModalPswd" runat="server" Display="Dynamic" ErrorMessage="Please enter your password" ForeColor="Red" ControlToValidate="txtModalCustPassword" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
               </div>
               <p class="text-center">
-                <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" CausesValidation="False"><i class="fa fa-sign-in"></i> Log in</button>
+                <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" ValidationGroup="ModalLoginValidation"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
-            </form>
             <p class="text-center text-muted">Not registered yet?</p>
             <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
         </div>
       </div>
-    </div>
     <!-- ond of login model, can we attach SQL authentication to this? -->
 
     <!-- start of contact UI (done) -->
@@ -180,13 +180,14 @@
                       <asp:RequiredFieldValidator ID="RequiredMessage" runat="server" ControlToValidate="txtMessage" ErrorMessage="A message is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
-                <div class="col-sm-12">
+                <div class="col-sm-12"><br />
                   <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Send a message" CausesValidation="False" OnClick="btnSubmit_Click" Height="32px" Width="245px" />
                 </div>                
-                  <div class="col-sm-12">
-                    <asp:Button class="btn btn-secondary" ID="btnReset" runat="server" Text="Reset" CausesValidation="False" OnClick="btnReset_Click" Height="32px" Width="245px" />
+                  <div class="col-sm-12"><br />
+                      <asp:Button class="btn btn-secondary" ID="btnReset" runat="server" Height="32px" Text="Reset" Width="245px" OnClick="btnReset_Click1" />
+                      <br />
                   </div>                
-                <div class="col-sm-12">
+                <div class="col-sm-12"><br />
                     <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click" Height="32px" Width="245px" />
                 </div>
               </div>
@@ -210,10 +211,10 @@
 		id: 'mapbox.streets'
 	}).addTo(mymap);
 
-</script>
+        </script>
     <!-- end of map UI LeafLet (done)-->
    <!-- start of the footer (done)-->
    <uc1:Footer runat="server" ID="Footer" />
-  </form>
+</form>
 </body>
 </html>

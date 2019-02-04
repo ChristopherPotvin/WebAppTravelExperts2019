@@ -89,22 +89,28 @@ namespace TravelExpertsWebApp
         {
             string hashedPswd = HashPassword.ApplyHash(txtCustPassword.Text);
 
-            string custEmail = String.Format("{0}", Request.Form["email_modal"]);
-            string custPassword = String.Format("{0}", Request.Form["password_modal"]);
+            //string custEmail = String.Format("{0}", Request.Form["email_modal"]);
+            //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
 
-            Customers custLogin = new Customers(custEmail, custPassword);
+            Customers custLogin = new Customers(txtModalCustEmail.Text, txtModalCustPassword.Text);
 
             string output = CustomersDB.GetCustomerLogin(custLogin);
 
             if (output == "1")
             {
-                Session["custEmail"] = custEmail;
+                Session["custEmail"] = txtModalCustEmail.Text;
                 Response.Redirect("CustomerRegistration.aspx");
             }
             else
             {
                 Response.Write("Login Failed");
             }
+        }
+
+        protected void Logout(object sender, EventArgs e)
+        {            
+            Session.Remove("custEmail");
+            Response.Redirect("HomePage.aspx");
         }
     }
 }

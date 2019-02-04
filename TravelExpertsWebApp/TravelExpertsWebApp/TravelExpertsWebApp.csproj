@@ -141,6 +141,13 @@
     <Content Include="css\style.violet.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="UpdatePage.aspx.cs">
+      <DependentUpon>UpdatePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UpdatePage.aspx.designer.cs">
+      <DependentUpon>UpdatePage.aspx</DependentUpon>
+    </Compile>
     <Content Include="App_Code\CustomerContact.cs" />
     <Content Include="App_Code\CustomerContactDB.cs" />
     <Compile Include="App_Code\CustomersDB.cs" />
@@ -148,8 +155,6 @@
     <Content Include="App_Code\PackagesDB.cs" />
     <Content Include="App_Code\ItemsBoughtDB.cs" />
     <Content Include="App_Code\ItemsBought.cs" />
-    <Content Include="App_Code\EmailSubscription.cs" />
-    <Content Include="App_Code\EmailSubsriptionDB.cs" />
     <Compile Include="App_Code\TravelExpertsDB.cs" />
     <Compile Include="App_Code\Customers.cs" />
     <Compile Include="ContactPage.aspx.cs">
@@ -202,6 +207,10 @@
     <Compile Include="ItemsBought.aspx.designer.cs">
       <DependentUpon>ItemsBought.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Model\CustomerContact.cs" />
+    <Compile Include="Model\CustomerContactDB.cs" />
+    <Compile Include="Model\EmailSubscription.cs" />
+    <Compile Include="Model\EmailSubscriptionDB.cs" />
     <Compile Include="Packages.aspx.cs">
       <DependentUpon>Packages.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -235,11 +244,11 @@
     <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+    <Content Include="UpdatePage.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Model\" />
     <Folder Include="Stripe\" />
   </ItemGroup>
   <PropertyGroup>
