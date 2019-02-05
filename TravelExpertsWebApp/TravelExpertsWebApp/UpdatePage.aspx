@@ -242,7 +242,7 @@
             <h4 class="modal-title" id="pswdUpdate">Password Update</h4>
           </div>
           <div class="modal-body">
-             </div>
+            <form action="customer-orders.html" method="post">
               <div class="form-group">
                 <asp:TextBox class="form-control" type="password" ID="txtOldCustPassword" placeholder="Old password" runat="server"></asp:TextBox>
                   <asp:CustomValidator ID="DBPasswordValidator" runat="server" ErrorMessage="Password is incorrect. Please try again." ControlToValidate="txtOldCustPassword" ForeColor="Red" OnServerValidate="DBPasswordValidator_ServerValidate" ValidationGroup="ModalValidation" Display="Dynamic"></asp:CustomValidator>
@@ -266,6 +266,7 @@
       </div>
     </div>
     <!-- login modal end (done) -->
+        <uc1:Footer runat="server" ID="Footer" />
     </form>
-    <uc1:Footer runat="server" ID="Footer" />
+    
 </body>

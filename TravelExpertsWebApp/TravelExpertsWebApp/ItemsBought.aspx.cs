@@ -57,10 +57,11 @@ namespace TravelExpertsWebApp
 
         protected void LoginButton(object sender, EventArgs e)
         {
-           // string custEmail = String.Format("{0}", Request.Form["email_modal"]);
-           // string custPassword = String.Format("{0}", Request.Form["password_modal"]);
+            string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
+            // string custEmail = String.Format("{0}", Request.Form["email_modal"]);
+            // string custPassword = String.Format("{0}", Request.Form["password_modal"]);
 
-            Customers custLogin = new Customers(txtModalCustEmail.Text, txtModalCustPassword.Text);
+            Customers custLogin = new Customers(txtModalCustEmail.Text, hashedPswd);
 
             string output = CustomersDB.GetCustomerLogin(custLogin);
 
