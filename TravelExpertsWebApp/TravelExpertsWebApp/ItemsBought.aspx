@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsBought.aspx.cs" Inherits="TravelExpertsWebApp.ItemsBought" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
+<%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+
 
 
 <!DOCTYPE html>
@@ -8,7 +10,6 @@
 <html>
 <uc1:HeadLinks runat="server" ID="HeadLinks" />
 <body>
-    <form>
     <form runat="server">
      <!-- start of navigation bar in the header (done) -->
      <header class="header">
@@ -85,7 +86,6 @@
                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
             </Columns>
         </asp:GridView>
-    </form>
     <br />
         <div class="container">
             <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"></asp:ObjectDataSource>
@@ -140,7 +140,7 @@
             </div>
         </div>
         <!-- start of the footer (done)-->
-    <uc1:Footer runat="server" id="Footer" />
+        <uc1:Footer runat="server" ID="Footer" />
    </form>
 </body>
 </html>
