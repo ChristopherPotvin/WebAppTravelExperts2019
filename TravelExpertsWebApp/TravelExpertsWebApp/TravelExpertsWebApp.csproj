@@ -80,6 +80,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="ActivationPage.aspx" />
+    <Content Include="ConfirmationPage.aspx" />
     <Content Include="ContactPage.aspx" />
     <Content Include="css\button.css" />
     <Content Include="css\reset.css" />
@@ -141,6 +143,21 @@
     <Content Include="css\style.violet.css" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivationPage.aspx.cs">
+      <DependentUpon>ActivationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ActivationPage.aspx.designer.cs">
+      <DependentUpon>ActivationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmationPage.aspx.cs">
+      <DependentUpon>ConfirmationPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmationPage.aspx.designer.cs">
+      <DependentUpon>ConfirmationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\CustomerActivationDB.cs" />
     <Compile Include="UpdatePage.aspx.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

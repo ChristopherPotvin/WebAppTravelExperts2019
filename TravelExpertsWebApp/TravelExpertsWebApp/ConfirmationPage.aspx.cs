@@ -11,7 +11,7 @@ using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp
 {
-    public partial class ItemsBought : System.Web.UI.Page
+    public partial class ConfirmationPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -60,8 +60,9 @@ namespace TravelExpertsWebApp
             if (Page.IsValid)
             {
                 string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
-                // string custEmail = String.Format("{0}", Request.Form["email_modal"]);
-                // string custPassword = String.Format("{0}", Request.Form["password_modal"]);
+
+                //string custEmail = String.Format("{0}", Request.Form["email_modal"]);
+                //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
 
                 Customers custLogin = new Customers(txtModalCustEmail.Text, hashedPswd);
 
@@ -70,19 +71,34 @@ namespace TravelExpertsWebApp
                 if (output == "1")
                 {
                     Session["custEmail"] = txtModalCustEmail.Text;
-                    Response.Redirect("ItemsBought.aspx");
+                    Response.Redirect("CustomerRegistration.aspx");
                 }
                 else
                 {
                     Response.Write("Login Failed");
                 }
-            }           
+            }
         }
 
         protected void Logout(object sender, EventArgs e)
         {
             Session.Remove("custEmail");
             Response.Redirect("HomePage.aspx");
+        }
+
+        protected void DBANotActivated_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string activationStatus = CustomersDB.isActivated(txtModalCustEmail.Text);
+
+            if (activationStatus == "No")
+            {
+                args.IsValid = false;
+                Response.Write("Registration incomplete. Please activate your account (see instructions sent to your email)");
+            }
+            else
+            {
+                args.IsValid = true;
+            }
         }
     }
 }

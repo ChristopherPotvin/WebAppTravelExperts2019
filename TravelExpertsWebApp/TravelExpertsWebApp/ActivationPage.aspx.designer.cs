@@ -10,7 +10,7 @@
 namespace TravelExpertsWebApp {
     
     
-    public partial class HomePage {
+    public partial class ActivationPage {
         
         /// <summary>
         /// HeadLinks control.
@@ -112,12 +112,21 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.HtmlControls.HtmlButton subBtnLogin;
         
         /// <summary>
-        /// Footer control.
+        /// activationConfirmation control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::TravelExpertsWebApp.Footer Footer;
+        protected global::System.Web.UI.WebControls.Literal activationConfirmation;
+        
+        /// <summary>
+        /// activationMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal activationMessage;
     }
 }
