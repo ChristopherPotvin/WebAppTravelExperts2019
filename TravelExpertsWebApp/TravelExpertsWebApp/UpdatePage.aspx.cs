@@ -129,7 +129,7 @@ namespace TravelExpertsWebApp
 
         protected void DBPasswordValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            Customers isPasswordCorrect = CustomersDB.GetCustomerbyPassword(HashPassword.ApplyHash(txtOldCustPassword.Text));
+            Customers isPasswordCorrect = CustomersDB.GetCustomerbyPassword(HashPassword.ApplyHash(txtOldCustPassword.Text), Session["email"].ToString());
 
             if (isPasswordCorrect == null)
             {

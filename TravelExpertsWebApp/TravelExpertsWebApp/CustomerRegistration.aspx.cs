@@ -50,12 +50,14 @@ namespace TravelExpertsWebApp
                 {
                     connection.Close();
                 }
+                //txtTestCustID.Text = Session["customerId"].ToString();
             }
             else
             {
                 loggedIcon.Visible = false;
                 loginIcon.Visible = true;
             }
+            
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e)
@@ -107,8 +109,11 @@ namespace TravelExpertsWebApp
             string output = CustomersDB.GetCustomerLogin(custLogin);
 
             if (output == "1")
-            {
+            {               
                 Session["custEmail"] = txtModalCustEmail.Text;
+                Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+                Session["customerId"] = (int)loggedCustomer.CustomerId;
+                
                 Response.Redirect("CustomerRegistration.aspx");
             }
             else

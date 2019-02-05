@@ -97,7 +97,7 @@ namespace TravelExpertsWebApp
 
         [DataObjectMethod(DataObjectMethodType.Select)]
         //get customer information
-        public static Customers GetCustomerbyPassword(string custPassword)
+        public static Customers GetCustomerbyPassword(string custPassword, string custEmail)
         {
             Customers cust = null;
 
@@ -105,10 +105,11 @@ namespace TravelExpertsWebApp
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
             //define the select query command
-            string selectQuery = "SELECT CustomerId, CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail FROM Customers WHERE CustPassword = HASHBYTES('SHA1', @CustPassword)";
+            string selectQuery = "SELECT CustomerId, CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail FROM Customers WHERE CustPassword = HASHBYTES('SHA1', @CustPassword) AND CustEmail = @CustEmail";
 
             SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
             selectCommand.Parameters.AddWithValue("@CustPassword", custPassword);
+            selectCommand.Parameters.AddWithValue("@CustEmail", custEmail);
             try
             {
                 //open the connection

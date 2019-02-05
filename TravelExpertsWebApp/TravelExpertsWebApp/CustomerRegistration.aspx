@@ -310,6 +310,7 @@
               </div>
               <!-- End of registration form for new customers-->
           </div>
+            <asp:TextBox ID="txtTestCustID" runat="server"></asp:TextBox>
         </div>
       </div>
     </section>

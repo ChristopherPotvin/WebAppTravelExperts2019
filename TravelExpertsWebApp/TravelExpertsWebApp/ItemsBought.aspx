@@ -88,7 +88,9 @@
     </form>
     <br />
         <div class="container">
-            <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"><SelectParameters>
+          <asp:SessionParameter Name="customerId" SessionField="customerId" />
+       </SelectParameters></asp:ObjectDataSource>
         </div>
     <div class="comments">
               <h4>2 comments</h4>
