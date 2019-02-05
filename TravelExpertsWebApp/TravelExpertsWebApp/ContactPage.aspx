@@ -147,25 +147,27 @@
                       <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtCustLastName" ErrorMessage="Last name is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
-                <div class="col-sm-6">
+                  <div class="col-sm-4">
                   <div class="form-group">
                     <label for="email">Email</label>
                     <asp:TextBox class="form-control" ID="txtEmail" runat="server" ></asp:TextBox>
                   </div>
                 </div>
+                  </div>
                 <div class="col-sm-6">
                   <div class="form-group">
                       <asp:RequiredFieldValidator ID="RequiredEmail" runat="server" ControlToValidate="txtEmail" ErrorMessage="Your email is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                       <asp:RegularExpressionValidator ID="RegularExpressionEmail" runat="server" ControlToValidate="txtEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                   </div>
                 </div>
-                <div class="col-sm-6">
+               <div class="row">
+                <div class="col-sm-8">
                   <div class="form-group">
                     <label for="subject">Subject</label>
                     <asp:TextBox class="form-control" ID="txtSubject" runat="server" ></asp:TextBox>
                   </div>
                 </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-10">
                   <div class="form-group">
                       <asp:RequiredFieldValidator ID="RequiredSubject" runat="server" ControlToValidate="txtSubject" ErrorMessage="A subject is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
@@ -173,10 +175,12 @@
                 <div class="col-sm-12">
                   <div class="form-group">
                     <label for="message">Message</label>
-                    <asp:TextBox class="form-control" ID="txtMessage" runat="server" ></asp:TextBox>
+                    <asp:TextBox class="form-control" ID="txtMessage" runat="server" Height="140px" ></asp:TextBox>
+                      <br />
+                    <strong><p>Maximum of 255 characters</p></strong>
                   </div>
                 </div>
-                  <div class="col-sm-6">
+                  <div class="col-sm-12">
                   <div class="form-group">
                       <asp:RequiredFieldValidator ID="RequiredMessage" runat="server" ControlToValidate="txtMessage" ErrorMessage="A message is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
@@ -184,16 +188,14 @@
                 <div class="col-sm-12"><br />
                   <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Send a message" CausesValidation="True" OnClick="btnSubmit_Click" Height="32px" Width="245px" />
                 </div>                
-                  <div class="col-sm-12"><br />
+                  <div class="col-sm-4"><br />
+                      <asp:Button class="btn btn-secondary" ID="BtnReset" runat="server" Height="32px" CausesValidation="false" Text="Reset" Width="245px" OnClick="BtnReset_Click" />
                       <br />
-                  </div>                
-                <div class="col-sm-12"><br />
-                </div>
+                  </div>
               </div>
               <!-- Possible ASP contact form to register new customers-->
           </div>
         </div>
-      </div>
     </section>
             <div tabindex="0" class="leaflet-container leaflet-touch leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" id="mapid" style="width: 1800px; height: 500px; position: relative;"><div class="leaflet-pane leaflet-map-pane" style="transform: translate3d(0px, 0px, 0px);"><div class="leaflet-pane leaflet-tile-pane"><div class="leaflet-layer " style="z-index: 1; opacity: 1;"><div class="leaflet-tile-container leaflet-zoom-animated" style="z-index: 18; transform: translate3d(0px, 0px, 0px) scale(1);"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(56px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4093/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(312px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4094/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(56px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4093/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(312px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4094/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-200px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4092/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(568px, -91px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4095/2723.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(-200px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4092/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"><img class="leaflet-tile leaflet-tile-loaded" role="presentation" style="width: 256px; height: 256px; opacity: 1; transform: translate3d(568px, 165px, 0px);" alt="" src="https://api.tiles.mapbox.com/v4/mapbox.streets/13/4095/2724.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw"></div></div></div><div class="leaflet-pane leaflet-shadow-pane"></div><div class="leaflet-pane leaflet-overlay-pane"></div><div class="leaflet-pane leaflet-marker-pane"></div><div class="leaflet-pane leaflet-tooltip-pane"></div><div class="leaflet-pane leaflet-popup-pane"></div><div class="leaflet-proxy leaflet-zoom-animated" style="transform: translate3d(1.04805e+006px, 697379px, 0px) scale(4096);"></div></div><div class="leaflet-control-container"><div class="leaflet-top leaflet-left"><div class="leaflet-control-zoom leaflet-bar leaflet-control"><a title="Zoom in" class="leaflet-control-zoom-in" role="button" aria-label="Zoom in" href="#">+</a><a title="Zoom out" class="leaflet-control-zoom-out" role="button" aria-label="Zoom out" href="#">−</a></div></div><div class="leaflet-top leaflet-right"></div><div class="leaflet-bottom leaflet-left"></div><div class="leaflet-bottom leaflet-right"><div class="leaflet-control-attribution leaflet-control"></div></div></div></div>
 

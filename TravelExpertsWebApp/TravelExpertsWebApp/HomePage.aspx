@@ -97,7 +97,7 @@
         <p>Not only do we have a great assortment of travel packages but it also comes with a silky smooth booking and planning process from the moment you book your trip, to the moment you step out of
             of the plane. We guarantee 100 % satisfaction or your money back. 
         </p>
-        <p><a class="btn btn-ghost" href="#">Read more</a></p> <!-- blank target on the read more button, can possibly go to the booking or register page-->
+        <p><a class="btn btn-ghost" href="ContactPage.aspx">Read more</a></p> <!-- blank target on the read more button, can possibly go to the booking or register page-->
       </div>
     </section>
     <!-- end of about us section, home page (done)-->
@@ -107,28 +107,28 @@
         <div class="row">
           <div class="col-sm-4">
             <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog4.jpg"></a></div>
+              <div class="image"><a href="https://wikitravel.org/en/Caribbean"><img class="img-responsive" alt="" src="img/blog4.jpg"></a></div>
               <h3><a href="#">Caribbean New Year</a></h3>
               <p class="post__intro">Cruise all around the caribbean and celebrate the New Year in style.</p>
-              <p class="read-more"><a class="btn btn-ghost" href="#">Learn More    </a></p>
+              <p class="read-more"><a class="btn btn-ghost" href="ContactPage.aspx">Learn More    </a></p>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog5.jpg"></a></div>
-              <h3><a href="#">Polynesian Paradise</a></h3>
+              <div class="image"><a href="https://wikitravel.org/en/Polynesia"><img class="img-responsive" alt="" src="img/blog5.jpg"></a></div>
+              <h3><a href="ContactPage.aspx">Polynesian Paradise</a></h3>
               <p class="post__intro">This all travel package to Hawaii, includes air fare and an 8 day stay in an all inclusive 5 star resort.</p>
-              <p class="read-more"><a class="btn btn-ghost" href="#">Learn More    </a></p>
+              <p class="read-more"><a class="btn btn-ghost" href="ContactPage.aspx">Learn More    </a></p>
             </div>
           </div>
           <div class="col-sm-4">
             <div class="post">
-              <div class="image"><a href="#"><img class="img-responsive" alt="" src="img/blog6.jpg"></a></div>
-              <h3><a href="#">European Vacation</a></h3>
+              <div class="image"><a href="https://wikitravel.org/en/Europe"><img class="img-responsive" alt="" src="img/blog6.jpg"></a></div>
+              <h3><a href="ContactPage.aspx">European Vacation</a></h3>
               <p class="post__intro">Enjoy a euro tour with a rail pass, starting in magestic Vienna, Italy and finishing in Paris, France. This package
                   is a two week trip with included travel insurance. 
               </p>
-              <p class="read-more"><a class="btn btn-ghost" href="#">Learn More     </a></p>
+              <p class="read-more"><a class="btn btn-ghost" href="ContactPage.aspx">Learn More     </a></p>
             </div>
           </div>
         </div>
@@ -136,7 +136,7 @@
     </section>
     <!-- end of ASP form sections, placeholders for now -->
     <!-- start of another possible ASP form section placeholder for now -->
-    <section>
+<%--    <section>
       <div class="container clearfix">
         <div class="row services">
           <div class="col-md-12">
@@ -191,7 +191,7 @@
           </div>
         </div>
       </div>
-    </section>
+    </section>--%>
     <!-- end of possible ASP section, placeholder for now-->
     <!-- start of image gallery (done)-->
     <section class="background-gray-lightest" id="portfolio">
@@ -238,7 +238,7 @@
     <!-- end of image gallery (done)-->
       <!-- Testing a Stripe Api Payment Widget-->
       <form action="HomePage.aspx" method="POST">
-  <script
+  <%--<script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_jkUlFVHsOiLghrCqtzYURt7X"
     data-amount="300000"
@@ -248,7 +248,7 @@
     data-locale="auto"
     data-zip-code="true"
     data-currency="cad">
-  </script>
+  </script>--%>
           </form>
       <!-- 4000001240000000 , Canadian Visa Credit Card number to test validation while in Stripe Test mode that validates it against a Canadian Postal Code -->
      <!-- Testing a Stripe Api Payment Widget-->

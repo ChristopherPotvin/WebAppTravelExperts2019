@@ -86,6 +86,7 @@ namespace TravelExpertsWebApp
             try
             {
                 bool insertCustomerContact = CustomerContactDB.InsertCustomerContactInfo(customer);
+                Response.Write("<script>alert('Thank you for contacting us!');</script>");
 
             }
 
@@ -96,17 +97,11 @@ namespace TravelExpertsWebApp
 
         }
 
-        protected void btnCancel_Click(object sender, EventArgs e) // cancel button for customer contact page
+        protected void BtnReset_Click(object sender, EventArgs e)
         {
             txtCustFirstName.Text = "";
             txtCustLastName.Text = "";
             txtEmail.Text = "";
-            txtMessage.Text = "";
-            txtSubject.Text = "";
-        }
-
-        protected void btnReset_Click1(object sender, EventArgs e)
-        {
             txtMessage.Text = "";
             txtSubject.Text = "";
         }
@@ -131,5 +126,7 @@ namespace TravelExpertsWebApp
                 args.IsValid = true;
             }
         }
+
+  
     }
 }

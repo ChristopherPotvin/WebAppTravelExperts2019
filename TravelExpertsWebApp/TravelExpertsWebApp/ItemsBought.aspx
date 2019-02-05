@@ -90,6 +90,33 @@
         <div class="container">
             <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"></asp:ObjectDataSource>
         </div>
+    <div class="comments">
+              <h4>2 comments</h4>
+              <div class="row comment">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar2.jpg"></p>
+                </div>
+                <div class="col-sm-9 col-md-10">
+                  <h5>Andrew Moss</h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2011 at 12:00 am</p>
+                  <p class="text-gray">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                  <p class="reply"><a href="#"><i class="fa fa-reply"></i> Reply</a></p>
+                </div>
+              </div>
+              <!-- /.comment-->
+              <div class="row comment last">
+                <div class="col-sm-3 col-md-2 text-center-xs">
+                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar.jpg"></p>
+                </div>
+                <div class="col-sm-9 col-md-10">
+                  <h5>Peter Oganwu</h5>
+                  <p class="posted"><i class="fa fa-clock-o"></i> September 23, 2012 at 12:00 am</p>
+                  <p class="text-gray">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+                  <p class="reply"><a href="#"><i class="fa fa-reply"></i> Reply</a></p>
+                </div>
+              </div>
+              <!-- /.comment-->
+            </div>
         <!-- start of the footer (done)-->
     <footer class="footer">
       <div class="footer__block">
