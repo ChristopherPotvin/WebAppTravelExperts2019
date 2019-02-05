@@ -17,6 +17,7 @@ namespace TravelExpertsWebApp
         {
             HtmlControl loginIcon = (HtmlControl)Page.FindControl("mainBtnLogin");
             HtmlControl loggedIcon = (HtmlControl)Page.FindControl("custLogged");
+            Control successMessage = FindControl("LoginSuccess");
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
             if (Session["custEmail"] != null)
             {
@@ -47,6 +48,7 @@ namespace TravelExpertsWebApp
                 {
                     connection.Close();
                 }
+                ScriptManager.RegisterStartupScript(this.Page, typeof(Page), "somekey", "autoHide();", true);
             }
             else
             {
@@ -59,6 +61,7 @@ namespace TravelExpertsWebApp
         {
             if (Page.IsValid)
             {
+                Control successMessage = FindControl("LoginSuccess");
                 string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
                 //string custEmail = String.Format("{0}", Request.Form["email_modal"]);
                 //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
@@ -70,7 +73,8 @@ namespace TravelExpertsWebApp
                 if (output == "1")
                 {
                     Session["custEmail"] = txtModalCustEmail.Text;
-                    Response.Redirect("ContactPage.aspx");
+                    successMessage.Visible = true;                   
+                    //Response.Redirect("HomePage.aspx");
                 }
                 else
                 {

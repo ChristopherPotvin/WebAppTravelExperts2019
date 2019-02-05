@@ -12,6 +12,8 @@
   <body>
       <form runat="server">
     <!-- start of navigation bar in the header (done) -->
+          <div clientidmode="static" class="" id="LoginSuccess" runat="server" visible="false" >You have successfully logged in</div>
+          <div clientidmode="static" class="" id="LoginFailure" runat="server" visible="false" >Unable to login. Please try again</div>
        <header class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -249,11 +251,18 @@
     data-zip-code="true"
     data-currency="cad">
   </script>
+          
           </form>
       <!-- 4000001240000000 , Canadian Visa Credit Card number to test validation while in Stripe Test mode that validates it against a Canadian Postal Code -->
      <!-- Testing a Stripe Api Payment Widget-->
     <!-- start of the footer (done)-->
       <uc1:Footer runat="server" ID="Footer" />
+          <script type="text/javascript">
+function autoHide()
+{  //hide after 10 seconds
+   setTimeout(function(){document.getlementById('<%=LoginSuccess.ClientID%>').style.display='none';},5000);
+}
+ </script>
   </form>
 </body>
 

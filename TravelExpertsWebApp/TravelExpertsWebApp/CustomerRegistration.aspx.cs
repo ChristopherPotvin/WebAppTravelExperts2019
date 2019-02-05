@@ -71,9 +71,9 @@ namespace TravelExpertsWebApp
                     SendActivationEmail(txtCustEmail.Text);
                     Response.Redirect("ConfirmationPage.aspx");
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    Response.Write("Unable to process information. Please contact Travel Experts.");
                 }
             }               
         }

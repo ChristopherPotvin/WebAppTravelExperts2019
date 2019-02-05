@@ -81,7 +81,7 @@ namespace TravelExpertsWebApp
                     Response.Write("Unable to update information");
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Response.Write("Unable to process information. Please contact Travel Experts");
             }
