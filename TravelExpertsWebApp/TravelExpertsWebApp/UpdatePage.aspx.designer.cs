@@ -292,6 +292,33 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.WebControls.TextBox txtCustEmail;
         
         /// <summary>
+        /// RegexUnconfirmedEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexUnconfirmedEmail;
+        
+        /// <summary>
+        /// validateEmailDB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator validateEmailDB;
+        
+        /// <summary>
+        /// RegexEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexEmail;
+        
+        /// <summary>
         /// CompareEmailValidator control.
         /// </summary>
         /// <remarks>

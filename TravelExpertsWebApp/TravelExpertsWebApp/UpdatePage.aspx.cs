@@ -83,7 +83,7 @@ namespace TravelExpertsWebApp
             }
             catch (Exception ex)
             {
-                throw ex;
+                Response.Write("Unable to process information. Please contact Travel Experts");
             }
         }
 
@@ -122,9 +122,13 @@ namespace TravelExpertsWebApp
                 }
                 catch (Exception ex)
                 {
-                    throw ex;
+                    Response.Write("Error trying to process information. Contact Travel Experts");
                 }
-            }            
+            }
+            else
+            {
+                Response.Write("Unable to update information");
+            }
         }
 
         protected void DBPasswordValidator_ServerValidate(object source, ServerValidateEventArgs args)
@@ -134,11 +138,26 @@ namespace TravelExpertsWebApp
             if (isPasswordCorrect == null)
             {
                 args.IsValid = false;
-                Response.Write("Unable to update information validator");
+                Response.Write("Your old password does not match our records");
             }
             else
             {
-                args.IsValid = true;              
+                args.IsValid = true;         
+            }
+        }
+
+        protected void validateEmailDB_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            Customers isEmailExisting = CustomersDB.GetCustomerbyEmail(txtCustEmail.Text);
+
+            if (isEmailExisting == null || isEmailExisting.CustEmail == Session["custEmail"].ToString())
+            {
+                args.IsValid = true;               
+            }
+            else
+            {
+                args.IsValid = false;
+                Response.Write("A customer with that email address already exists.");
             }
         }
 

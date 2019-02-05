@@ -215,10 +215,14 @@
                 </div>
                   <!--one row -->
                  <div class="col-sm-6">
-                     <div class="form-group"></div>
+                     <div class="form-group">
+                         <asp:RegularExpressionValidator ID="RegexUnconfirmedEmail" runat="server" ControlToValidate="txtUnconfirmedEmail" Display="Dynamic" ErrorMessage="Please enter a valid email address" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                     </div>
                 </div>
                   <div class="col-sm-6">
                      <div class="form-group">
+                         <asp:CustomValidator ID="validateEmailDB" runat="server" ControlToValidate="txtCustEmail" Display="Dynamic" ErrorMessage="A customer with this email address already exists." OnServerValidate="validateEmailDB_ServerValidate" ForeColor="Red"></asp:CustomValidator>
+                         <asp:RegularExpressionValidator ID="RegexEmail" runat="server" ControlToValidate="txtCustEmail" Display="Dynamic" ErrorMessage="Please enter a valid email address" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                          <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                       </div>
                 </div>
