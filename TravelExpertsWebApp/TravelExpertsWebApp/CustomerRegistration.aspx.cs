@@ -60,19 +60,22 @@ namespace TravelExpertsWebApp
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            string hashedPswd = HashPassword.ApplyHash(txtCustPassword.Text);
+            if (Page.IsValid)
+            {
+                string hashedPswd = HashPassword.ApplyHash(txtCustPassword.Text);
 
-            Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text, hashedPswd);
-            try
-            {
-                int insertCustId = CustomersDB.AddCustomer(cust);
-                SendActivationEmail(txtCustEmail.Text);
-                Response.Redirect("ConfirmationPage.aspx");
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }           
+                Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text, hashedPswd);
+                try
+                {
+                    int insertCustId = CustomersDB.AddCustomer(cust);
+                    SendActivationEmail(txtCustEmail.Text);
+                    Response.Redirect("ConfirmationPage.aspx");
+                }
+                catch (Exception ex)
+                {
+                    throw ex;
+                }
+            }               
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -148,6 +151,36 @@ namespace TravelExpertsWebApp
             else
             {
                 Response.Write("Error adding activation code");
+            }
+        }
+
+        protected void validateEmailDB_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            Customers isEmailExisting = CustomersDB.GetCustomerbyEmail(txtCustEmail.Text);
+
+            if (isEmailExisting == null)
+            {
+                args.IsValid = true;
+                Response.Write("Unable to register. A customer with that email address already exists.");
+            }
+            else
+            {
+                args.IsValid = false;
+            }
+        }
+
+        protected void DBANotActivated_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string activationStatus = CustomersDB.isActivated(txtModalCustEmail.Text);
+
+            if (activationStatus == "No")
+            {
+                args.IsValid = false;
+                Response.Write("Registration incomplete. Please activate your account (see instructions sent to your email)");
+            }
+            else
+            {
+                args.IsValid = true;
             }
         }
     }

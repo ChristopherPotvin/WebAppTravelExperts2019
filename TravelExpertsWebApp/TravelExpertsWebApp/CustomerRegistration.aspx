@@ -59,6 +59,7 @@
                 <asp:TextBox class="form-control" type="email" ID="txtModalCustEmail" placeholder="Email" runat="server"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="requiredLoginModalEmail" runat="server" Display="Dynamic" ErrorMessage="Please enter your email" ForeColor="Red" ControlToValidate="txtModalCustEmail" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
                    <asp:RegularExpressionValidator ID="ValidateModalEmail" runat="server" ControlToValidate="txtModalCustEmail" Display="Dynamic" ErrorMessage="Please enter a valid email" ValidationGroup="ModalLoginValidation" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                   <asp:CustomValidator ID="DBPasswordValidator" runat="server" ErrorMessage="Please activate your account." ControlToValidate="txtModalCustEmail" ForeColor="Red" OnServerValidate="DBANotActivated_ServerValidate" ValidationGroup="ModalLoginValidation" Display="Dynamic"></asp:CustomValidator>
               </div>
               <div class="form-group">
                 <asp:TextBox class="form-control" type="password" ID="txtModalCustPassword" placeholder="Password" runat="server"></asp:TextBox>
@@ -263,10 +264,14 @@
                 </div>
                   <!--one row -->
                  <div class="col-sm-6">
-                     <div class="form-group"></div>
+                     <div class="form-group">
+                        <asp:RegularExpressionValidator ID="RegexUnconfirmedEmail" runat="server" ControlToValidate="txtUnconfirmedEmail" Display="Dynamic" ErrorMessage="Please enter a valid email address" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                     </div>
                 </div>
                   <div class="col-sm-6">
                      <div class="form-group">
+                         <asp:CustomValidator ID="validateEmailDB" runat="server" ControlToValidate="txtCustEmail" Display="Dynamic" ErrorMessage="A customer with this email address already exists." OnServerValidate="validateEmailDB_ServerValidate" ForeColor="Red"></asp:CustomValidator>
+                         <asp:RegularExpressionValidator ID="RegexEmail" runat="server" ControlToValidate="txtCustEmail" Display="Dynamic" ErrorMessage="Please enter a valid email address" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
                          <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red"></asp:CompareValidator>
                       </div>
                 </div>
