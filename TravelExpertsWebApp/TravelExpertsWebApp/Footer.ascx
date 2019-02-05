@@ -1,5 +1,6 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Footer.ascx.cs" Inherits="TravelExpertsWebApp.Footer" %>
  <!-- start of the footer (done)-->
+
     <footer class="footer">
       <div class="footer__block">
         <div class="container">
@@ -29,9 +30,9 @@
               <p>Sign up to get access to our newest travel deals and discounts on our travel packages</p>
               <form class="footer__newsletter">
                 <div class="input-group">
-<%--                    <asp:TextBox ID="txtEmail" runat="server" Height="32px" Width="245px"></asp:TextBox>--%>
-<%--                    <br /><br />--%>
-<%--                    <asp:Button class="btn btn-secondary" ID="btnSendEmail" runat="server" Text="Subscribe" OnClick="btnSendEmail_Click" />--%>
+               <asp:TextBox ID="txtEmail" runat="server" Height="32px" Width="245px"></asp:TextBox>
+                 <br /><br />
+                    <asp:Button class="btn btn-secondary" ID="btnSendEmail" runat="server" Text="Subscribe" OnClick="btnSendEmail_Click" />
                 </div>
               </form>
             </div>

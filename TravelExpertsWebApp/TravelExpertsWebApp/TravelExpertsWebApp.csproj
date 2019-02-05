@@ -148,8 +148,6 @@
     <Compile Include="UpdatePage.aspx.designer.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>
     </Compile>
-    <Content Include="App_Code\CustomerContact.cs" />
-    <Content Include="App_Code\CustomerContactDB.cs" />
     <Compile Include="App_Code\CustomersDB.cs" />
     <Content Include="App_Code\Packages.cs" />
     <Content Include="App_Code\PackagesDB.cs" />

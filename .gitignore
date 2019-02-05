@@ -26,3 +26,8 @@ TravelExpertsWebApp/TravelExpertsWebApp/bin/TravelExpertsWebApp.dll.config
 *.ide-shm
 *.ide
 TravelExpertsWebApp/.vs/TravelExpertsWebApp/v15/.suo
+*.cache
+*.ide-wal
+*.ide-shm
+*.ide
+TravelExpertsWebApp/.vs/TravelExpertsWebApp/v15/.suo
