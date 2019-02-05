@@ -58,22 +58,26 @@ namespace TravelExpertsWebApp
 
         protected void LoginButton(object sender, EventArgs e)
         {
-           // string custEmail = String.Format("{0}", Request.Form["email_modal"]);
-            //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
-
-            Customers custLogin = new Customers(txtModalCustEmail.Text, txtModalCustPassword.Text);
-
-            string output = CustomersDB.GetCustomerLogin(custLogin);
-
-            if (output == "1")
+            if (Page.IsValid)
             {
-                Session["custEmail"] = txtModalCustEmail.Text;
-                Response.Redirect("ContactPage.aspx");
-            }
-            else
-            {
-                Response.Write("Login Failed");
-            }
+                string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
+                // string custEmail = String.Format("{0}", Request.Form["email_modal"]);
+                //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
+
+                Customers custLogin = new Customers(txtModalCustEmail.Text, hashedPswd);
+
+                string output = CustomersDB.GetCustomerLogin(custLogin);
+
+                if (output == "1")
+                {
+                    Session["custEmail"] = txtModalCustEmail.Text;
+                    Response.Redirect("ContactPage.aspx");
+                }
+                else
+                {
+                    Response.Write("Login Failed");
+                }
+            }           
         }
 
         protected void btnSubmit_Click(object sender, EventArgs e) // submit button for customer contact page
@@ -111,6 +115,21 @@ namespace TravelExpertsWebApp
         {
             Session.Remove("custEmail");
             Response.Redirect("HomePage.aspx");
+        }
+
+        protected void DBANotActivated_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            string activationStatus = CustomersDB.isActivated(txtModalCustEmail.Text);
+
+            if (activationStatus == "No")
+            {
+                args.IsValid = false;
+                Response.Write("Registration incomplete. Please activate your account (see instructions sent to your email)");
+            }
+            else
+            {
+                args.IsValid = true;
+            }
         }
     }
 }

@@ -106,8 +106,8 @@ namespace TravelExpertsWebApp
         {
             if (Page.IsValid)
             {
-                Customers loggedCustomer = new Customers(Session["custEmail"].ToString(), txtOldCustPassword.Text);
-                Customers updatedPswdCustomer = new Customers(Session["custEmail"].ToString(), txtNewCustPassword.Text);
+                Customers loggedCustomer = new Customers(Session["custEmail"].ToString(), HashPassword.ApplyHash(txtOldCustPassword.Text));
+                Customers updatedPswdCustomer = new Customers(Session["custEmail"].ToString(), HashPassword.ApplyHash(txtNewCustPassword.Text));
                 try
                 {
                     bool updatePswdSuccessful = CustomersDB.UpdateCustomerPassword(loggedCustomer, updatedPswdCustomer);
@@ -129,7 +129,7 @@ namespace TravelExpertsWebApp
 
         protected void DBPasswordValidator_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            Customers isPasswordCorrect = CustomersDB.GetCustomerbyPassword(txtOldCustPassword.Text);
+            Customers isPasswordCorrect = CustomersDB.GetCustomerbyPassword(HashPassword.ApplyHash(txtOldCustPassword.Text));
 
             if (isPasswordCorrect == null)
             {

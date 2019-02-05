@@ -13,6 +13,39 @@ namespace TravelExpertsWebApp
     public static class CustomersDB
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string isActivated(string custEmail)
+        {
+            string activationStatus = "no";
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+
+            string selectQuery = "SELECT CustActivated from Customers where CustEmail = @CustEmail";
+
+            SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+            selectCommand.Parameters.AddWithValue("@CustEmail", custEmail);
+            try
+            {
+                connection.Open();
+
+                //execute query
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                //process the results
+                while (reader.Read())
+                {
+                    activationStatus = reader["CustActivated"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return activationStatus;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
         //get customer information
         public static Customers GetCustomerbyEmail(string custEmail)
         {
@@ -153,8 +186,8 @@ namespace TravelExpertsWebApp
 
             //prepare statement
             string insertString = "INSERT INTO CUSTOMERS "+
-                                  "(CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, CustPassword) "+
-                                "values(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail, HASHBYTES('SHA1', @CustPassword))";
+                                  "(CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, CustPassword, CustActivated) "+
+                                "values(@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @CustHomePhone, @CustBusPhone, @CustEmail, HASHBYTES('SHA1', @CustPassword), @CustActivated)";
             SqlCommand insertCommand = new SqlCommand(insertString, connection);
             insertCommand.Parameters.AddWithValue("@CustFirstName", cust.CustFirstName);
             insertCommand.Parameters.AddWithValue("@CustLastName", cust.CustLastName);
@@ -167,6 +200,7 @@ namespace TravelExpertsWebApp
             insertCommand.Parameters.AddWithValue("@CustBusPhone", cust.CustBusPhone);
             insertCommand.Parameters.AddWithValue("@CustEmail", cust.CustEmail);
             insertCommand.Parameters.AddWithValue("@CustPassword", cust.CustPassword);
+            insertCommand.Parameters.AddWithValue("@CustActivated", "No");
 
             try
             {
