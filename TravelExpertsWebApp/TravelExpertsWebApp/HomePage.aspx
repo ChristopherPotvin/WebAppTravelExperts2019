@@ -237,7 +237,7 @@
     </section>
     <!-- end of image gallery (done)-->
       <!-- Testing a Stripe Api Payment Widget-->
-      <form action="HomePage.aspx" method="POST">
+    <%--  <form action="HomePage.aspx" method="POST">--%>
   <%--<script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
     data-key="pk_test_jkUlFVHsOiLghrCqtzYURt7X"
@@ -249,7 +249,7 @@
     data-zip-code="true"
     data-currency="cad">
   </script>--%>
-          </form>
+         <%-- </form>--%>
       <!-- 4000001240000000 , Canadian Visa Credit Card number to test validation while in Stripe Test mode that validates it against a Canadian Postal Code -->
      <!-- Testing a Stripe Api Payment Widget-->
     <!-- start of the footer (done)-->

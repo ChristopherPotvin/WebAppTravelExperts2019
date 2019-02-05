@@ -18,10 +18,10 @@ namespace TravelExpertsWebApp
         protected void btnSendEmail_Click(object sender, EventArgs e)
         {
             EmailSubscription newEmail = new EmailSubscription(txtEmail.Text);
-
             try
             {
                 bool insertEmail = EmailSubscriptionDB.InsertEmailSubscriptionInfo(newEmail);
+                Response.Write("<script>alert('Thank you for subscribing to our latest travel deals!');</script>");
 
             }
 

@@ -276,6 +276,7 @@
                       </div>
                 </div>
                   <!--one row -->
+                <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="password">Password</label>
@@ -286,6 +287,7 @@
                   <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
                       <asp:TextBox class="form-control" type="password" ID="txtCustPassword" runat="server"></asp:TextBox>
+                      </div>
                   </div>
                 </div>
                   <!--one row -->
