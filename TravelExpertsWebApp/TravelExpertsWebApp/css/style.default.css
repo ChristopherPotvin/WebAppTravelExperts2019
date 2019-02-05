@@ -1569,7 +1569,8 @@ fieldset[disabled] .btn-transparent.active {
 }
 /* forms.less */
 label {
-  font-weight: 
+  font-weight: normal;
+}
 .form-control {
   display: block;
   padding: 6px 12px;
@@ -1583,8 +1584,6 @@ label {
   -webkit-box-shadow: none;
   box-shadow: none;
     margin-left: 0;
-}
-t: 0;
 }
 .form-control::-moz-placeholder {
   color: #999999;

@@ -87,7 +87,6 @@ namespace TravelExpertsWebApp
             {
                 bool insertCustomerContact = CustomerContactDB.InsertCustomerContactInfo(customer);
                 Response.Write("<script>alert('Thank you for contacting us!');</script>");
-
             }
 
             catch (Exception ex)
@@ -126,7 +125,5 @@ namespace TravelExpertsWebApp
                 args.IsValid = true;
             }
         }
-
-  
     }
 }

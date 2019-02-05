@@ -20,7 +20,7 @@
           <div class="collapse navbar-collapse navbar-right" id="navigation">
             <ul class="nav navbar-nav">
               <li class="active"><a href="HomePage.aspx">Home</a></li>
-              <li><a href="CustomerRegistration.aspx">Register</a></li> <!-- This could be a button to a new Customer Registration page, setting it to a blank target until we decide-->
+              <li><a href="CustomerRegistration.aspx">Register</a></li> <!-- This could be a<a href="UpdatePage.aspx">UpdatePage.aspx</a> button to a new Customer Registration page, setting it to a blank target until we decide-->
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 

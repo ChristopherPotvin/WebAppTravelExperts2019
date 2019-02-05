@@ -121,6 +121,7 @@
             <div class="icon"><i class="pe-7s-pen"></i></div>
             <h4 class="heading margin-bottom">Contact form</h4> 
             <p class="text-muted">Reach out to us if you have any further questions or inquiries.</p>
+              </div>
               <!-- Possible ASP contact form to register new customers-->
               <div class="row">
                 <div class="col-sm-6">
@@ -193,6 +194,7 @@
                       <br />
                   </div>
               </div>
+            </div>
               <!-- Possible ASP contact form to register new customers-->
           </div>
         </div>
