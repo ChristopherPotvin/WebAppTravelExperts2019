@@ -113,55 +113,6 @@
                 </SelectParameters>
             </asp:ObjectDataSource>
         </div>
-    <div class="comments">
-              <h4>4 comments</h4>
-              <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar2.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Andrew Moss</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> February 2nd, 2019 </p>
-                  <p class="text-gray"></p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              </div>
-              <!-- /.comment-->
-              <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Peter Oganwu</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> January 25th, 2019 </p>
-                  <p class="text-gray"></p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              </div>
-                 <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar3.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Mo Sagnia</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> January 20th, 2019 </p>
-                  <p class="text-gray"></p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              </div>
-               <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar4.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Chris Potvin</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> January 16th, 2019 </p>
-                  <p class="text-gray">We're the best group of brogrammers that have ever lived!!!</p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              <!-- /.comment-->
-            </div>
-        </div>
         <!-- start of the footer (done)-->
         <uc1:Footer runat="server" ID="Footer" />
    </form>
