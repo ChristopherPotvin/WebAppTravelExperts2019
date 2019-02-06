@@ -145,6 +145,7 @@ namespace TravelExpertsWebApp
         protected void Logout(object sender, EventArgs e)
         {
             Session.Remove("custEmail");
+            Session.Remove("customerId");
             Response.Redirect("HomePage.aspx");
         }
     }

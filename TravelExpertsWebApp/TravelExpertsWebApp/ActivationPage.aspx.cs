@@ -122,6 +122,9 @@ namespace TravelExpertsWebApp
                 if (output == "1")
                 {
                     Session["custEmail"] = txtModalCustEmail.Text;
+                    Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+                    Session["customerId"] = (int)loggedCustomer.CustomerId;
+
                     Response.Redirect("HomePage.aspx");
                 }
                 else
@@ -134,6 +137,7 @@ namespace TravelExpertsWebApp
         protected void Logout(object sender, EventArgs e)
         {
             Session.Remove("custEmail");
+            Session.Remove("customerId");
             Response.Redirect("HomePage.aspx");
         }
 
