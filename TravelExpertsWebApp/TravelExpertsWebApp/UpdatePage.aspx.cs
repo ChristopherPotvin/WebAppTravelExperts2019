@@ -65,26 +65,30 @@ namespace TravelExpertsWebApp
 
         protected void btnSubmit_Click(object sender, EventArgs e)
         {
-            Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
-
-            Customers updatedCustomer = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text);
-
-            try
+            if (Page.IsValid)
             {
-                bool updateSuccessful = CustomersDB.UpdateCustomer(loggedCustomer, updatedCustomer);
-                if (updateSuccessful)
+                Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+
+                Customers updatedCustomer = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text);
+
+                try
                 {
-                    Response.Write("Update successful");
+                    bool updateSuccessful = CustomersDB.UpdateCustomer(loggedCustomer, updatedCustomer);
+                    if (updateSuccessful)
+                    {
+                        Response.Write("Update successful");
+                    }
+                    else
+                    {
+                        Response.Write("Unable to update information");
+                    }
                 }
-                else
+                catch (Exception ex)
                 {
-                    Response.Write("Unable to update information");
+                    throw ex;
                 }
             }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
+            
         }
 
         protected void btnCancel_Click(object sender, EventArgs e)
@@ -120,9 +124,9 @@ namespace TravelExpertsWebApp
                         Response.Write("Unable to update information");
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    Response.Write("Unable to process information. Please contact travel experts");
                 }
             }            
         }
@@ -147,6 +151,21 @@ namespace TravelExpertsWebApp
             Session.Remove("custEmail");
             Session.Remove("customerId");
             Response.Redirect("HomePage.aspx");
+        }
+
+        protected void validateEmailDB_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            Customers isEmailExisting = CustomersDB.GetCustomerbyEmail(txtCustEmail.Text);
+
+            if (isEmailExisting == null || isEmailExisting.CustEmail == Session["custEmail"].ToString())
+            {
+                args.IsValid = true;               
+            }
+            else
+            {
+                args.IsValid = false;
+                Response.Write("Unable to update. A customer with that email address already exists.");
+            }
         }
     }
 }

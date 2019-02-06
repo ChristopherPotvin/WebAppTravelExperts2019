@@ -67,7 +67,7 @@
       </div>
         <section>
         <div class="container" id="update">
-            <div class="col-lg-7 col-lg-offset-1">
+            <div class="col-lg-12">
             <div class="icon"><i class="pe-7s-pen"></i></div>
             <h4 class="heading margin-bottom">Update Information</h4> 
             <p class="text-muted">If you want to update your password, <a href="#"  data-target="#password-modal" data-toggle="modal" id="passwordUpdate">click here</a></p>
@@ -86,6 +86,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustLastName" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                  </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -99,6 +101,8 @@
                       <asp:RegularExpressionValidator ID="RegexLastName" runat="server" ControlToValidate="txtCustLastName" Display="Dynamic" ErrorMessage="Please enter a valid name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -106,12 +110,16 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustAddress" runat="server"></asp:TextBox>
                   </div>
                 </div>
+               </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
                       <asp:RequiredFieldValidator ID="RequiredAddress" runat="server" ControlToValidate="txtCustAddress" ErrorMessage="Address is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                  <div class="col-sm-6">
                   <div class="form-group">
@@ -140,6 +148,8 @@
                       </asp:DropDownList>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -152,6 +162,8 @@
                       <asp:RequiredFieldValidator ID="RequiredProvince" runat="server" ControlToValidate="ddlCustProv" ErrorMessage="Province is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -165,6 +177,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustCountry" runat="server" ReadOnly="True">Canada</asp:TextBox>
                   </div>
                 </div>
+                 </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -175,6 +189,8 @@
                   <%--<div class="col-sm-6">
                      <div class="form-group"></div>
                 </div>--%>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -188,6 +204,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustBusPhone" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -200,6 +218,8 @@
                       <asp:RegularExpressionValidator ID="RegexBusPhone" runat="server" ControlToValidate="txtCustBusPhone" ErrorMessage="Please enter valid phone number (555) 555-5555" ForeColor="Red" ValidationExpression="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></asp:RegularExpressionValidator>
                     </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -213,6 +233,8 @@
                       <asp:TextBox class="form-control" type="email" ID="txtCustEmail" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                  <div class="col-sm-6">
                      <div class="form-group"></div>
@@ -220,8 +242,11 @@
                   <div class="col-sm-6">
                      <div class="form-group">
                          <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
+                         <asp:CustomValidator ID="validateEmailDB" runat="server" ControlToValidate="txtCustEmail" Display="Dynamic" ErrorMessage="A customer with this email address already exists." OnServerValidate="validateEmailDB_ServerValidate" ForeColor="Red"></asp:CustomValidator>
                       </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                     <asp:Button class="btn btn-primary" ID="btnUpdate" runat="server" Text="Update" OnClick="btnSubmit_Click" />
@@ -231,7 +256,7 @@
                 </div>
               </div>
              </div>
-        </div>
+            </div>
     </section>
         <!-- password modal -->
     <div tabindex="-1" class="modal fade" id="password-modal" role="dialog" aria-hidden="true" aria-labelledby="pswdUpdate">

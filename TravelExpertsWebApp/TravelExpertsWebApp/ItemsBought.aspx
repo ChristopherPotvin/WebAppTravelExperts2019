@@ -56,7 +56,7 @@
             <h4 class="modal-title" id="Login">Customer login</h4>
           </div>
           <div class="modal-body">
-            </div>
+             <form action="customer-orders.html" method="post">
               <div class="form-group">
                 <asp:TextBox class="form-control" type="email" ID="txtModalCustEmail" placeholder="Email" runat="server"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="requiredLoginModalEmail" runat="server" Display="Dynamic" ErrorMessage="Please enter your email" ForeColor="Red" ControlToValidate="txtModalCustEmail" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
@@ -69,13 +69,32 @@
               <p class="text-center">
                 <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" ValidationGroup="ModalLoginValidation"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
+             </form>
             <p class="text-center text-muted">Not registered yet?</p>
             <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
         </div>
       </div>
+     </div>
     <!-- login modal end (done) -->
     <br />
+        <!-- start of Items bought UI (done) -->
+    <section class="background-gray-lightest">
+      <div class="container">
+        <div class="breadcrumbs">
+          <ul class="breadcrumb">
+            <li><a href="HomePage.aspx">Home</a></li>
+            <li>Products and Vacation Packages Purchased</li>
+          </ul>
+        </div>
+        <h1 class="heading">Purchase History</h1>
+        <p class="lead"><strong>This page will allow you to review all the purchases you've made since joining us. Should you have any questions or concerns, please contact us and we will be happy to assist you.
+        </strong></p>
+      </div>
+    </section>
+    <!-- end of items bought UI (done)
+    <!-- start of 2nd half of UI(done)-->
+    <section>  
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="odsItemsBought">
             <Columns>
                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />

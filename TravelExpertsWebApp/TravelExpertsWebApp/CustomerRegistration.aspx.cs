@@ -97,27 +97,31 @@ namespace TravelExpertsWebApp
 
         protected void LoginButton(object sender, EventArgs e)
         {
-            string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
-
-            //string custEmail = String.Format("{0}", Request.Form["email_modal"]);
-            //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
-
-            Customers custLogin = new Customers(txtModalCustEmail.Text, hashedPswd);
-
-            string output = CustomersDB.GetCustomerLogin(custLogin);
-
-            if (output == "1")
+            if (Page.IsValid)
             {
-                Session["custEmail"] = txtModalCustEmail.Text;
-                Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
-                Session["customerId"] = (int)loggedCustomer.CustomerId;
+                string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
 
-                Response.Redirect("CustomerRegistration.aspx");
+                //string custEmail = String.Format("{0}", Request.Form["email_modal"]);
+                //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
+
+                Customers custLogin = new Customers(txtModalCustEmail.Text, hashedPswd);
+
+                string output = CustomersDB.GetCustomerLogin(custLogin);
+
+                if (output == "1")
+                {
+                    Session["custEmail"] = txtModalCustEmail.Text;
+                    Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+                    Session["customerId"] = (int)loggedCustomer.CustomerId;
+
+                    Response.Redirect("CustomerRegistration.aspx");
+                }
+                else
+                {
+                    Response.Write("Login Failed");
+                }
             }
-            else
-            {
-                Response.Write("Login Failed");
-            }
+            
         }
 
         protected void Logout(object sender, EventArgs e)
@@ -164,12 +168,12 @@ namespace TravelExpertsWebApp
 
             if (isEmailExisting == null)
             {
-                args.IsValid = true;
-                Response.Write("Unable to register. A customer with that email address already exists.");
+                args.IsValid = true;               
             }
             else
             {
                 args.IsValid = false;
+                Response.Write("Unable to register. A customer with that email address already exists.");
             }
         }
 
