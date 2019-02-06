@@ -1,6 +1,8 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsBought.aspx.cs" Inherits="TravelExpertsWebApp.ItemsBought" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
+<%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+
 
 
 <!DOCTYPE html>
@@ -8,7 +10,6 @@
 <html>
 <uc1:HeadLinks runat="server" ID="HeadLinks" />
 <body>
-    <form>
     <form runat="server">
      <!-- start of navigation bar in the header (done) -->
      <header class="header">
@@ -35,7 +36,7 @@
               <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
                 <ul class="dropdown-menu"> 
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
-                  <li><a href="#">Purchase History</a></li>
+                  <li><a href="ItemsBought.aspx">Purchase History</a></li>
                   <li class="divider"></li>
                   <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
@@ -85,10 +86,13 @@
                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
             </Columns>
         </asp:GridView>
-    </form>
     <br />
         <div class="container">
-            <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"></asp:ObjectDataSource>
+            <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB">
+                <SelectParameters>
+                    <asp:SessionParameter Name="customerId" SessionField="customerId" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
         </div>
     <div class="comments">
               <h4>4 comments</h4>
@@ -140,7 +144,7 @@
             </div>
         </div>
         <!-- start of the footer (done)-->
-    <uc1:Footer runat="server" id="Footer" />
+        <uc1:Footer runat="server" ID="Footer" />
    </form>
 </body>
 </html>

@@ -11,7 +11,7 @@ namespace TravelExpertsWebApp.App_Code
     public class ItemsBoughtDB
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
-        public static List<ItemsBought> GetItemsBought()
+        public static List<ItemsBought> GetItemsBought(int CustomerId)
         {
 
             List<ItemsBought> purchases = new List<ItemsBought>();
@@ -23,11 +23,12 @@ namespace TravelExpertsWebApp.App_Code
                 string query = "SELECT Description,TravelerCount, Destination,TripStart, TripEnd, BasePrice " +
                                 "FROM Bookings " +
                                 "INNER JOIN BookingDetails on Bookings.BookingId = BookingDetails.BookingId " +
-                                "WHERE Bookings.CustomerId = 143;"; // Placeholder
+                                "WHERE Bookings.CustomerId = @CustomerID;"; // Placeholder
 
 
                 using (SqlCommand command = new SqlCommand(query, connection))
                 {
+                    command.Parameters.AddWithValue("@CustomerId", CustomerId);
                     using (SqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
