@@ -55,7 +55,7 @@
             <h4 class="modal-title" id="Login">Customer login</h4>
           </div>
           <div class="modal-body">
-            <form action="customer-orders.html" method="post">
+            </div>
               <div class="form-group">
                 <asp:TextBox class="form-control" type="email" ID="txtModalCustEmail" placeholder="Email" runat="server"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="requiredLoginModalEmail" runat="server" Display="Dynamic" ErrorMessage="Please enter your email" ForeColor="Red" ControlToValidate="txtModalCustEmail" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
@@ -69,7 +69,6 @@
               <p class="text-center">
                 <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" ValidationGroup="ModalLoginValidation"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
-            </form>
             <p class="text-center text-muted">Not registered yet?</p>
             <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
