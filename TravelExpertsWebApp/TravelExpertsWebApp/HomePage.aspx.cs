@@ -73,7 +73,7 @@ namespace TravelExpertsWebApp
                     Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
                     Session["customerId"] = (int)loggedCustomer.CustomerId;
 
-                    Response.Redirect("ContactPage.aspx");
+                    Response.Redirect("HomePage.aspx");
                 }
                 else
                 {
