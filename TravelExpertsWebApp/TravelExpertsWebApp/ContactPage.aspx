@@ -10,6 +10,8 @@
 <uc1:HeadLinks runat="server" ID="HeadLinks" />
     <body>
     <form runat="server">
+         <div clientidmode="static" class="LoginSuccess" id="LoginSuccess" runat="server" visible="false"></div>
+        <div clientidmode="static" class="LoginFailure" id="LoginFailure" runat="server" visible="false"></div>
     <!-- start of navbar (done) -->
     <header class="header">
       <div class="navbar navbar-default" role="navigation">

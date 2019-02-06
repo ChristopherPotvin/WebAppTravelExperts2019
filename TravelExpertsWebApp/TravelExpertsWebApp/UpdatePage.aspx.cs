@@ -76,11 +76,19 @@ namespace TravelExpertsWebApp
                     bool updateSuccessful = CustomersDB.UpdateCustomer(loggedCustomer, updatedCustomer);
                     if (updateSuccessful)
                     {
-                        Response.Write("Update successful");
+                        Control loginSuccess = FindControl("LoginSuccess");
+                        loginSuccess.Visible = true;
+                        string script = @"document.getElementById('" + LoginSuccess.ClientID + "').innerHTML='Update successful.' ;setTimeout(function(){document.getElementById('" + LoginSuccess.ClientID + "').style.display='none';},5000);";
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
                     }
                     else
                     {
-                        Response.Write("Unable to update information");
+                        Control loginFail = FindControl("LoginFailure");
+                        loginFail.Visible = true;
+                        string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to update information.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
                     }
                 }
                 catch (Exception ex)
@@ -117,16 +125,28 @@ namespace TravelExpertsWebApp
                     bool updatePswdSuccessful = CustomersDB.UpdateCustomerPassword(loggedCustomer, updatedPswdCustomer);
                     if (updatePswdSuccessful)
                     {
-                        Response.Write("Update successful");
+                        Control loginSuccess = FindControl("LoginSuccess");
+                        loginSuccess.Visible = true;
+                        string script = @"document.getElementById('" + LoginSuccess.ClientID + "').innerHTML='Password update successful.' ;setTimeout(function(){document.getElementById('" + LoginSuccess.ClientID + "').style.display='none';},5000);";
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
                     }
                     else
                     {
-                        Response.Write("Unable to update information");
+                        Control loginFail = FindControl("LoginFailure");
+                        loginFail.Visible = true;
+                        string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to update password.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                        //Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                        ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
                     }
                 }
                 catch (Exception)
                 {
-                    Response.Write("Unable to process information. Please contact travel experts");
+                    Control loginFail = FindControl("LoginFailure");
+                    loginFail.Visible = true;
+                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to process information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
+                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
                 }
             }            
         }
@@ -138,7 +158,10 @@ namespace TravelExpertsWebApp
             if (isPasswordCorrect == null)
             {
                 args.IsValid = false;
-                Response.Write("Unable to update information");
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to update password.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
             }
             else
             {
@@ -164,7 +187,11 @@ namespace TravelExpertsWebApp
             else
             {
                 args.IsValid = false;
-                Response.Write("Unable to update. A customer with that email address already exists.");
+
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to update. A customer with that email address already exists.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
             }
         }
     }
