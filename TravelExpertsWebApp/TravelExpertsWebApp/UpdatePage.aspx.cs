@@ -138,7 +138,7 @@ namespace TravelExpertsWebApp
             if (isPasswordCorrect == null)
             {
                 args.IsValid = false;
-                Response.Write("Unable to update information validator");
+                Response.Write("Unable to update information");
             }
             else
             {

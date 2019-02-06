@@ -283,7 +283,7 @@
                    <asp:CompareValidator ID="CompareValidator1" runat="server" ControlToCompare="txtUnconfirmedNewCustPassword" ControlToValidate="txtNewCustPassword" ErrorMessage="Passwords do not match" ForeColor="Red" ValidationGroup="ModalValidation" Display="Dynamic"></asp:CompareValidator>
               </div>
               <p class="text-center">
-                  <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Button" style="height: 36px" ValidationGroup="ModalValidation" OnClick ="btnUpdtPswd_Click"/>                 
+                  <asp:Button class="btn btn-success" ID="btnUpdtPswd" runat="server" Text="Update" style="height: 36px" ValidationGroup="ModalValidation" OnClick ="btnUpdtPswd_Click"/>                 
               </p>
             </form>
           </div>
