@@ -10,6 +10,8 @@
 <body>
      <!-- start of navigation bar in the header (done) -->
     <form runat="server">
+        <div clientidmode="static" class="LoginSuccess" id="LoginSuccess" runat="server" visible="false"></div>
+        <div clientidmode="static" class="LoginFailure" id="LoginFailure" runat="server" visible="false"></div>
     <header class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">

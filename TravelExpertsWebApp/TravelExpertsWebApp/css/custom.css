@@ -3,3 +3,17 @@
     margin-left: 5%;
     margin-right: 5%;
 }
+
+.LoginSuccess{
+    background-color: green;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}
+
+.LoginFailure {
+    background-color: red;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+}

@@ -78,7 +78,10 @@ namespace TravelExpertsWebApp
                 }
                 else
                 {
-                    Response.Write("Login Failed");
+                    Control loginFail = FindControl("LoginFailure");
+                    loginFail.Visible = true;
+                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Login failed, please check your credentials.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
                 }
             }
         }
@@ -97,7 +100,10 @@ namespace TravelExpertsWebApp
             if (activationStatus == "No")
             {
                 args.IsValid = false;
-                Response.Write("Registration incomplete. Please activate your account (see instructions sent to your email)");
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Registration incomplete. Please activate your account (see instructions sent to your email)' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
             }
             else
             {
