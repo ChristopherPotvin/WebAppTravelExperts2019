@@ -268,6 +268,7 @@
                  <div class="col-sm-6">
                      <div class="form-group">
                         <asp:RegularExpressionValidator ID="RegexUnconfirmedEmail" runat="server" ControlToValidate="txtUnconfirmedEmail" Display="Dynamic" ErrorMessage="Please enter a valid email address" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:CompareValidator ID="CompareEmailOriginal" runat="server" ControlToCompare="txtCustEmail" ControlToValidate="txtUnconfirmedEmail" ErrorMessage="Emails do not match" ForeColor="Red"></asp:CompareValidator>
                      </div>
                 </div>
                   <div class="col-sm-6">
