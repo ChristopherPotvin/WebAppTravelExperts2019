@@ -60,6 +60,7 @@ namespace TravelExpertsWebApp
                 txtCustBusPhone.Text = loggedCustomer.CustBusPhone;
                 txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
                 txtCustEmail.Text = loggedCustomer.CustEmail;
+                customerLogged.Text = "Welcome " + txtCustFirstName.Text;
             }
         }
 
@@ -78,6 +79,7 @@ namespace TravelExpertsWebApp
                     {
                         Control loginSuccess = FindControl("LoginSuccess");
                         loginSuccess.Visible = true;
+                        customerLogged.Text = "Welcome " + txtCustFirstName.Text;
                         string script = @"document.getElementById('" + LoginSuccess.ClientID + "').innerHTML='Update successful.' ;setTimeout(function(){document.getElementById('" + LoginSuccess.ClientID + "').style.display='none';},5000);";
                         //Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
