@@ -13,9 +13,40 @@ namespace TravelExpertsWebApp
     public static class CustomersDB
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string AssignEmailNo()
+        {
+            string count="";
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string selectQuery = "SELECT (count(*)+1) as CountNo from customers where CustEmail Like '%defaultemail%'";
+
+            SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+            try
+            {
+                connection.Open();
+
+                //execute query
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                //process the results
+                while (reader.Read())
+                {
+                    count = reader["CountNo"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return count;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public static string isActivated(string custEmail)
         {
-            string activationStatus = "no";
+            string activationStatus = "No";
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
             string selectQuery = "SELECT CustActivated from Customers where CustEmail = @CustEmail";
@@ -200,7 +231,7 @@ namespace TravelExpertsWebApp
             insertCommand.Parameters.AddWithValue("@CustBusPhone", cust.CustBusPhone);
             insertCommand.Parameters.AddWithValue("@CustEmail", cust.CustEmail);
             insertCommand.Parameters.AddWithValue("@CustPassword", cust.CustPassword);
-            insertCommand.Parameters.AddWithValue("@CustActivated", "No");
+            insertCommand.Parameters.AddWithValue("@CustActivated", cust.CustActivated);
 
             try
             {

@@ -34,7 +34,9 @@ namespace TravelExpertsWebApp.App_Code
 
         public string CustPassword { get; set; }
 
-        public Customers(string custFirstName, string custLastName, string custAddress, string custCity, string custProv, string custPostal, string custCountry, string custHomePhone, string custBusPhone, string custEmail, string custPassword)
+        public string CustActivated { get; set; }
+
+        public Customers(string custFirstName, string custLastName, string custAddress, string custCity, string custProv, string custPostal, string custCountry, string custHomePhone, string custBusPhone, string custEmail, string custPassword, string custActivated)
         {
             CustFirstName = custFirstName;
             CustLastName = custLastName;
@@ -47,6 +49,7 @@ namespace TravelExpertsWebApp.App_Code
             CustBusPhone = custBusPhone;
             CustEmail = custEmail;
             CustPassword = custPassword;
+            CustActivated = custActivated;
         }
 
         public Customers(string custEmail, string custPassword)
