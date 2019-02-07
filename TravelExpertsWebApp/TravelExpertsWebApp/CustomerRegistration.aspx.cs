@@ -202,5 +202,22 @@ namespace TravelExpertsWebApp
                 args.IsValid = true;
             }
         }
+        
+        protected void validateConfirmation_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (!String.IsNullOrEmpty(txtUnconfirmedEmail.Text) && String.IsNullOrEmpty(txtCustEmail.Text))
+            {
+                args.IsValid = false;
+
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='You need to confirm the email you entered. Please see below' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
     }
 }
