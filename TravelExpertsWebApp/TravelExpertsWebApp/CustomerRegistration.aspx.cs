@@ -64,17 +64,37 @@ namespace TravelExpertsWebApp
             {
                 string hashedPswd = HashPassword.ApplyHash(txtCustPassword.Text);
 
-                Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text, hashedPswd);
-                try
-                {
-                    int insertCustId = CustomersDB.AddCustomer(cust);
-                    SendActivationEmail(txtCustEmail.Text);
-                    Response.Redirect("ConfirmationPage.aspx");
+                if (txtCustEmail.Text != "")
+                {                 
+                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text, hashedPswd, "No");
+                    try
+                    {
+                        int insertCustId = CustomersDB.AddCustomer(cust);
+                        SendActivationEmail(txtCustEmail.Text);
+                        Response.Redirect("ConfirmationPage.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw ex;
+                    string defaultEmail = "defaultemail" + CustomersDB.AssignEmailNo() + "@travelexperts.com";
+                    Application["defaultEmail"] = defaultEmail;
+
+                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, defaultEmail, hashedPswd, "Yes");
+                    try
+                    {
+                        int insertCustId = CustomersDB.AddCustomer(cust);
+                        Response.Redirect("ConfirmationPageNoEmail.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
+                
             }               
         }
 
@@ -123,8 +143,7 @@ namespace TravelExpertsWebApp
                     string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Login failed, please check your credentials.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
                 }
-            }
-            
+            }            
         }
 
         protected void Logout(object sender, EventArgs e)

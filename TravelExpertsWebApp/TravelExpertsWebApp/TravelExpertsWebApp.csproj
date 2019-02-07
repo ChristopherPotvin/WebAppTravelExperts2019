@@ -82,6 +82,7 @@
   <ItemGroup>
     <Content Include="ActivationPage.aspx" />
     <Content Include="ConfirmationPage.aspx" />
+    <Content Include="ConfirmationPageNoEmail.aspx" />
     <Content Include="ContactPage.aspx" />
     <Content Include="css\button.css" />
     <Content Include="css\reset.css" />
@@ -156,6 +157,13 @@
     </Compile>
     <Compile Include="ConfirmationPage.aspx.designer.cs">
       <DependentUpon>ConfirmationPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConfirmationPageNoEmail.aspx.cs">
+      <DependentUpon>ConfirmationPageNoEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmationPageNoEmail.aspx.designer.cs">
+      <DependentUpon>ConfirmationPageNoEmail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\CustomerActivationDB.cs" />
     <Compile Include="UpdatePage.aspx.cs">
