@@ -29,10 +29,7 @@ namespace TravelExpertsWebApp
                 }
                 catch (Exception)
                 {
-                    Control loginFail = FindControl("LoginFailure");
-                    loginFail.Visible = true;
-                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to proces your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                    ExceptionScript();
                 }
             }
             else
@@ -43,38 +40,25 @@ namespace TravelExpertsWebApp
 
             if (!this.IsPostBack)
             {
-                SqlConnection connection = TravelExpertsDB.GetConnection();
                 string activationCode = !string.IsNullOrEmpty(Request.QueryString["ActivationCode"]) ? Request.QueryString["ActivationCode"] : Guid.Empty.ToString();
 
-                string custEmail = GetCustEmail(activationCode);
-
-                string deleteActCode = "DELETE FROM UserActivation WHERE ActivationCode = @ActivationCode";
-
-                SqlCommand deleteCommand = new SqlCommand(deleteActCode, connection);
-
-                deleteCommand.Parameters.AddWithValue("@ActivationCode", activationCode);
+                string custEmail = CustomersDB.GetEmailbyActivationCode(activationCode);
 
                 try
                 {
-                    connection.Open();
-                    int count = deleteCommand.ExecuteNonQuery();
+                    int count = CustomersDB.deleteConfirmation(activationCode);
                     if (count == 1)
                     {
                         activationConfirmation.Text = "Activation successful.";
                         activationMessage.Text = "You have successfully activated your account. You can now login and book your next vacation!";
 
-                        string updateActivation = "UPDATE Customers SET CustActivated = 'Yes' WHERE custEmail = @CustEmail";
-                        SqlCommand updateCommand = new SqlCommand(updateActivation, connection);
-                        updateCommand.Parameters.AddWithValue("@CustEmail", custEmail);
-
                         try
                         {
-                            int countU = updateCommand.ExecuteNonQuery();
+                            CustomersDB.updateActivationStatus(custEmail);
                         }
-                        catch (Exception ex)
+                        catch (Exception)
                         {
-
-                            throw ex;
+                            ExceptionScript();
                         }
                     }
                     else
@@ -82,13 +66,9 @@ namespace TravelExpertsWebApp
                         activationConfirmation.Text = "Activation unsuccessful. Please contact an agent at Travel Experts.";
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
+                    ExceptionScript();
                 }
             }
         }
@@ -151,10 +131,7 @@ namespace TravelExpertsWebApp
             }
             catch (Exception)
             {
-                Control loginFail = FindControl("LoginFailure");
-                loginFail.Visible = true;
-                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to proces your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                ExceptionScript();
             }
             finally
             {
@@ -179,6 +156,14 @@ namespace TravelExpertsWebApp
             {
                 args.IsValid = true;
             }
+        }
+
+        protected void ExceptionScript()
+        {
+            Control loginFail = FindControl("LoginFailure");
+            loginFail.Visible = true;
+            string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to process your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
         }
     }
 }

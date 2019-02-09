@@ -14,6 +14,87 @@ namespace TravelExpertsWebApp
     public static class CustomersDB
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string GetEmailbyActivationCode(string activationCode)
+        {
+            string custEmail = null;
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string selectAccount = "SELECT CustEmail FROM UserActivation WHERE ActivationCode = @ActivationCode";
+            SqlCommand selectAcctCommand = new SqlCommand(selectAccount, connection);
+            selectAcctCommand.Parameters.AddWithValue("@ActivationCode", activationCode);
+            try
+            {
+                connection.Open();
+                //execute the query
+                SqlDataReader reader = selectAcctCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    custEmail = reader["CustEmail"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return custEmail;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public static void updateActivationStatus(string custEmail)
+        {
+            string updateActivation = "UPDATE Customers SET CustActivated = 'Yes' WHERE custEmail = @CustEmail";
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            SqlCommand updateCommand = new SqlCommand(updateActivation, connection);
+            updateCommand.Parameters.AddWithValue("@CustEmail", custEmail);
+
+            try
+            {
+                connection.Open();
+                int countU = updateCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static int deleteConfirmation(string activationCode)
+        {
+            int count = 0;
+
+            string deleteActCode = "DELETE FROM UserActivation WHERE ActivationCode = @ActivationCode";
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            SqlCommand deleteCommand = new SqlCommand(deleteActCode, connection);
+            deleteCommand.Parameters.AddWithValue("@ActivationCode", activationCode);
+
+            try
+            {
+                connection.Open();
+                count = deleteCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return count;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public static string confirmLogin(string loginSession)
         {
             string custFirstName = "";
