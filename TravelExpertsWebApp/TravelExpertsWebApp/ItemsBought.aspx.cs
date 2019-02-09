@@ -22,30 +22,17 @@ namespace TravelExpertsWebApp
             {
                 loggedIcon.Visible = true;
                 loginIcon.Visible = false;
-                string sql = "SELECT CustFirstName from Customers where CustEmail = @CustEmail";
 
-                SqlConnection connection = TravelExpertsDB.GetConnection();
-                SqlCommand cmd = new SqlCommand(sql, connection);
-                SqlParameter param = new SqlParameter("@CustEmail", SqlDbType.VarChar);
-                param.Value = Session["custEmail"];
-                cmd.Parameters.Add(param);
                 try
                 {
-                    connection.Open();
-                    SqlDataReader myReader;
-                    myReader = cmd.ExecuteReader();
-                    while (myReader.Read())
-                    {
-                        customerLogged.Text = "Welcome " + (myReader["CustFirstName"].ToString());
-                    }
+                    customerLogged.Text = "Welcome " + CustomersDB.confirmLogin(Session["custEmail"].ToString());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
+                    Control loginFail = FindControl("LoginFailure");
+                    loginFail.Visible = true;
+                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to process your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
                 }
             }
             else

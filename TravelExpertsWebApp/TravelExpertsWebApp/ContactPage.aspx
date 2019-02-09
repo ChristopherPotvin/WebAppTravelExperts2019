@@ -28,9 +28,9 @@
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="ItemsBought.aspx">Book a Travel Package</a></li>
-                  <li><a href="ItemsBought.aspx">Browse Current Travel Packages</a></li>
-                  <li><a href="ItemsBought.aspx">Modify a Current Booking</a></li>
+                  <li><a href="#">Book a Travel Package</a></li>
+                  <li><a href="#">Browse Current Travel Packages</a></li>
+                  <li><a href="#">Modify a Current Booking</a></li>
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
