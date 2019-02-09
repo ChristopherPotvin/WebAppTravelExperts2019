@@ -31,7 +31,7 @@ namespace TravelExpertsWebApp
                 {
                     Control loginFail = FindControl("LoginFailure");
                     loginFail.Visible = true;
-                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to proces your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to process your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
                     Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
                 }
             }
