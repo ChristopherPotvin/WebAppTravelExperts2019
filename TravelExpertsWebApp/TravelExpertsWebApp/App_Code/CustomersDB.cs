@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,39 @@ namespace TravelExpertsWebApp
     [DataObject(true)]
     public static class CustomersDB
     {
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string confirmLogin(string loginSession)
+        {
+            string custFirstName = "";
+
+            string sql = "SELECT CustFirstName from Customers where CustEmail = @CustEmail";
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, connection);
+            SqlParameter param = new SqlParameter("@CustEmail", SqlDbType.VarChar);
+            param.Value = loginSession;
+            cmd.Parameters.Add(param);
+            try
+            {
+                connection.Open();
+                SqlDataReader myReader;
+                myReader = cmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                   custFirstName = myReader["CustFirstName"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return custFirstName;
+        }
+
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static string AssignEmailNo()
         {
