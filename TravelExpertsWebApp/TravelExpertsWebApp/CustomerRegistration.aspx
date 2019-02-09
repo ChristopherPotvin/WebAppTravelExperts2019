@@ -137,6 +137,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustLastName" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -150,6 +152,8 @@
                       <asp:RegularExpressionValidator ID="RegexLastName" runat="server" ControlToValidate="txtCustLastName" Display="Dynamic" ErrorMessage="Please enter a valid name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -157,12 +161,16 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustAddress" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
                       <asp:RequiredFieldValidator ID="RequiredAddress" runat="server" ControlToValidate="txtCustAddress" ErrorMessage="Address is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                  <div class="col-sm-6">
                   <div class="form-group">
@@ -191,6 +199,8 @@
                       </asp:DropDownList>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -203,6 +213,8 @@
                       <asp:RequiredFieldValidator ID="RequiredProvince" runat="server" ControlToValidate="ddlCustProv" ErrorMessage="Province is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -216,6 +228,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustCountry" runat="server" ReadOnly="True">Canada</asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -223,6 +237,8 @@
                       <asp:RequiredFieldValidator class="form-control" ID="RequiredPostal" runat="server" Display="Dynamic" ErrorMessage="Postal code is required" ForeColor="Red" ControlToValidate="txtCustPostal"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+               <div class="row">
                   <%--<div class="col-sm-6">
                      <div class="form-group"></div>
                 </div>--%>
@@ -239,6 +255,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustBusPhone" runat="server"></asp:TextBox>
                   </div>
                 </div>
+               </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -251,6 +269,8 @@
                       <asp:RegularExpressionValidator ID="RegexBusPhone" runat="server" ControlToValidate="txtCustBusPhone" ErrorMessage="Please enter valid phone number (555) 555-5555" ForeColor="Red" ValidationExpression="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></asp:RegularExpressionValidator>
                     </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -264,6 +284,8 @@
                       <asp:TextBox class="form-control" type="email" ID="txtCustEmail" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                  <div class="col-sm-6">
                      <div class="form-group">
@@ -278,6 +300,8 @@
                          <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red"></asp:CompareValidator>
                       </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -291,6 +315,8 @@
                       <asp:TextBox class="form-control" type="password" ID="txtCustPassword" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -303,6 +329,8 @@
                       <asp:CompareValidator ID="ComparePasswordlValidator" runat="server" ControlToCompare="txtUnconfirmedPassword" ControlToValidate="txtCustPassword" ErrorMessage="Passwords do not match" ForeColor="Red"></asp:CompareValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                     <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
@@ -311,10 +339,10 @@
                     <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click" />
                 </div>
               </div>
+             </div>
               <!-- End of registration form for new customers-->
           </div>
         </div>
-      </div>
     </section>
         <uc1:Footer runat="server" id="Footer" />
         </form>
