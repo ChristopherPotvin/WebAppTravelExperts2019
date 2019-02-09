@@ -165,6 +165,7 @@
     <Compile Include="ConfirmationPageNoEmail.aspx.designer.cs">
       <DependentUpon>ConfirmationPageNoEmail.aspx</DependentUpon>
     </Compile>
+    <Compile Include="FormatPhoneNo.cs" />
     <Compile Include="Model\CustomerActivationDB.cs" />
     <Compile Include="UpdatePage.aspx.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>

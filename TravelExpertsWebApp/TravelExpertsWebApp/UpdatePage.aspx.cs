@@ -70,7 +70,7 @@ namespace TravelExpertsWebApp
             {
                 Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
 
-                Customers updatedCustomer = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text);
+                Customers updatedCustomer = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, FormatPhoneNo.ApplyFormatting(txtCustHomePhone.Text), FormatPhoneNo.ApplyFormatting(txtCustBusPhone.Text), txtCustEmail.Text);
 
                 try
                 {
