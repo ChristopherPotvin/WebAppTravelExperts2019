@@ -53,7 +53,7 @@ namespace TravelExpertsWebApp
 
                 if (txtCustEmail.Text != "")
                 {                 
-                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text, hashedPswd, "No");
+                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, FormatePhoneNo.ApplyFormatting(txtCustHomePhone.Text),FormatePhoneNo.ApplyFormatting(txtCustBusPhone.Text), txtCustEmail.Text, hashedPswd, "No");
                     try
                     {
                         int insertCustId = CustomersDB.AddCustomer(cust);
@@ -70,7 +70,7 @@ namespace TravelExpertsWebApp
                     string defaultEmail = "defaultemail" + CustomersDB.AssignEmailNo() + "@travelexperts.com";
                     Application["defaultEmail"] = defaultEmail;
 
-                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, defaultEmail, hashedPswd, "Yes");
+                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, FormatePhoneNo.ApplyFormatting(txtCustHomePhone.Text), FormatePhoneNo.ApplyFormatting(txtCustBusPhone.Text), defaultEmail, hashedPswd, "Yes");
                     try
                     {
                         int insertCustId = CustomersDB.AddCustomer(cust);
