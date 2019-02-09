@@ -161,7 +161,7 @@ namespace TravelExpertsWebApp
         [DataObjectMethod(DataObjectMethodType.Select)]
         public static string isActivated(string custEmail)
         {
-            string activationStatus = "No";
+            string activationStatus = "";
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
             string selectQuery = "SELECT CustActivated from Customers where CustEmail = @CustEmail";

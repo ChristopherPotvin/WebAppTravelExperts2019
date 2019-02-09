@@ -239,12 +239,15 @@
                 <div class="row">
                   <!--one row -->
                  <div class="col-sm-6">
-                     <div class="form-group"></div>
+                     <div class="form-group">
+                        <asp:RequiredFieldValidator class="form-control" ID="requiredUnconfirmedEmail" runat="server" Display="Dynamic" ErrorMessage="Email is required" ForeColor="Red" ControlToValidate="txtUnconfirmedEmail"></asp:RequiredFieldValidator>
+                     </div>
                 </div>
                   <div class="col-sm-6">
                      <div class="form-group">
                          <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red" Display="Dynamic"></asp:CompareValidator>
                          <asp:CustomValidator ID="validateEmailDB" runat="server" ControlToValidate="txtCustEmail" Display="Dynamic" ErrorMessage="A customer with this email address already exists." OnServerValidate="validateEmailDB_ServerValidate" ForeColor="Red"></asp:CustomValidator>
+                         <asp:RequiredFieldValidator class="form-control" ID="requiredEmail" runat="server" Display="Dynamic" ErrorMessage="Email is required" ForeColor="Red" ControlToValidate="txtCustEmail"></asp:RequiredFieldValidator>
                       </div>
                 </div>
                 </div>

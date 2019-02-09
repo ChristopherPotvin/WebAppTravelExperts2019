@@ -29,10 +29,7 @@ namespace TravelExpertsWebApp
                 }
                 catch (Exception)
                 {
-                    Control loginFail = FindControl("LoginFailure");
-                    loginFail.Visible = true;
-                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to process your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
-                    Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                    ExceptionScript();
                 }
             }
             else
@@ -43,18 +40,26 @@ namespace TravelExpertsWebApp
 
             if (!IsPostBack)
             {
-                Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
-                txtCustFirstName.Text = loggedCustomer.CustFirstName;
-                txtCustLastName.Text = loggedCustomer.CustLastName;
-                txtCustAddress.Text = loggedCustomer.CustAddress;
-                txtCustCity.Text = loggedCustomer.CustCity;
-                ddlCustProv.Text = loggedCustomer.CustProv;
-                txtCustPostal.Text = loggedCustomer.CustPostal;
-                txtCustHomePhone.Text = loggedCustomer.CustHomePhone;
-                txtCustBusPhone.Text = loggedCustomer.CustBusPhone;
-                txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
-                txtCustEmail.Text = loggedCustomer.CustEmail;
-                customerLogged.Text = "Welcome " + txtCustFirstName.Text;
+                try
+                {
+                    Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+                    txtCustFirstName.Text = loggedCustomer.CustFirstName;
+                    txtCustLastName.Text = loggedCustomer.CustLastName;
+                    txtCustAddress.Text = loggedCustomer.CustAddress;
+                    txtCustCity.Text = loggedCustomer.CustCity;
+                    ddlCustProv.Text = loggedCustomer.CustProv;
+                    txtCustPostal.Text = loggedCustomer.CustPostal;
+                    txtCustHomePhone.Text = loggedCustomer.CustHomePhone;
+                    txtCustBusPhone.Text = loggedCustomer.CustBusPhone;
+                    txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
+                    txtCustEmail.Text = loggedCustomer.CustEmail;
+                    customerLogged.Text = "Welcome " + txtCustFirstName.Text;
+                }
+                catch
+                {
+                    ExceptionScript();
+                }
+                
             }
         }
 
@@ -87,9 +92,9 @@ namespace TravelExpertsWebApp
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
                     }
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
+                    ExceptionScript();
                 }
             }
             
@@ -97,17 +102,25 @@ namespace TravelExpertsWebApp
 
         protected void btnCancel_Click(object sender, EventArgs e)
         {
-            Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
-            txtCustFirstName.Text = loggedCustomer.CustFirstName;
-            txtCustLastName.Text = loggedCustomer.CustLastName;
-            txtCustAddress.Text = loggedCustomer.CustAddress;
-            txtCustCity.Text = loggedCustomer.CustCity;
-            ddlCustProv.Text = loggedCustomer.CustProv;
-            txtCustPostal.Text = loggedCustomer.CustPostal;
-            txtCustHomePhone.Text = loggedCustomer.CustHomePhone;
-            txtCustBusPhone.Text = loggedCustomer.CustBusPhone;
-            txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
-            txtCustEmail.Text = loggedCustomer.CustEmail;
+            try
+            {
+                Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+                txtCustFirstName.Text = loggedCustomer.CustFirstName;
+                txtCustLastName.Text = loggedCustomer.CustLastName;
+                txtCustAddress.Text = loggedCustomer.CustAddress;
+                txtCustCity.Text = loggedCustomer.CustCity;
+                ddlCustProv.Text = loggedCustomer.CustProv;
+                txtCustPostal.Text = loggedCustomer.CustPostal;
+                txtCustHomePhone.Text = loggedCustomer.CustHomePhone;
+                txtCustBusPhone.Text = loggedCustomer.CustBusPhone;
+                txtUnconfirmedEmail.Text = loggedCustomer.CustEmail;
+                txtCustEmail.Text = loggedCustomer.CustEmail;
+            }
+            catch
+            {
+                ExceptionScript();
+            }
+            
         }
 
         protected void btnUpdtPswd_Click(object sender, EventArgs e)
@@ -138,11 +151,7 @@ namespace TravelExpertsWebApp
                 }
                 catch (Exception)
                 {
-                    Control loginFail = FindControl("LoginFailure");
-                    loginFail.Visible = true;
-                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to process information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
-                    ScriptManager.RegisterStartupScript(this, this.GetType(), "Show status", script, true);
-                    //Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                    ExceptionScript();
                 }
             }            
         }
@@ -189,6 +198,14 @@ namespace TravelExpertsWebApp
                 string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to update. A customer with that email address already exists.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
             }
+        }
+
+        protected void ExceptionScript()
+        {
+            Control loginFail = FindControl("LoginFailure");
+            loginFail.Visible = true;
+            string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to process your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+            Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
         }
     }
 }

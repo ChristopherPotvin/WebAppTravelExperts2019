@@ -117,6 +117,14 @@ namespace TravelExpertsWebApp
                 string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Registration incomplete. Please activate your account (see instructions sent to your email)' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
                 Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
             }
+            else if (activationStatus == "")
+            {
+                args.IsValid = false;
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Login failed, please check your credentials.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+            }
             else
             {
                 args.IsValid = true;
