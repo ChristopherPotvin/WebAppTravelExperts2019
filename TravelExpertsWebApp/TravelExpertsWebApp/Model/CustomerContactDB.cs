@@ -8,6 +8,9 @@ using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp.Model
 {
+    // Lead Programmer: Chris Potvin
+    // Summary: SQL statement for the insert of a new contact submission via the contact page. Information sent and stored in the CustomerContact table
+
     [DataObject(true)]
     public static class CustomerContactDB
     {

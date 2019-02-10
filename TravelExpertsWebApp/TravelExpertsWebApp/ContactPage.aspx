@@ -3,6 +3,7 @@ Contact information
 Lead Designer: Chris Potvin
 Helper: Mo Sagnia
 Date: 11th February 2018
+Summary: Map APi incorporated via leaflet JS. 
 -->
 
 <%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ContactPage.aspx.cs" Inherits="TravelExpertsWebApp.ContactPage" %>

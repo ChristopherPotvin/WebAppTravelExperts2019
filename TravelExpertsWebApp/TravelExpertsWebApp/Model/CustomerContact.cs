@@ -5,6 +5,8 @@ using System.Web;
 
 namespace TravelExpertsWebApp.Model
 { 
+    // Lead Programmer: Chris Potvin
+    // Summary: Properties for the Customer Contact Page
     public class CustomerContact
     {
 

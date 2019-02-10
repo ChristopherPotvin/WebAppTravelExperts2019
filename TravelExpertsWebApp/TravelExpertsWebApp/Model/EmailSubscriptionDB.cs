@@ -7,7 +7,9 @@ using System.Web;
 using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp.Model
-{
+
+{   // Lead Programmer: Chris Potvin
+    // Summary: SQL statement for the insert of a new email submission via the home page. Information sent and stored in the email subscription table
     [DataObject(true)]
 
     public static class EmailSubscriptionDB
