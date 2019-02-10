@@ -10,6 +10,10 @@ using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp
 {
+    /*Create various static classes to perform various SQL queries
+    * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     [DataObject(true)]
     public static class CustomersDB
     {

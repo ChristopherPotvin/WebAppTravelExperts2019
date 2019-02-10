@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ContactPage.aspx.cs" Inherits="TravelExpertsWebApp.ContactPage" %>
+﻿<!--
+Contact information
+Lead Designer: Chris Potvin
+Helper: Mo Sagnia
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ContactPage.aspx.cs" Inherits="TravelExpertsWebApp.ContactPage" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 <%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>

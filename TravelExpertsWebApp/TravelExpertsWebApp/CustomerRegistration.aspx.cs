@@ -16,6 +16,10 @@ namespace TravelExpertsWebApp
 {
     public partial class CustomerRegistration : System.Web.UI.Page
     {
+    /*Registration page to allow customers to register to travel experts
+     * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
         protected void Page_Load(object sender, EventArgs e)
         {
             HtmlControl loginIcon = (HtmlControl)Page.FindControl("mainBtnLogin");

@@ -1,4 +1,10 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Footer.ascx.cs" Inherits="TravelExpertsWebApp.Footer" %>
+﻿<!--
+Footer for website
+Lead Designer: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Footer.ascx.cs" Inherits="TravelExpertsWebApp.Footer" %>
  <!-- start of the footer (done)-->
 
     <footer class="footer">

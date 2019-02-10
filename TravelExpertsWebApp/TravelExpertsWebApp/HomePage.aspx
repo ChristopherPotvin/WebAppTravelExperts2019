@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="TravelExpertsWebApp.HomePage" %>
+﻿<!--
+Landing page for customers when browsing to Travel Experts website
+Lead Designer: Chris Potvin
+Helper: Mo Sagnia
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="HomePage.aspx.cs" Inherits="TravelExpertsWebApp.HomePage" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 <%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>

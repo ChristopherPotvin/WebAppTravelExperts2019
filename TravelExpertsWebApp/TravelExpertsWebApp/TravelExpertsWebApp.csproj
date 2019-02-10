@@ -93,7 +93,6 @@
     <Content Include="fonts\Pe-icon-7-stroke.svg" />
     <Content Include="fonts\social-share-kit.svg" />
     <Content Include="Footer.ascx" />
-    <Content Include="Header.ascx" />
     <Content Include="HeadLinks.ascx" />
     <Content Include="HomePage.aspx" />
     <Content Include="img\blog1.jpg" />
@@ -203,13 +202,6 @@
       <DependentUpon>Footer.ascx</DependentUpon>
     </Compile>
     <Compile Include="HashPassword.cs" />
-    <Compile Include="Header.ascx.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Header.ascx.designer.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-    </Compile>
     <Compile Include="HeadLinks.ascx.cs">
       <DependentUpon>HeadLinks.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

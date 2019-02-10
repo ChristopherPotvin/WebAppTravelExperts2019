@@ -12,6 +12,11 @@ using TravelExpertsWebApp.Model;
 
 namespace TravelExpertsWebApp
 {
+    /*Page that allows customers to view the contact information of Travel Experts and send messages to the company
+     * Lead Programmer: Mo Sagnia
+     * Helper: Chris Potvin
+     * Date: 11th February 2018
+     */
     public partial class ContactPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

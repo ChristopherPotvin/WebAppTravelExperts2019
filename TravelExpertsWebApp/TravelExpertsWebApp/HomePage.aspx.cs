@@ -11,6 +11,10 @@ using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp
 {
+    /*Home page to allow customers to navigate the basic information of packages
+     * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     public partial class HomePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

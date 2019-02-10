@@ -11,6 +11,10 @@ using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp
 {
+    /*Page to allow customers to update their personal information
+     * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     public partial class UpdatePage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConfirmationPage.aspx.cs" Inherits="TravelExpertsWebApp.ConfirmationPage" %>
+﻿<!--
+Confirmation page for customers with emails
+Lead Designer: Mo Sagnia
+Helper: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConfirmationPage.aspx.cs" Inherits="TravelExpertsWebApp.ConfirmationPage" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 

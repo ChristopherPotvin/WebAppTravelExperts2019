@@ -1,4 +1,10 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HeadLinks.ascx.cs" Inherits="TravelExpertsWebApp.HeadLinks" %>
+﻿<!--
+Links for formatting (eg: bootstraap,css,etc.)
+Lead Designer: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="HeadLinks.ascx.cs" Inherits="TravelExpertsWebApp.HeadLinks" %>
 
 <head>
  <!-- Making the page responsive!-->

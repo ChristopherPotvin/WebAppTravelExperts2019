@@ -1,4 +1,12 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdatePage.aspx.cs" Inherits="TravelExpertsWebApp.UpdatePage" %>
+﻿<!--
+Update page for customers to update their information
+Lead Designer: Mo Sagnia
+Helper: Chris Potvin
+Date: 11th February 2018
+-->
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UpdatePage.aspx.cs" Inherits="TravelExpertsWebApp.UpdatePage" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 <%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>

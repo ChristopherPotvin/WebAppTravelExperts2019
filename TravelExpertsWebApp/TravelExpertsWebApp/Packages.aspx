@@ -1,4 +1,10 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Packages.aspx.cs" Inherits="TravelExpertsWebApp.Packages" %>
+﻿<!--
+Packages bought by customers
+Lead Designer: Andrew Moss
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Packages.aspx.cs" Inherits="TravelExpertsWebApp.Packages" %>
 
 <!DOCTYPE html>
 

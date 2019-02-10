@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsBought.aspx.cs" Inherits="TravelExpertsWebApp.ItemsBought" %>
+﻿<!--
+Packages bought by customers
+Lead Designer: Andrew Moss
+Helper: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsBought.aspx.cs" Inherits="TravelExpertsWebApp.ItemsBought" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 <%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>

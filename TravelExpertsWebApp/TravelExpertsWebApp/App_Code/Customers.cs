@@ -5,7 +5,10 @@ using System.Web;
 
 namespace TravelExpertsWebApp.App_Code
 {
-    //create Customers class with all the pertinent getters & setters
+    /*Create Customers class with all the pertinent getters & setters
+    * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     public class Customers
     {
         public Customers() { } //default constructor 

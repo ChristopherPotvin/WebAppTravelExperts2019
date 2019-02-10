@@ -11,6 +11,10 @@ using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp
 {
+    /*Activation page to render if a customer has successfully activated their account
+     * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     public partial class ActivationPage : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)

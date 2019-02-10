@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ActivationPage.aspx.cs" Inherits="TravelExpertsWebApp.ActivationPage" %>
+﻿<!--
+Activation page for customers
+Lead Designer: Mo Sagnia
+Helper: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ActivationPage.aspx.cs" Inherits="TravelExpertsWebApp.ActivationPage" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 

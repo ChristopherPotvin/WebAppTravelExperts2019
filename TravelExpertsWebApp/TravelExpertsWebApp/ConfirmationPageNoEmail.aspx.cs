@@ -13,6 +13,10 @@ namespace TravelExpertsWebApp
 {
     public partial class ConfirmationPageNoEmail : System.Web.UI.Page
     {
+     /*Confirmation page to render if a confirmation that the customer has registered to Travel Experts
+     * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
         protected void Page_Load(object sender, EventArgs e)
         {
             HtmlControl loginIcon = (HtmlControl)Page.FindControl("mainBtnLogin");
