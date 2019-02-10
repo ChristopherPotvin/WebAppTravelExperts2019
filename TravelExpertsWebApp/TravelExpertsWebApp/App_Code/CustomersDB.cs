@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -9,13 +10,162 @@ using TravelExpertsWebApp.App_Code;
 
 namespace TravelExpertsWebApp
 {
+    /*Create various static classes to perform various SQL queries
+    * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     [DataObject(true)]
     public static class CustomersDB
     {
         [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string GetEmailbyActivationCode(string activationCode)
+        {
+            string custEmail = null;
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string selectAccount = "SELECT CustEmail FROM UserActivation WHERE ActivationCode = @ActivationCode";
+            SqlCommand selectAcctCommand = new SqlCommand(selectAccount, connection);
+            selectAcctCommand.Parameters.AddWithValue("@ActivationCode", activationCode);
+            try
+            {
+                connection.Open();
+                //execute the query
+                SqlDataReader reader = selectAcctCommand.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    custEmail = reader["CustEmail"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return custEmail;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Update)]
+        public static void updateActivationStatus(string custEmail)
+        {
+            string updateActivation = "UPDATE Customers SET CustActivated = 'Yes' WHERE custEmail = @CustEmail";
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            SqlCommand updateCommand = new SqlCommand(updateActivation, connection);
+            updateCommand.Parameters.AddWithValue("@CustEmail", custEmail);
+
+            try
+            {
+                connection.Open();
+                int countU = updateCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Delete)]
+        public static int deleteConfirmation(string activationCode)
+        {
+            int count = 0;
+
+            string deleteActCode = "DELETE FROM UserActivation WHERE ActivationCode = @ActivationCode";
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            SqlCommand deleteCommand = new SqlCommand(deleteActCode, connection);
+            deleteCommand.Parameters.AddWithValue("@ActivationCode", activationCode);
+
+            try
+            {
+                connection.Open();
+                count = deleteCommand.ExecuteNonQuery();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return count;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string confirmLogin(string loginSession)
+        {
+            string custFirstName = "";
+
+            string sql = "SELECT CustFirstName from Customers where CustEmail = @CustEmail";
+
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            SqlCommand cmd = new SqlCommand(sql, connection);
+            SqlParameter param = new SqlParameter("@CustEmail", SqlDbType.VarChar);
+            param.Value = loginSession;
+            cmd.Parameters.Add(param);
+            try
+            {
+                connection.Open();
+                SqlDataReader myReader;
+                myReader = cmd.ExecuteReader();
+                while (myReader.Read())
+                {
+                   custFirstName = myReader["CustFirstName"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return custFirstName;
+        }
+
+        [DataObjectMethod(DataObjectMethodType.Select)]
+        public static string AssignEmailNo()
+        {
+            string count="";
+            SqlConnection connection = TravelExpertsDB.GetConnection();
+            string selectQuery = "SELECT (count(*)+1) as CountNo from customers where CustEmail Like '%defaultemail%'";
+
+            SqlCommand selectCommand = new SqlCommand(selectQuery, connection);
+            try
+            {
+                connection.Open();
+
+                //execute query
+                SqlDataReader reader = selectCommand.ExecuteReader();
+
+                //process the results
+                while (reader.Read())
+                {
+                    count = reader["CountNo"].ToString();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                connection.Close();
+            }
+            return count;
+        }
+        [DataObjectMethod(DataObjectMethodType.Select)]
         public static string isActivated(string custEmail)
         {
-            string activationStatus = "no";
+            string activationStatus = "";
             SqlConnection connection = TravelExpertsDB.GetConnection();
 
             string selectQuery = "SELECT CustActivated from Customers where CustEmail = @CustEmail";
@@ -200,7 +350,7 @@ namespace TravelExpertsWebApp
             insertCommand.Parameters.AddWithValue("@CustBusPhone", cust.CustBusPhone);
             insertCommand.Parameters.AddWithValue("@CustEmail", cust.CustEmail);
             insertCommand.Parameters.AddWithValue("@CustPassword", cust.CustPassword);
-            insertCommand.Parameters.AddWithValue("@CustActivated", "No");
+            insertCommand.Parameters.AddWithValue("@CustActivated", cust.CustActivated);
 
             try
             {

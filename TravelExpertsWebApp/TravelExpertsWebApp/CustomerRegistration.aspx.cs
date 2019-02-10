@@ -16,6 +16,10 @@ namespace TravelExpertsWebApp
 {
     public partial class CustomerRegistration : System.Web.UI.Page
     {
+    /*Registration page to allow customers to register to travel experts
+     * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
         protected void Page_Load(object sender, EventArgs e)
         {
             HtmlControl loginIcon = (HtmlControl)Page.FindControl("mainBtnLogin");
@@ -25,30 +29,17 @@ namespace TravelExpertsWebApp
             {
                 loggedIcon.Visible = true;
                 loginIcon.Visible = false;
-                string sql = "SELECT CustFirstName from Customers where CustEmail = @CustEmail";
 
-                SqlConnection connection = TravelExpertsDB.GetConnection();
-                SqlCommand cmd = new SqlCommand(sql, connection);
-                SqlParameter param = new SqlParameter("@CustEmail", SqlDbType.VarChar);
-                param.Value = Session["custEmail"];
-                cmd.Parameters.Add(param);
                 try
                 {
-                    connection.Open();
-                    SqlDataReader myReader;
-                    myReader = cmd.ExecuteReader();
-                    while (myReader.Read())
-                    {
-                        customerLogged.Text = "Welcome " + (myReader["CustFirstName"].ToString());
-                    }
+                    customerLogged.Text = "Welcome " + CustomersDB.confirmLogin(Session["custEmail"].ToString());
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
-                    throw ex;
-                }
-                finally
-                {
-                    connection.Close();
+                    Control loginFail = FindControl("LoginFailure");
+                    loginFail.Visible = true;
+                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='An error occured while attempting to process your information. Please contact travel experts.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
                 }
             }
             else
@@ -64,17 +55,37 @@ namespace TravelExpertsWebApp
             {
                 string hashedPswd = HashPassword.ApplyHash(txtCustPassword.Text);
 
-                Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, txtCustHomePhone.Text, txtCustBusPhone.Text, txtCustEmail.Text, hashedPswd);
-                try
-                {
-                    int insertCustId = CustomersDB.AddCustomer(cust);
-                    SendActivationEmail(txtCustEmail.Text);
-                    Response.Redirect("ConfirmationPage.aspx");
+                if (txtCustEmail.Text != "")
+                {                 
+                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, FormatePhoneNo.ApplyFormatting(txtCustHomePhone.Text),FormatePhoneNo.ApplyFormatting(txtCustBusPhone.Text), txtCustEmail.Text, hashedPswd, "No");
+                    try
+                    {
+                        int insertCustId = CustomersDB.AddCustomer(cust);
+                        SendActivationEmail(txtCustEmail.Text);
+                        Response.Redirect("ConfirmationPage.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
-                catch (Exception ex)
+                else
                 {
-                    throw ex;
+                    string defaultEmail = "defaultemail" + CustomersDB.AssignEmailNo() + "@travelexperts.com";
+                    Application["defaultEmail"] = defaultEmail;
+
+                    Customers cust = new Customers(txtCustFirstName.Text, txtCustLastName.Text, txtCustAddress.Text, txtCustCity.Text, ddlCustProv.Text, txtCustPostal.Text, txtCustCountry.Text, FormatePhoneNo.ApplyFormatting(txtCustHomePhone.Text), FormatePhoneNo.ApplyFormatting(txtCustBusPhone.Text), defaultEmail, hashedPswd, "Yes");
+                    try
+                    {
+                        int insertCustId = CustomersDB.AddCustomer(cust);
+                        Response.Redirect("ConfirmationPageNoEmail.aspx");
+                    }
+                    catch (Exception ex)
+                    {
+                        throw ex;
+                    }
                 }
+                
             }               
         }
 
@@ -97,29 +108,39 @@ namespace TravelExpertsWebApp
 
         protected void LoginButton(object sender, EventArgs e)
         {
-            string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
-
-            //string custEmail = String.Format("{0}", Request.Form["email_modal"]);
-            //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
-
-            Customers custLogin = new Customers(txtModalCustEmail.Text, hashedPswd);
-
-            string output = CustomersDB.GetCustomerLogin(custLogin);
-
-            if (output == "1")
+            if (Page.IsValid)
             {
-                Session["custEmail"] = txtModalCustEmail.Text;
-                Response.Redirect("CustomerRegistration.aspx");
-            }
-            else
-            {
-                Response.Write("Login Failed");
-            }
+                string hashedPswd = HashPassword.ApplyHash(txtModalCustPassword.Text);
+
+                //string custEmail = String.Format("{0}", Request.Form["email_modal"]);
+                //string custPassword = String.Format("{0}", Request.Form["password_modal"]);
+
+                Customers custLogin = new Customers(txtModalCustEmail.Text, hashedPswd);
+
+                string output = CustomersDB.GetCustomerLogin(custLogin);
+
+                if (output == "1")
+                {
+                    Session["custEmail"] = txtModalCustEmail.Text;
+                    Customers loggedCustomer = CustomersDB.GetCustomerbyEmail(Session["custEmail"].ToString());
+                    Session["customerId"] = (int)loggedCustomer.CustomerId;
+
+                    Response.Redirect("CustomerRegistration.aspx");                  
+                }
+                else
+                {
+                    Control loginFail = FindControl("LoginFailure");
+                    loginFail.Visible = true;
+                    string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Login failed, please check your credentials.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                    Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+                }
+            }            
         }
 
         protected void Logout(object sender, EventArgs e)
         {            
             Session.Remove("custEmail");
+            Session.Remove("customerId");
             Response.Redirect("HomePage.aspx");
         }
 
@@ -160,12 +181,16 @@ namespace TravelExpertsWebApp
 
             if (isEmailExisting == null)
             {
-                args.IsValid = true;
-                Response.Write("Unable to register. A customer with that email address already exists.");
+                args.IsValid = true;               
             }
             else
             {
                 args.IsValid = false;
+
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Unable to register. A customer with that email address already exists.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
             }
         }
 
@@ -176,7 +201,36 @@ namespace TravelExpertsWebApp
             if (activationStatus == "No")
             {
                 args.IsValid = false;
-                Response.Write("Registration incomplete. Please activate your account (see instructions sent to your email)");
+
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Registration incomplete. Please activate your account (see instructions sent to your email)' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+            }
+            else if (activationStatus == "")
+            {
+                args.IsValid = false;
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='Login failed, please check your credentials.' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
+            }
+            else
+            {
+                args.IsValid = true;
+            }
+        }
+        
+        protected void validateConfirmation_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (!String.IsNullOrEmpty(txtUnconfirmedEmail.Text) && String.IsNullOrEmpty(txtCustEmail.Text))
+            {
+                args.IsValid = false;
+
+                Control loginFail = FindControl("LoginFailure");
+                loginFail.Visible = true;
+                string script = @"document.getElementById('" + LoginFailure.ClientID + "').innerHTML='You need to confirm the email you entered. Please see below' ;setTimeout(function(){document.getElementById('" + LoginFailure.ClientID + "').style.display='none';},5000);";
+                Page.ClientScript.RegisterStartupScript(this.GetType(), "somekey", script, true);
             }
             else
             {

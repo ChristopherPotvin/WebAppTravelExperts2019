@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerRegistration.aspx.cs" Inherits="TravelExpertsWebApp.CustomerRegistration" %>
+﻿<!--
+Page to allow customers to customers to register to Travel Experts
+Lead Designer: Mo Sagnia
+Helper: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="CustomerRegistration.aspx.cs" Inherits="TravelExpertsWebApp.CustomerRegistration" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 <%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
@@ -10,6 +17,8 @@
 <body>
      <!-- start of navigation bar in the header (done) -->
     <form runat="server">
+        <div clientidmode="static" class="LoginSuccess" id="LoginSuccess" runat="server" visible="false"></div>
+        <div clientidmode="static" class="LoginFailure" id="LoginFailure" runat="server" visible="false"></div>
     <header class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -21,20 +30,20 @@
           <div class="collapse navbar-collapse navbar-right" id="navigation">
             <ul class="nav navbar-nav">
               <li class="active"><a href="HomePage.aspx">Home</a></li>
-              <li><a href="CustomerRegistration.aspx">Register</a></li>
+              <li><a href="CustomerRegistration.aspx">Register</a></li> <!-- This could be a button to a new Customer Registration page, setting it to a blank target until we decide-->
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="ItemsBought.aspx">Book a Travel Package</a></li>
-                  <li><a href="ItemsBought.aspx">Browse Current Travel Packages</a></li>
-                  <li><a href="ItemsBought.aspx">Modify a Current Booking</a></li>
+                  <li><a href="#">Book a Travel Package</a></li>
+                  <li><a href="#">Browse Current Travel Packages</a></li>
+                  <li><a href="#">Modify a Current Booking</a></li>
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
               <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
                 <ul class="dropdown-menu"> 
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
-                  <li><a href="#">Purchase History</a></li>
+                  <li><a href="ItemsBought.aspx">Purchase History</a></li>
                   <li class="divider"></li>
                   <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
@@ -135,6 +144,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustLastName" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -148,6 +159,8 @@
                       <asp:RegularExpressionValidator ID="RegexLastName" runat="server" ControlToValidate="txtCustLastName" Display="Dynamic" ErrorMessage="Please enter a valid name" ForeColor="Red" ValidationExpression="[a-zA-Z\.\'\-_\s]{1,50}"></asp:RegularExpressionValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -155,12 +168,16 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustAddress" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
                       <asp:RequiredFieldValidator ID="RequiredAddress" runat="server" ControlToValidate="txtCustAddress" ErrorMessage="Address is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                  <div class="col-sm-6">
                   <div class="form-group">
@@ -189,6 +206,8 @@
                       </asp:DropDownList>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -201,6 +220,8 @@
                       <asp:RequiredFieldValidator ID="RequiredProvince" runat="server" ControlToValidate="ddlCustProv" ErrorMessage="Province is required" ForeColor="Red" Display="Dynamic"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -214,6 +235,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustCountry" runat="server" ReadOnly="True">Canada</asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-12">
                   <div class="form-group">
@@ -221,6 +244,8 @@
                       <asp:RequiredFieldValidator class="form-control" ID="RequiredPostal" runat="server" Display="Dynamic" ErrorMessage="Postal code is required" ForeColor="Red" ControlToValidate="txtCustPostal"></asp:RequiredFieldValidator>
                   </div>
                 </div>
+                </div>
+               <div class="row">
                   <%--<div class="col-sm-6">
                      <div class="form-group"></div>
                 </div>--%>
@@ -237,6 +262,8 @@
                       <asp:TextBox class="form-control" type="text" ID="txtCustBusPhone" runat="server"></asp:TextBox>
                   </div>
                 </div>
+               </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -249,6 +276,8 @@
                       <asp:RegularExpressionValidator ID="RegexBusPhone" runat="server" ControlToValidate="txtCustBusPhone" ErrorMessage="Please enter valid phone number (555) 555-5555" ForeColor="Red" ValidationExpression="^\D?(\d{3})\D?\D?(\d{3})\D?(\d{4})$"></asp:RegularExpressionValidator>
                     </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -262,10 +291,13 @@
                       <asp:TextBox class="form-control" type="email" ID="txtCustEmail" runat="server"></asp:TextBox>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                  <div class="col-sm-6">
                      <div class="form-group">
                         <asp:RegularExpressionValidator ID="RegexUnconfirmedEmail" runat="server" ControlToValidate="txtUnconfirmedEmail" Display="Dynamic" ErrorMessage="Please enter a valid email address" ForeColor="Red" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:CompareValidator ID="CompareEmailOriginal" runat="server" ControlToCompare="txtCustEmail" ControlToValidate="txtUnconfirmedEmail" ErrorMessage="Emails do not match" ForeColor="Red"></asp:CompareValidator>
                      </div>
                 </div>
                   <div class="col-sm-6">
@@ -275,8 +307,9 @@
                          <asp:CompareValidator ID="CompareEmailValidator" runat="server" ControlToCompare="txtUnconfirmedEmail" ControlToValidate="txtCustEmail" ErrorMessage="Emails do not match" ForeColor="Red"></asp:CompareValidator>
                       </div>
                 </div>
-                  <!--one row -->
+                </div>
                 <div class="row">
+                  <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
                     <label for="password">Password</label>
@@ -287,9 +320,10 @@
                   <div class="form-group">
                     <label for="confirmPassword">Confirm Password</label>
                       <asp:TextBox class="form-control" type="password" ID="txtCustPassword" runat="server"></asp:TextBox>
-                      </div>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                   <div class="form-group">
@@ -302,6 +336,8 @@
                       <asp:CompareValidator ID="ComparePasswordlValidator" runat="server" ControlToCompare="txtUnconfirmedPassword" ControlToValidate="txtCustPassword" ErrorMessage="Passwords do not match" ForeColor="Red"></asp:CompareValidator>
                   </div>
                 </div>
+                </div>
+                <div class="row">
                   <!--one row -->
                 <div class="col-sm-6">
                     <asp:Button class="btn btn-primary" ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
@@ -310,12 +346,14 @@
                     <asp:Button class="btn btn-danger" ID="btnCancel" runat="server" Text="Cancel" CausesValidation="False" OnClick="btnCancel_Click" />
                 </div>
               </div>
+             </div>
               <!-- End of registration form for new customers-->
           </div>
         </div>
-      </div>
     </section>
         <uc1:Footer runat="server" id="Footer" />
         </form>
+        
+    <!-- end of 2nd half of UI(done)-->
 </body>
 </html>

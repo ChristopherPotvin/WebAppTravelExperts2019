@@ -1,6 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsBought.aspx.cs" Inherits="TravelExpertsWebApp.ItemsBought" %>
+﻿<!--
+Packages bought by customers
+Lead Designer: Andrew Moss
+Helper: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ItemsBought.aspx.cs" Inherits="TravelExpertsWebApp.ItemsBought" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
+<%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
+
 
 
 <!DOCTYPE html>
@@ -8,8 +17,9 @@
 <html>
 <uc1:HeadLinks runat="server" ID="HeadLinks" />
 <body>
-    <form>
     <form runat="server">
+        <div clientidmode="static" class="LoginSuccess" id="LoginSuccess" runat="server" visible="false"></div>
+        <div clientidmode="static" class="LoginFailure" id="LoginFailure" runat="server" visible="false"></div>
      <!-- start of navigation bar in the header (done) -->
      <header class="header">
       <div class="navbar navbar-default" role="navigation">
@@ -26,16 +36,16 @@
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="ItemsBought.aspx">Book a Travel Package</a></li>
-                  <li><a href="ItemsBought.aspx">Browse Current Travel Packages</a></li>
-                  <li><a href="ItemsBought.aspx">Modify a Current Booking</a></li>
+                  <li><a href="#">Book a Travel Package</a></li>
+                  <li><a href="#">Browse Current Travel Packages</a></li>
+                  <li><a href="#">Modify a Current Booking</a></li>
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
               <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
                 <ul class="dropdown-menu"> 
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
-                  <li><a href="#">Purchase History</a></li>
+                  <li><a href="ItemsBought.aspx">Purchase History</a></li>
                   <li class="divider"></li>
                   <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
@@ -55,7 +65,7 @@
             <h4 class="modal-title" id="Login">Customer login</h4>
           </div>
           <div class="modal-body">
-            </div>
+             <form action="customer-orders.html" method="post">
               <div class="form-group">
                 <asp:TextBox class="form-control" type="email" ID="txtModalCustEmail" placeholder="Email" runat="server"></asp:TextBox>
                    <asp:RequiredFieldValidator ID="requiredLoginModalEmail" runat="server" Display="Dynamic" ErrorMessage="Please enter your email" ForeColor="Red" ControlToValidate="txtModalCustEmail" ValidationGroup="ModalLoginValidation"></asp:RequiredFieldValidator>
@@ -68,13 +78,32 @@
               <p class="text-center">
                 <button runat="server" class="btn btn-primary" type="button" id="subBtnLogin" onserverclick="LoginButton" ValidationGroup="ModalLoginValidation"><i class="fa fa-sign-in"></i> Log in</button>
               </p>
+             </form>
             <p class="text-center text-muted">Not registered yet?</p>
             <p class="text-center text-muted"><a href="CustomerRegistration.aspx"><strong>Register now</strong></a>! It is easy and done in 1&nbsp;minute and gives you access to special discounts and much more!</p>
           </div>
         </div>
       </div>
+     </div>
     <!-- login modal end (done) -->
     <br />
+        <!-- start of Items bought UI (done) -->
+    <section class="background-gray-lightest">
+      <div class="container">
+        <div class="breadcrumbs">
+          <ul class="breadcrumb">
+            <li><a href="HomePage.aspx">Home</a></li>
+            <li>Products and Vacation Packages Purchased</li>
+          </ul>
+        </div>
+        <h1 class="heading">Purchase History</h1>
+        <p class="lead"><strong>This page will allow you to review all the purchases you've made since joining us. Should you have any questions or concerns, please contact us and we will be happy to assist you.
+        </strong></p>
+      </div>
+    </section>
+    <!-- end of items bought UI (done)
+    <!-- start of 2nd half of UI(done)-->
+    <section>  
         <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="table" DataSourceID="odsItemsBought">
             <Columns>
                 <asp:BoundField DataField="Description" HeaderText="Description" SortExpression="Description" />
@@ -85,62 +114,16 @@
                 <asp:BoundField DataField="Price" HeaderText="Price" SortExpression="Price" />
             </Columns>
         </asp:GridView>
-    </form>
     <br />
         <div class="container">
-            <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB"></asp:ObjectDataSource>
-        </div>
-    <div class="comments">
-              <h4>4 comments</h4>
-              <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar2.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Andrew Moss</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> February 2nd, 2019 </p>
-                  <p class="text-gray"></p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              </div>
-              <!-- /.comment-->
-              <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Peter Oganwu</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> January 25th, 2019 </p>
-                  <p class="text-gray"></p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              </div>
-                 <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar3.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Mo Sagnia</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> January 20th, 2019 </p>
-                  <p class="text-gray"></p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              </div>
-               <div class="row comment">
-                <div class="col-sm-3 col-md-2 text-center-xs">
-                  <p><img class="img-responsive img-circle" alt="" src="img/blog-avatar4.jpg"></p>
-                </div>
-                <div class="col-sm-9 col-md-10">
-                  <h5>Chris Potvin</h5>
-                  <p class="posted"><i class="fa fa-clock-o"></i> January 16th, 2019 </p>
-                  <p class="text-gray">We're the best group of brogrammers that have ever lived!!!</p>
-                  <p class="reply"><a href="ContactPage.aspx"><i class="fa fa-reply"></i> Reply</a></p>
-                </div>
-              <!-- /.comment-->
-            </div>
+            <asp:ObjectDataSource ID="odsItemsBought" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="GetItemsBought" TypeName="TravelExpertsWebApp.App_Code.ItemsBoughtDB">
+                <SelectParameters>
+                    <asp:SessionParameter Name="customerId" SessionField="customerId" />
+                </SelectParameters>
+            </asp:ObjectDataSource>
         </div>
         <!-- start of the footer (done)-->
-    <uc1:Footer runat="server" id="Footer" />
+        <uc1:Footer runat="server" ID="Footer" />
    </form>
 </body>
 </html>

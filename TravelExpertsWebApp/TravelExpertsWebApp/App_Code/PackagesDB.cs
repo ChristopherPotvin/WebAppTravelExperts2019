@@ -7,6 +7,10 @@ using System.Web;
 
 namespace TravelExpertsWebApp.App_Code
 {
+    /*Create various static classes to perform various SQL queries
+    * Lead Programmer: Andrew Moss
+     * Date: 11th February 2018
+     */
 
     [DataObject(true)]
     public static class PackagesDB

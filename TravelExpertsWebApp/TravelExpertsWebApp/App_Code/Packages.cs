@@ -5,6 +5,11 @@ using System.Web;
 
 namespace TravelExpertsWebApp.App_Code
 {
+    /*Create Packages class with all the pertinent getters & setters
+    * Lead Programmer: Andrew Moss
+     * Date: 11th February 2018
+     */
+
     public class Packages
     {
         private int packageId;

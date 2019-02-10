@@ -7,6 +7,10 @@ using System.Web;
 
 namespace TravelExpertsWebApp
 {
+    /*Class to hash password in secure fashion
+     * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     public static class HashPassword
     {
         public static string ApplyHash(string custPassword)

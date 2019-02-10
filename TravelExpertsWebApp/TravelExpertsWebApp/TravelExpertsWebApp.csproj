@@ -82,6 +82,7 @@
   <ItemGroup>
     <Content Include="ActivationPage.aspx" />
     <Content Include="ConfirmationPage.aspx" />
+    <Content Include="ConfirmationPageNoEmail.aspx" />
     <Content Include="ContactPage.aspx" />
     <Content Include="css\button.css" />
     <Content Include="css\reset.css" />
@@ -92,7 +93,6 @@
     <Content Include="fonts\Pe-icon-7-stroke.svg" />
     <Content Include="fonts\social-share-kit.svg" />
     <Content Include="Footer.ascx" />
-    <Content Include="Header.ascx" />
     <Content Include="HeadLinks.ascx" />
     <Content Include="HomePage.aspx" />
     <Content Include="img\blog1.jpg" />
@@ -157,6 +157,14 @@
     <Compile Include="ConfirmationPage.aspx.designer.cs">
       <DependentUpon>ConfirmationPage.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ConfirmationPageNoEmail.aspx.cs">
+      <DependentUpon>ConfirmationPageNoEmail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ConfirmationPageNoEmail.aspx.designer.cs">
+      <DependentUpon>ConfirmationPageNoEmail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FormatePhoneNo.cs" />
     <Compile Include="Model\CustomerActivationDB.cs" />
     <Compile Include="UpdatePage.aspx.cs">
       <DependentUpon>UpdatePage.aspx</DependentUpon>
@@ -194,13 +202,6 @@
       <DependentUpon>Footer.ascx</DependentUpon>
     </Compile>
     <Compile Include="HashPassword.cs" />
-    <Compile Include="Header.ascx.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Header.ascx.designer.cs">
-      <DependentUpon>Header.ascx</DependentUpon>
-    </Compile>
     <Compile Include="HeadLinks.ascx.cs">
       <DependentUpon>HeadLinks.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

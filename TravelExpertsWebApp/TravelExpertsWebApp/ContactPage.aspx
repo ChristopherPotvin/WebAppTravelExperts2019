@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ContactPage.aspx.cs" Inherits="TravelExpertsWebApp.ContactPage" %>
+﻿<!--
+Contact information
+Lead Designer: Chris Potvin
+Helper: Mo Sagnia
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ContactPage.aspx.cs" Inherits="TravelExpertsWebApp.ContactPage" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 <%@ Register Src="~/Footer.ascx" TagPrefix="uc1" TagName="Footer" %>
@@ -10,6 +17,8 @@
 <uc1:HeadLinks runat="server" ID="HeadLinks" />
     <body>
     <form runat="server">
+         <div clientidmode="static" class="LoginSuccess" id="LoginSuccess" runat="server" visible="false"></div>
+        <div clientidmode="static" class="LoginFailure" id="LoginFailure" runat="server" visible="false"></div>
     <!-- start of navbar (done) -->
     <header class="header">
       <div class="navbar navbar-default" role="navigation">
@@ -26,16 +35,16 @@
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="ItemsBought.aspx">Book a Travel Package</a></li>
-                  <li><a href="ItemsBought.aspx">Browse Current Travel Packages</a></li>
-                  <li><a href="ItemsBought.aspx">Modify a Current Booking</a></li>
+                  <li><a href="#">Book a Travel Package</a></li>
+                  <li><a href="#">Browse Current Travel Packages</a></li>
+                  <li><a href="#">Modify a Current Booking</a></li>
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
               <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
                 <ul class="dropdown-menu"> 
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
-                  <li><a href="#">Purchase History</a></li>
+                  <li><a href="ItemsBought.aspx">Purchase History</a></li>
                   <li class="divider"></li>
                   <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>
@@ -74,6 +83,7 @@
           </div>
         </div>
       </div>
+    </div>
     <!-- ond of login model, can we attach SQL authentication to this? -->
 
     <!-- start of contact UI (done) -->
@@ -121,18 +131,17 @@
             <div class="icon"><i class="pe-7s-pen"></i></div>
             <h4 class="heading margin-bottom">Contact form</h4> 
             <p class="text-muted">Reach out to us if you have any further questions or inquiries.</p>
-              </div>
               <!-- Possible ASP contact form to register new customers-->
               <div class="row">
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="firstname">Firstname</label>
+                    <label for="firstname">First Name</label>
                       <asp:TextBox class="form-control" ID="txtCustFirstName" runat="server" ></asp:TextBox>
                   </div>
                 </div>
                 <div class="col-sm-6">
                   <div class="form-group">
-                    <label for="lastname">Lastname</label>
+                    <label for="lastname">Last Name</label>
                     <asp:TextBox class="form-control" ID="txtCustLastName" runat="server" ></asp:TextBox>
                   </div>
                 </div>
@@ -194,6 +203,7 @@
                       <br />
                   </div>
               </div>
+            </div>
             </div>
               <!-- Possible ASP contact form to register new customers-->
           </div>

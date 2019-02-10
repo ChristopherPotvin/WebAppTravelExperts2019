@@ -5,6 +5,11 @@ using System.Web;
 
 namespace TravelExpertsWebApp.App_Code
 {
+    /*Create ItemsBought class with all the pertinent getters & setters
+    * Lead Programmer: Andrew Moss
+     * Date: 11th February 2018
+     */
+
     public class ItemsBought
     {
         private string description;

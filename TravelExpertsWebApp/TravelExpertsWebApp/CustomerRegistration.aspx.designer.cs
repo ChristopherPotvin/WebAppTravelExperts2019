@@ -22,6 +22,24 @@ namespace TravelExpertsWebApp {
         protected global::TravelExpertsWebApp.HeadLinks HeadLinks;
         
         /// <summary>
+        /// LoginSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoginSuccess;
+        
+        /// <summary>
+        /// LoginFailure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoginFailure;
+        
+        /// <summary>
         /// custLogged control.
         /// </summary>
         /// <remarks>
@@ -335,6 +353,15 @@ namespace TravelExpertsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RegularExpressionValidator RegexUnconfirmedEmail;
+        
+        /// <summary>
+        /// CompareEmailOriginal control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompareValidator CompareEmailOriginal;
         
         /// <summary>
         /// validateEmailDB control.

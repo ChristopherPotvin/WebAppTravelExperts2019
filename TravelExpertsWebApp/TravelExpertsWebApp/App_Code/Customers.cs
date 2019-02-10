@@ -5,7 +5,10 @@ using System.Web;
 
 namespace TravelExpertsWebApp.App_Code
 {
-    //create Customers class with all the pertinent getters & setters
+    /*Create Customers class with all the pertinent getters & setters
+    * Lead Programmer: Mo Sagnia
+     * Date: 11th February 2018
+     */
     public class Customers
     {
         public Customers() { } //default constructor 
@@ -34,7 +37,9 @@ namespace TravelExpertsWebApp.App_Code
 
         public string CustPassword { get; set; }
 
-        public Customers(string custFirstName, string custLastName, string custAddress, string custCity, string custProv, string custPostal, string custCountry, string custHomePhone, string custBusPhone, string custEmail, string custPassword)
+        public string CustActivated { get; set; }
+
+        public Customers(string custFirstName, string custLastName, string custAddress, string custCity, string custProv, string custPostal, string custCountry, string custHomePhone, string custBusPhone, string custEmail, string custPassword, string custActivated)
         {
             CustFirstName = custFirstName;
             CustLastName = custLastName;
@@ -47,6 +52,7 @@ namespace TravelExpertsWebApp.App_Code
             CustBusPhone = custBusPhone;
             CustEmail = custEmail;
             CustPassword = custPassword;
+            CustActivated = custActivated;
         }
 
         public Customers(string custEmail, string custPassword)

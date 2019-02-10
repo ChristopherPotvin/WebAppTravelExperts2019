@@ -31,6 +31,24 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// LoginSuccess control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoginSuccess;
+        
+        /// <summary>
+        /// LoginFailure control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LoginFailure;
+        
+        /// <summary>
         /// custLogged control.
         /// </summary>
         /// <remarks>
@@ -292,6 +310,15 @@ namespace TravelExpertsWebApp {
         protected global::System.Web.UI.WebControls.TextBox txtCustEmail;
         
         /// <summary>
+        /// requiredUnconfirmedEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredUnconfirmedEmail;
+        
+        /// <summary>
         /// CompareEmailValidator control.
         /// </summary>
         /// <remarks>
@@ -299,6 +326,24 @@ namespace TravelExpertsWebApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompareValidator CompareEmailValidator;
+        
+        /// <summary>
+        /// validateEmailDB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator validateEmailDB;
+        
+        /// <summary>
+        /// requiredEmail control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredEmail;
         
         /// <summary>
         /// btnUpdate control.

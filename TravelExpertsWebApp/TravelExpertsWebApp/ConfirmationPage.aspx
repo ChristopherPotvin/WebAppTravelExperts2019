@@ -1,4 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConfirmationPage.aspx.cs" Inherits="TravelExpertsWebApp.ConfirmationPage" %>
+﻿<!--
+Confirmation page for customers with emails
+Lead Designer: Mo Sagnia
+Helper: Chris Potvin
+Date: 11th February 2018
+-->
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ConfirmationPage.aspx.cs" Inherits="TravelExpertsWebApp.ConfirmationPage" %>
 
 <%@ Register Src="~/HeadLinks.ascx" TagPrefix="uc1" TagName="HeadLinks" %>
 
@@ -10,6 +17,8 @@
 <body>
      <!-- start of navigation bar in the header (done) -->
     <form runat="server">
+         <div clientidmode="static" class="LoginSuccess" id="LoginSuccess" runat="server" visible="false"></div>
+        <div clientidmode="static" class="LoginFailure" id="LoginFailure" runat="server" visible="false"></div>
     <header class="header">
       <div class="navbar navbar-default" role="navigation">
         <div class="container">
@@ -25,16 +34,16 @@
 
               <li class="dropdown"><a class="dropdown-toggle" href="#" data-toggle="dropdown">Book<b class="caret"></b></a>
                 <ul class="dropdown-menu"> 
-                  <li><a href="ItemsBought.aspx">Book a Travel Package</a></li>
-                  <li><a href="ItemsBought.aspx">Browse Current Travel Packages</a></li>
-                  <li><a href="ItemsBought.aspx">Modify a Current Booking</a></li>
+                  <li><a href="#">Book a Travel Package</a></li>
+                  <li><a href="#">Browse Current Travel Packages</a></li>
+                  <li><a href="#">Modify a Current Booking</a></li>
                 </ul>
               </li>
               <li><a href="ContactPage.aspx">Contact</a></li>
               <li class="dropdown"><a runat="server" class="dropdown-toggle" data-toggle="dropdown" id="custLogged"><i class="fa fa-user"></i><asp:Label ID="customerLogged" runat="server" Text=""></asp:Label></a>
                 <ul class="dropdown-menu"> 
                   <li><a href="UpdatePage.aspx">Update Information</a></li>
-                  <li><a href="#">Purchase History</a></li>
+                  <li><a href="ItemsBought.aspx">Purchase History</a></li>
                   <li class="divider"></li>
                   <li><a runat="server" href="HomePage.aspx" onserverclick="Logout" CausesValidation="False"><i class="fa fa-sign-out"></i>Log out</a></li>
                 </ul>

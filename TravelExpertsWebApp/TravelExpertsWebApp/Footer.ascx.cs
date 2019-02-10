@@ -8,6 +8,10 @@ using TravelExpertsWebApp.Model;
 
 namespace TravelExpertsWebApp
 {
+    /*Confirmation page to render if a confirmation that the customer has registered to Travel Experts
+     * Lead Programmer: Chris Potvin
+     * Date: 11th February 2018
+     */
     public partial class Footer : System.Web.UI.UserControl
     {
         protected void Page_Load(object sender, EventArgs e)
@@ -22,7 +26,6 @@ namespace TravelExpertsWebApp
             {
                 bool insertEmail = EmailSubscriptionDB.InsertEmailSubscriptionInfo(newEmail);
                 Response.Write("<script>alert('Thank you for subscribing to our latest travel deals!');</script>");
-
             }
 
             catch (Exception ex)
