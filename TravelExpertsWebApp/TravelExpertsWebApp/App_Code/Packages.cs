@@ -7,6 +7,7 @@ namespace TravelExpertsWebApp.App_Code
 {
     /*Create Packages class with all the pertinent getters & setters
     * Lead Programmer: Andrew Moss
+    * Helper: Peter Oganwu
      * Date: 11th February 2018
      */
 
