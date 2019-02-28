@@ -1,3 +1,4 @@
+
 # WebAppTravelExperts2019
 A web application that incorporates ASP, bootstrap, html, css, js and SQL/LINQ to query to a SQL DB. 
 
@@ -15,6 +16,7 @@ Additionally, numerous features have been incorporated into the project such Lea
 bootstrap/css/js elements to create interactive content throughout the template. It is also dynamically responsive.
 
 Finally it was also created to be a part of our overall business solution, along with our sister desktop application. 
+
 **Travel Experts Desktop App** - https://github.com/agmoss/Travel_Experts_Desktop_App
 
 # User Interface
