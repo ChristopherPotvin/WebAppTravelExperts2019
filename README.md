@@ -26,6 +26,9 @@ Finally it was also created to be a part of our overall business solution, along
 
 ### Services
 * [Microsoft Azure](https://azure.microsoft.com/en-ca/) - Cloud service
+
+### APIs
+
 * [Mailgun](https://www.mailgun.com/) -  Email service
 * [Leaflet](https://leafletjs.com/) - Map service
 
