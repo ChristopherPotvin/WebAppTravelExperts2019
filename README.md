@@ -15,7 +15,7 @@ Additionally, numerous features have been incorporated into the project such Lea
 bootstrap/css/js elements to create interactive content throughout the template. It is also dynamically responsive.
 
 Finally it was also created to be a part of our overall business solution, along with our sister desktop application. 
-**Travel Experts Desktop App** - (https://github.com/agmoss/Travel_Experts_Desktop_App/edit/master/README.md)
+**Travel Experts Desktop App** - https://github.com/agmoss/Travel_Experts_Desktop_App
 
 # User Interface
 
@@ -26,6 +26,8 @@ Finally it was also created to be a part of our overall business solution, along
 
 ### Services
 * [Microsoft Azure](https://azure.microsoft.com/en-ca/) - Cloud service
+* [Mailgun](https://www.mailgun.com/) -  Email service
+* [Leaflet](https://leafletjs.com/) - Map service
 
 ## Authors
 
